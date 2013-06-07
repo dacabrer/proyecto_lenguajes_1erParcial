@@ -84,14 +84,16 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <addaction name="actionQuit"/>
    </widget>
-   <widget class="QMenu" name="menuQuit">
+   <widget class="QMenu" name="menuAcerca_de">
     <property name="title">
-     <string>Quit</string>
+     <string>Acerca de..</string>
     </property>
+    <addaction name="actionHelp"/>
    </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuQuit"/>
+   <addaction name="menuAcerca_de"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -102,6 +104,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

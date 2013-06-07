@@ -27,6 +27,7 @@ void sudoku::initGui()
     {
         numbertext[i][j] = new QTextEdit( QString(" ").arg(i) );
         ui->numberPad->addWidget(numbertext[i][j], i, j);
+
     }
     }
 }
@@ -101,8 +102,8 @@ void sudoku::on_Validar_clicked()
     {
     for(int j = 0; j < 3; j++)
     {
-        sumatoriacuad+=getDisplayValue(i+despx,j+despy);
-        productocuad*=getDisplayValue(i+despx,j+despy);
+        sumatoriacuad+=getDisplayValue(i+despy,j+despx);
+        productocuad*=getDisplayValue(i+despy,j+despx);
     }
     }
     std::cout << sumatoriacuad<< std::endl;
@@ -132,4 +133,9 @@ void sudoku::setDisplayValue(int i,int j,long v)
 long sudoku::getDisplayValue(int i,int j)
 {
     return numbertext[i][j]->toPlainText().toLong();
+}
+
+void sudoku::on_actionQuit_triggered()
+{
+   qApp->quit();
 }

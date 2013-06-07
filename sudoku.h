@@ -20,7 +20,7 @@ private slots:
     void setDisplayValue(int i,int j,long v);
     long getDisplayValue(int i,int j);
     void on_Validar_clicked();
-
+    void on_actionQuit_triggered();
 private:
     void initGui();
     Ui::sudoku *ui;
