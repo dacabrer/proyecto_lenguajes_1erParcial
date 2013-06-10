@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QMessageBox>
-#include <iostream>
+
 
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
@@ -24,7 +24,7 @@ void sudoku::initGui(){
 
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
-            numbertext[i][j] = new QTextEdit( QString(" ").arg(i) );
+            numbertext[i][j] = new QTextEdit(NULL);
             ui->numberPad->addWidget(numbertext[i][j], i, j);
         }
     }
@@ -41,9 +41,6 @@ void sudoku::on_Validar_clicked(){
     int despx=0,despy=0;
     int banderavalida=1;
 
-    //long inputValue = getDisplayValue();
-    //setDisplayValue(inputValue);
-
     //Validacion numeros del 1 al 9 en las filas
 
     for(int i = 0;i < 9; i++){
@@ -53,8 +50,6 @@ void sudoku::on_Validar_clicked(){
             sumatoriah+=getDisplayValue(i,j);
             productoh*=getDisplayValue(i,j);
         }
-        //std::cout << sumatoriah<< std::endl;
-        //std::cout << productoh<< std::endl;
         if ((sumatoriah==45) && (productoh==362880))
             banderavalida=1;
         else
@@ -70,8 +65,6 @@ void sudoku::on_Validar_clicked(){
             productov*=getDisplayValue(i,j);
 
         }
-        //std::cout << sumatoriav<< std::endl;
-        //std::cout << productov<< std::endl;
         if ((sumatoriav==45) && (productov==362880) )
             banderavalida=1;
         else
@@ -83,16 +76,12 @@ void sudoku::on_Validar_clicked(){
         productocuad=1;
         despy=(x/3) *3;
         despx=(x%3) *3;
-        //std::cout << despx<< std::endl;
-        //std::cout << despy<< std::endl;
         for(int i = 0;i < 3; i++){
             for(int j = 0; j < 3; j++){
                 sumatoriacuad+=getDisplayValue(i+despy,j+despx);
                 productocuad*=getDisplayValue(i+despy,j+despx);
             }
         }
-        //std::cout << sumatoriacuad<< std::endl;
-        //std::cout << productocuad<< std::endl;
         if ((sumatoriacuad==45) && (productocuad==362880) )
             banderavalida=1;
         else
@@ -102,10 +91,10 @@ void sudoku::on_Validar_clicked(){
     //comprobacion de validacion en general
     if (banderavalida==1){
         QMessageBox::information(this, "Respuesta", "La solucion es valida");
-        ui->estado->setText("La Solucion es Valida");
+        //ui->estado->setText("La Solucion es Valida");
     }else{
         QMessageBox::information(this, "Respuesta", "La solucion no es valida");
-        ui->estado->setText("La Solucion no es Valida");
+        //ui->estado->setText("La Solucion no es Valida");
     }
 
 }

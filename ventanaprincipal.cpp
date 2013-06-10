@@ -28,19 +28,7 @@ void VentanaPrincipal::changeEvent(QEvent *e){
     }
 }
 
-/*void VentanaPrincipal::entrada(){
-
-    static short valor = 0;
-    ui->barra->setValue(valor);
-    ++valor;
-    if(valor == 100)    timer->stop();
-    this->close();
-    sudoku *sudo = new sudoku();
-    sudo->show();
-}*/
-
-void VentanaPrincipal::on_entrar_clicked()
-{
+void VentanaPrincipal::on_entrar_clicked(){
     timer->start();
 }
 
