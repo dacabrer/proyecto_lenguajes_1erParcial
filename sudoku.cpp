@@ -63,7 +63,6 @@ void sudoku::on_Validar_clicked(){
         for(int i = 0; i < 9; i++){
             sumatoriav+=getDisplayValue(i,j);
             productov*=getDisplayValue(i,j);
-
         }
         if ((sumatoriav==45) && (productov==362880) )
             banderavalida=1;
@@ -91,24 +90,34 @@ void sudoku::on_Validar_clicked(){
     //comprobacion de validacion en general
     if (banderavalida==1){
         QMessageBox::information(this, "Respuesta", "La solucion es valida");
-        //ui->estado->setText("La Solucion es Valida");
     }else{
         QMessageBox::information(this, "Respuesta", "La solucion no es valida");
-        //ui->estado->setText("La Solucion no es Valida");
     }
 
 }
 void sudoku::setDisplayValue(int i,int j,long v){
-
     numbertext[i][j]->setText( QString("%1").arg(v) );
     numbertext[i][j]->setAlignment(Qt::AlignRight);
 }
-long sudoku::getDisplayValue(int i,int j){
 
+long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
 
 void sudoku::on_actionQuit_triggered(){
+    qApp->quit();
+}
 
-   qApp->quit();
+//Borrar Juego
+void sudoku::on_pushButton_clicked(){
+    for(int i = 0;i < 9; i++){
+        for(int j = 0; j < 9; j++){
+            numbertext[i][j]->setText("");
+        }
+    }
+}
+
+void sudoku::on_pushButton_4_clicked()
+{
+    this->close();
 }
