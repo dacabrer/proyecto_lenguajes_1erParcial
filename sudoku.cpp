@@ -7,10 +7,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QTextStream>
-#include <QFile>
 #include <QTime>
-#include <time.h>
-#include <iostream>
 
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
@@ -24,8 +21,7 @@ sudoku::sudoku(QWidget *parent) :
 
 }
 
-sudoku::~sudoku()
-{
+sudoku::~sudoku(){
     delete ui;
 }
 
@@ -38,7 +34,7 @@ void sudoku::initGui(){
         }
     }
 }
-
+//COMPRUEBA SI EL JUEGO ES CORRECTO
 void sudoku::on_Validar_clicked(){
 
     long sumatoriah = 0;
@@ -112,14 +108,14 @@ void sudoku::setDisplayValue(int i,int j,long v){
 long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
-
+//SALIR DESDE EL MENU
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
 
 
 
-//Borrar Juego
+//BORRAR JUEGO
 void sudoku::on_pushButton_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -131,77 +127,85 @@ void sudoku::on_pushButton_clicked(){
 void sudoku::on_pushButton_4_clicked(){
     this->close();
 }
+
 //JUEGO NUEVO
 void sudoku::on_pushButton_3_clicked(){
-    int k, aleatorio;
+    int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
-    QString plantilla1, plantilla2, plantilla3;
 
+    //Semilla del aleatorio
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
 
     if(ui->comboBox->currentText() == "Juvenil"){//MODO JUVENIL(FACIL)}
         k=0;
-        plantilla1 = "7,8,4,9,5,2,3,1,6,9,2,6,1,4,3,8,5,7,3,5,1,8,6,7,9,4,2,4,7,8,5,2,1,6,9,3,1,6,5,3,7,9,2,8,4,2,9,3,6,8,4,1,7,5,6,4,9,2,1,5,7,3,8,5,1,2,7,3,8,4,6,9,8,3,7,4,9,6,5,2,1";
         valores = plantilla1.split(",");
 
-        for(int i = 0;i < 9; i++){
-            for(int j = 0; j < 9; j++){
+        for(i = 0;i < 9; i++){
+            for(j = 0; j < 9; j++){
                 aleatorio = rand() % 10;
                 if (aleatorio <= 6){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
                     numbertext[i][j]->setDisabled(true);
-                }else{
-                    numbertext[i][j]->setText("");
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
-                }
+                }else{  numbertext[i][j]->setText("");  }
+
+                numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
             }
         }
     }else if(ui->comboBox->currentText() == "Profesional"){//MODO PROFESIONAL(MEDIO)
         k=0;
-        plantilla2 = "5,9,7,4,3,2,6,1,8,2,8,4,1,6,7,3,9,5,6,3,1,8,9,5,2,4,7,4,5,3,6,7,1,9,8,2,8,7,9,2,5,3,4,6,1,1,6,2,9,4,8,5,7,3,9,2,5,7,1,6,8,3,4,7,4,8,3,2,9,1,5,6,3,1,6,5,8,4,7,2,9";
         valores = plantilla2.split(",");
 
-        for(int i = 0;i < 9; i++){
-            for(int j = 0; j < 9; j++){
+        for(i = 0;i < 9; i++){
+            for(j = 0; j < 9; j++){
                 aleatorio = rand() % 10;
                 if (aleatorio <= 4){
                     numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
                     numbertext[i][j]->setDisabled(true);
-                }else{
-                    numbertext[i][j]->setText("");
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
-                }
+                }else{  numbertext[i][j]->setText("");  }
+
+                numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
             }
         }
     }else if(ui->comboBox->currentText() == "Experto"){//MODO EXPERTO(DIFICIL)
         k=0;
-        plantilla3 = "1,7,4,6,8,3,2,9,5,9,5,3,4,1,2,8,6,7,2,8,6,7,9,5,3,4,1,8,6,5,2,7,9,1,3,4,4,3,2,8,6,1,7,5,9,7,1,9,5,3,4,6,8,2,3,9,8,1,4,7,5,2,6,5,4,1,3,2,6,9,7,8,6,2,7,9,5,8,4,1,3";
         valores = plantilla3.split(",");
 
-        for(int i = 0;i < 9; i++){
-            for(int j = 0; j < 9; j++){
+        for(i = 0;i < 9; i++){
+            for(j = 0; j < 9; j++){
                 aleatorio = rand() % 10;
                 if (aleatorio <= 2){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
                     numbertext[i][j]->setDisabled(true);
-                }else{
-                    numbertext[i][j]->setText("");
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
-                }
+                }else{      numbertext[i][j]->setText("");  }
+
+                numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
             }
         }
     }
 }
 
+//RESOLVER JUEGO
+void sudoku::on_pushButton_2_clicked(){
+    int i=0, j=0, k=0;
+    QStringList  valores;
+    if(ui->comboBox->currentText() == "Juvenil"){
+        k=0;
+        valores = plantilla1.split(",");
+        for(i = 0; i < 9; i++){
+            for(j = 0; j < 9; j++){
+                numbertext[i][j]->setText(valores[k]);
+                numbertext[i][j]->setAlignment(Qt::AlignRight);
+                k++;
+            }
+        }
 
+    }
+}
