@@ -182,7 +182,25 @@ void sudoku::on_pushButton_3_clicked(){
             }
         }
     }else if(ui->comboBox->currentText() == "Experto"){//MODO EXPERTO(DIFICIL)
+        k=0;
+        plantilla3 = "1,7,4,6,8,3,2,9,5,9,5,3,4,1,2,8,6,7,2,8,6,7,9,5,3,4,1,8,6,5,2,7,9,1,3,4,4,3,2,8,6,1,7,5,9,7,1,9,5,3,4,6,8,2,3,9,8,1,4,7,5,2,6,5,4,1,3,2,6,9,7,8,6,2,7,9,5,8,4,1,3";
+        valores = plantilla3.split(",");
 
+        for(int i = 0;i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                aleatorio = rand() % 10;
+                if (aleatorio <= 2){
+                    numbertext[i][j]->setTextColor(Qt::red);
+                    numbertext[i][j]->setText(valores[k]);
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                    numbertext[i][j]->setDisabled(true);
+                }else{
+                    numbertext[i][j]->setText("");
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                }
+                k++;
+            }
+        }
     }
 }
 
