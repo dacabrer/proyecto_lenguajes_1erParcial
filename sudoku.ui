@@ -110,6 +110,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>BORRAR JUEGO</string>
@@ -131,23 +138,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
-       <item>
-        <property name="text">
-         <string>NIVEL: Juvenil</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NIVEL: Profesional</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NIVEL: Estrella</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="comboBox"/>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_4">

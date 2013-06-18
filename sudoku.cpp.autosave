@@ -152,7 +152,6 @@ void sudoku::on_pushButton_3_clicked(){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
-
                     numbertext[i][j]->setDisabled(true);
                 }else{
                     numbertext[i][j]->setText("");
