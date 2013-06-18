@@ -133,26 +133,26 @@ void sudoku::on_pushButton_4_clicked(){
 }
 //JUEGO NUEVO
 void sudoku::on_pushButton_3_clicked(){
-    //LeerArchivo(nombreArchivo, salida);
-    int k;
+    int k, aleatorio;
+    QStringList  valores;
+    QString plantilla1, plantilla2, plantilla3;
+
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
 
     if(ui->comboBox->currentText() == "Juvenil"){//MODO JUVENIL(FACIL)}
         k=0;
-        const QString salida = "7,8,4,9,5,2,3,1,6,9,2,6,1,4,3,8,5,7,3,5,1,8,6,7,9,4,2,4,7,8,5,2,1,6,9,3,1,6,5,3,7,9,2,8,4,2,9,3,6,8,4,1,7,5,6,4,9,2,1,5,7,3,8,5,1,2,7,3,8,4,6,9,8,3,7,4,9,6,5,2,1";
-        QStringList  valores;
-        valores = salida.split(",");
+        plantilla1 = "7,8,4,9,5,2,3,1,6,9,2,6,1,4,3,8,5,7,3,5,1,8,6,7,9,4,2,4,7,8,5,2,1,6,9,3,1,6,5,3,7,9,2,8,4,2,9,3,6,8,4,1,7,5,6,4,9,2,1,5,7,3,8,5,1,2,7,3,8,4,6,9,8,3,7,4,9,6,5,2,1";
+        valores = plantilla1.split(",");
 
         for(int i = 0;i < 9; i++){
             for(int j = 0; j < 9; j++){
-                int aleatorio = rand() % 10;
+                aleatorio = rand() % 10;
                 if (aleatorio <= 6){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
-
                     numbertext[i][j]->setDisabled(true);
                 }else{
                     numbertext[i][j]->setText("");
@@ -161,23 +161,29 @@ void sudoku::on_pushButton_3_clicked(){
                 k++;
             }
         }
-    }else if(ui->comboBox->currentText() == "Profesional"){
+    }else if(ui->comboBox->currentText() == "Profesional"){//MODO PROFESIONAL(MEDIO)
+        k=0;
+        plantilla2 = "5,9,7,4,3,2,6,1,8,2,8,4,1,6,7,3,9,5,6,3,1,8,9,5,2,4,7,4,5,3,6,7,1,9,8,2,8,7,9,2,5,3,4,6,1,1,6,2,9,4,8,5,7,3,9,2,5,7,1,6,8,3,4,7,4,8,3,2,9,1,5,6,3,1,6,5,8,4,7,2,9";
+        valores = plantilla2.split(",");
 
-    }else if(ui->comboBox->currentText() == "Experto"){
+        for(int i = 0;i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                aleatorio = rand() % 10;
+                if (aleatorio <= 4){
+                    numbertext[i][j]->setTextColor(Qt::blue);
+                    numbertext[i][j]->setText(valores[k]);
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                    numbertext[i][j]->setDisabled(true);
+                }else{
+                    numbertext[i][j]->setText("");
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                }
+                k++;
+            }
+        }
+    }else if(ui->comboBox->currentText() == "Experto"){//MODO EXPERTO(DIFICIL)
 
     }
 }
 
-
-//Abrir un archivo
-void sudoku::leerArchivo(const QString &nombre_archivo, QString &datos_salida){
-
-    QFile archivo(nombre_archivo);
-    archivo.open(QIODevice::Text | QIODevice::ReadOnly);
-    if(!archivo.isOpen()){ return; }
-    QTextStream txtstr(&archivo);
-    datos_salida = txtstr.readAll();
-    archivo.flush();
-    archivo.close();
-}
 

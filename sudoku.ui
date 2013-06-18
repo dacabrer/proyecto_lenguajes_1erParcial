@@ -110,13 +110,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="textEdit">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>BORRAR JUEGO</string>
