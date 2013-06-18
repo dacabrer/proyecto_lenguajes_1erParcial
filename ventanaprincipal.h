@@ -20,8 +20,6 @@ protected:
     void changeEvent(QEvent *e);
 
 private slots:
-    //void entrada();
-
     void on_entrar_clicked();
     void tiempoFuera();
 

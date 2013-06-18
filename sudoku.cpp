@@ -18,7 +18,6 @@ sudoku::sudoku(QWidget *parent) :
     ui->comboBox->addItem("Profesional");
     ui->comboBox->addItem("Experto");
     initGui();
-
 }
 
 sudoku::~sudoku(){
@@ -47,7 +46,6 @@ void sudoku::on_Validar_clicked(){
     int banderavalida=1;
 
     //Validacion numeros del 1 al 9 en las filas
-
     for(int i = 0;i < 9; i++){
         sumatoriah=0;
         productoh=1;
@@ -149,7 +147,10 @@ void sudoku::on_pushButton_3_clicked(){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setDisabled(true);
-                }else{  numbertext[i][j]->setText("");  }
+                }else{
+                    numbertext[i][j]->setDisabled(false);
+                    numbertext[i][j]->setText("");
+                }
 
                 numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
@@ -166,7 +167,10 @@ void sudoku::on_pushButton_3_clicked(){
                     numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setDisabled(true);
-                }else{  numbertext[i][j]->setText("");  }
+                }else{
+                    numbertext[i][j]->setDisabled(false);
+                    numbertext[i][j]->setText("");
+                }
 
                 numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
@@ -183,7 +187,10 @@ void sudoku::on_pushButton_3_clicked(){
                     numbertext[i][j]->setTextColor(Qt::red);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setDisabled(true);
-                }else{      numbertext[i][j]->setText("");  }
+                }else{
+                    numbertext[i][j]->setDisabled(false);
+                    numbertext[i][j]->setText("");
+                }
 
                 numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
@@ -201,11 +208,39 @@ void sudoku::on_pushButton_2_clicked(){
         valores = plantilla1.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
-                numbertext[i][j]->setText(valores[k]);
-                numbertext[i][j]->setAlignment(Qt::AlignRight);
+                if(numbertext[i][j]->toPlainText() == ""){
+                    numbertext[i][j]->setTextColor(Qt::black);
+                    numbertext[i][j]->setText(valores[k]);
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                }
                 k++;
             }
         }
-
+    }else if(ui->comboBox->currentText() == "Profesional"){
+        k=0;
+        valores = plantilla2.split(",");
+        for(i = 0; i < 9; i++){
+            for(j = 0; j < 9; j++){
+                if(numbertext[i][j]->toPlainText() == ""){
+                    numbertext[i][j]->setTextColor(Qt::black);
+                    numbertext[i][j]->setText(valores[k]);
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                }
+                k++;
+            }
+        }
+    }else if(ui->comboBox->currentText() == "Experto"){
+        k=0;
+        valores = plantilla3.split(",");
+        for(i = 0; i < 9; i++){
+            for(j = 0; j < 9; j++){
+                if(numbertext[i][j]->toPlainText() == ""){
+                    numbertext[i][j]->setTextColor(Qt::black);
+                    numbertext[i][j]->setText(valores[k]);
+                    numbertext[i][j]->setAlignment(Qt::AlignRight);
+                }
+                k++;
+            }
+        }
     }
 }
