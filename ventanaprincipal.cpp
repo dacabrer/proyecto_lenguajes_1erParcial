@@ -29,7 +29,7 @@ void VentanaPrincipal::changeEvent(QEvent *e){
 }
 
 void VentanaPrincipal::on_entrar_clicked(){
-    timer->start();
+    timer->start(30);
 }
 
 void VentanaPrincipal::tiempoFuera(){

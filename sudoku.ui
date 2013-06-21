@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
+    <width>679</width>
     <height>501</height>
    </rect>
   </property>
@@ -110,6 +110,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>RESOLVER JUEGO</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>BORRAR JUEGO</string>
@@ -124,14 +134,18 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_5">
        <property name="text">
-        <string>RESOLVER JUEGO</string>
+        <string>GUARDAR JUEGO</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="text">
+        <string>CARGAR JUEGO</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_4">
@@ -176,7 +190,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>677</width>
+     <width>679</width>
      <height>25</height>
     </rect>
    </property>
@@ -186,14 +200,7 @@
     </property>
     <addaction name="actionQuit"/>
    </widget>
-   <widget class="QMenu" name="menuAcerca_de">
-    <property name="title">
-     <string>Acerca de..</string>
-    </property>
-    <addaction name="actionHelp"/>
-   </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuAcerca_de"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -218,4 +225,8 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
+ <slots>
+  <slot>guardarJuego()</slot>
+  <slot>cargarJuego()</slot>
+ </slots>
 </ui>

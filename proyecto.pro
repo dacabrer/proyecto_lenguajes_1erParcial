@@ -14,10 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         sudoku.cpp \
-    ventanaprincipal.cpp
+    ventanaprincipal.cpp \
+    guardarsudoku.cpp \
+    cargarsudoku.cpp
 
 HEADERS  += sudoku.h \
-    ventanaprincipal.h
+    ventanaprincipal.h \
+    guardarsudoku.h \
+    cargarsudoku.h
 
 FORMS    += sudoku.ui \
-    ventanaprincipal.ui
+    ventanaprincipal.ui \
+    guardarsudoku.ui \
+    cargarsudoku.ui

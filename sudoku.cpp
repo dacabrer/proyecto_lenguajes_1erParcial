@@ -1,13 +1,9 @@
 #include "sudoku.h"
 #include "ui_sudoku.h"
-#include <QApplication>
 #include <QTextEdit>
-#include <QPushButton>
-#include <QGridLayout>
 #include <QMessageBox>
-#include <QDebug>
-#include <QTextStream>
-#include <QTime>
+
+
 
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
@@ -98,20 +94,19 @@ void sudoku::on_Validar_clicked(){
     }
 
 }
+
 void sudoku::setDisplayValue(int i,int j,long v){
     numbertext[i][j]->setText( QString("%1").arg(v) );
     numbertext[i][j]->setAlignment(Qt::AlignRight);
 }
-
 long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
+
 //SALIR DESDE EL MENU
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
-
-
 
 //BORRAR JUEGO
 void sudoku::on_pushButton_clicked(){
@@ -121,6 +116,7 @@ void sudoku::on_pushButton_clicked(){
         }
     }
 }
+
 //SALIR
 void sudoku::on_pushButton_4_clicked(){
     this->close();
@@ -208,7 +204,7 @@ void sudoku::on_pushButton_2_clicked(){
         valores = plantilla1.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
-                if(numbertext[i][j]->toPlainText() == ""){
+                if(numbertext[i][j]->isEnabled()){
                     numbertext[i][j]->setTextColor(Qt::black);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
@@ -221,7 +217,7 @@ void sudoku::on_pushButton_2_clicked(){
         valores = plantilla2.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
-                if(numbertext[i][j]->toPlainText() == ""){
+                if(numbertext[i][j]->isEnabled()){
                     numbertext[i][j]->setTextColor(Qt::black);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
@@ -234,7 +230,7 @@ void sudoku::on_pushButton_2_clicked(){
         valores = plantilla3.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
-                if(numbertext[i][j]->toPlainText() == ""){
+                if(numbertext[i][j]->isEnabled()){
                     numbertext[i][j]->setTextColor(Qt::black);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
@@ -243,4 +239,18 @@ void sudoku::on_pushButton_2_clicked(){
             }
         }
     }
+}
+
+//CARGAR JUEGO
+void sudoku::on_pushButton_6_clicked()
+{
+    CargarSudoku *cargarJuego = new CargarSudoku(this);
+    cargarJuego->show();
+}
+//GUARDAR JUEGO
+void sudoku::on_pushButton_5_clicked()
+{
+    GuardarSudoku *guardarJuego = new GuardarSudoku(this);
+    guardarJuego->guardarNivel(ui->comboBox);
+    guardarJuego->show();
 }
