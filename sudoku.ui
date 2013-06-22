@@ -103,14 +103,14 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="nuevoJuego">
        <property name="text">
         <string>NUEVO JUEGO</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="resolverJuego">
        <property name="text">
         <string>RESOLVER JUEGO</string>
        </property>
@@ -120,35 +120,35 @@
       <widget class="QComboBox" name="comboBox"/>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="borrarJuego">
        <property name="text">
         <string>BORRAR JUEGO</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Validar">
+      <widget class="QPushButton" name="comprobar">
        <property name="text">
         <string>COMPROBAR</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="guardarJuego">
        <property name="text">
         <string>GUARDAR JUEGO</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="cargarJuego">
        <property name="text">
         <string>CARGAR JUEGO</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="salir">
        <property name="text">
         <string>SALIR</string>
        </property>

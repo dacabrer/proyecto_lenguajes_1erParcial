@@ -50,7 +50,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="nombreJugador"/>
        </item>
       </layout>
      </item>
@@ -64,21 +64,21 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="nivelS"/>
        </item>
       </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="bguardarSudoku">
          <property name="text">
           <string>G   U   A   R   D   A   R</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="bsalirGuardaSudoku">
          <property name="text">
           <string>S   A   L   I   R</string>
          </property>

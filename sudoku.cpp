@@ -3,8 +3,6 @@
 #include <QTextEdit>
 #include <QMessageBox>
 
-
-
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sudoku)
@@ -13,6 +11,10 @@ sudoku::sudoku(QWidget *parent) :
     ui->comboBox->addItem("Juvenil");
     ui->comboBox->addItem("Profesional");
     ui->comboBox->addItem("Experto");
+    //ui->
+    //guardars.setString(ui->comboBox->currentText());
+    //connect(&guardars, SIGNAL(my_signal(QString)),
+            //this, SLOT(slot_signal(QString)));
     initGui();
 }
 
@@ -29,9 +31,9 @@ void sudoku::initGui(){
         }
     }
 }
-//COMPRUEBA SI EL JUEGO ES CORRECTO
-void sudoku::on_Validar_clicked(){
 
+//COMPRUEBA SI EL JUEGO ES CORRECTO
+void sudoku::on_comprobar_clicked(){
     long sumatoriah = 0;
     long productoh = 1;
     long sumatoriav = 0;
@@ -94,7 +96,6 @@ void sudoku::on_Validar_clicked(){
     }
 
 }
-
 void sudoku::setDisplayValue(int i,int j,long v){
     numbertext[i][j]->setText( QString("%1").arg(v) );
     numbertext[i][j]->setAlignment(Qt::AlignRight);
@@ -107,23 +108,19 @@ long sudoku::getDisplayValue(int i,int j) {
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
-
 //BORRAR JUEGO
-void sudoku::on_pushButton_clicked(){
+void sudoku::on_borrarJuego_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
             numbertext[i][j]->setText("");
         }
     }
 }
-
 //SALIR
-void sudoku::on_pushButton_4_clicked(){
-    this->close();
-}
-
+void sudoku::on_salir_clicked(){
+    this->close();}
 //JUEGO NUEVO
-void sudoku::on_pushButton_3_clicked(){
+void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
 
@@ -194,12 +191,13 @@ void sudoku::on_pushButton_3_clicked(){
         }
     }
 }
-
 //RESOLVER JUEGO
-void sudoku::on_pushButton_2_clicked(){
+void sudoku::on_resolverJuego_clicked(){
     int i=0, j=0, k=0;
     QStringList  valores;
-    if(ui->comboBox->currentText() == "Juvenil"){
+    QString Juvenil = "Juvenil";
+    QString Profesional = "Profesional";
+    if(ui->comboBox->currentText() == Juvenil){
         k=0;
         valores = plantilla1.split(",");
         for(i = 0; i < 9; i++){
@@ -212,7 +210,7 @@ void sudoku::on_pushButton_2_clicked(){
                 k++;
             }
         }
-    }else if(ui->comboBox->currentText() == "Profesional"){
+    }else if(ui->comboBox->currentText() == Profesional){
         k=0;
         valores = plantilla2.split(",");
         for(i = 0; i < 9; i++){
@@ -242,15 +240,24 @@ void sudoku::on_pushButton_2_clicked(){
 }
 
 //CARGAR JUEGO
-void sudoku::on_pushButton_6_clicked()
-{
+void sudoku::on_cargarJuego_clicked(){
     CargarSudoku *cargarJuego = new CargarSudoku(this);
     cargarJuego->show();
 }
+
 //GUARDAR JUEGO
-void sudoku::on_pushButton_5_clicked()
-{
-    GuardarSudoku *guardarJuego = new GuardarSudoku(this);
-    guardarJuego->guardarNivel(ui->comboBox);
+void sudoku::on_guardarJuego_clicked(){
+
+    GuardarSudoku *guardarJuego = new GuardarSudoku();
+    QString sd = ui->comboBox->currentText();
+    //Actualizar la matriz
+    for(int i = 0;i < 9; i++){
+        for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
+    }
+
+    guardarJuego->setStr(sd, matrizGuardar);
+    //guardarJuego->guardarNivel(ui->comboBox);
     guardarJuego->show();
+
 }
+

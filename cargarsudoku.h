@@ -2,7 +2,6 @@
 #define CARGARSUDOKU_H
 
 #include <QMainWindow>
-#include <QComboBox>
 
 namespace Ui {
 class CargarSudoku;
