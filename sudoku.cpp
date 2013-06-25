@@ -1,5 +1,6 @@
 #include "sudoku.h"
 #include "ui_sudoku.h"
+#include <math.h>
 
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +30,7 @@ void sudoku::setCargar(QString datos, QString nivel){
    datosCargados = datos;
    QStringList  valores;
    int i,j,k=0;
+   double cont =33, opera;
    valores = datosCargados.split(",");
    for(i = 0; i < 9; i++){
        for(j = 0; j < 9; j++){
@@ -36,8 +38,14 @@ void sudoku::setCargar(QString datos, QString nivel){
                numbertext[i][j]->setDisabled(false);
                numbertext[i][j]->setText(valores[k]);
            }else{
+               //DESENCRIPTAR PANTILLA DEL SUDOKU
+               if((valores[k].toInt())%2 == 0){
+                   opera = sqrt(valores[k].toDouble()-cont);
+               }else{
+                   opera = sqrt(2*(valores[k].toDouble()-cont));
+               }
                numbertext[i][j]->setTextColor(Qt::red);
-               numbertext[i][j]->setText(valores[k]);
+               numbertext[i][j]->setText(QString::number(opera));
                numbertext[i][j]->setDisabled(true);
            }
            numbertext[i][j]->setAlignment(Qt::AlignRight);
