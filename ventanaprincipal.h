@@ -2,6 +2,7 @@
 #define VENTANAPRINCIPAL_H
 
 #include <QMainWindow>
+#include <QTimer>
 
 namespace Ui {
 class VentanaPrincipal;

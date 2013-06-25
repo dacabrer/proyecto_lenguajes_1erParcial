@@ -1,7 +1,5 @@
 #include "sudoku.h"
 #include "ui_sudoku.h"
-#include <QTextEdit>
-#include <QMessageBox>
 
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
@@ -11,10 +9,6 @@ sudoku::sudoku(QWidget *parent) :
     ui->comboBox->addItem("Juvenil");
     ui->comboBox->addItem("Profesional");
     ui->comboBox->addItem("Experto");
-    //ui->
-    //guardars.setString(ui->comboBox->currentText());
-    //connect(&guardars, SIGNAL(my_signal(QString)),
-            //this, SLOT(slot_signal(QString)));
     initGui();
 }
 
@@ -23,13 +17,35 @@ sudoku::~sudoku(){
 }
 
 void sudoku::initGui(){
-
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
             numbertext[i][j] = new QTextEdit(NULL);
             ui->numberPad->addWidget(numbertext[i][j], i, j);
         }
     }
+}
+
+void sudoku::setCargar(QString datos, QString nivel){
+   datosCargados = datos;
+   QStringList  valores;
+   int i,j,k=0;
+   valores = datosCargados.split(",");
+   for(i = 0; i < 9; i++){
+       for(j = 0; j < 9; j++){
+           if(valores[k] == ""){
+               numbertext[i][j]->setDisabled(false);
+               numbertext[i][j]->setText(valores[k]);
+           }else{
+               numbertext[i][j]->setTextColor(Qt::red);
+               numbertext[i][j]->setText(valores[k]);
+               numbertext[i][j]->setDisabled(true);
+           }
+           numbertext[i][j]->setAlignment(Qt::AlignRight);
+           k++;
+       }
+   }
+   ui->comboBox->setCurrentText(nivel);
+   this->show();
 }
 
 //COMPRUEBA SI EL JUEGO ES CORRECTO
@@ -118,7 +134,8 @@ void sudoku::on_borrarJuego_clicked(){
 }
 //SALIR
 void sudoku::on_salir_clicked(){
-    this->close();}
+    this->close();
+}
 //JUEGO NUEVO
 void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
@@ -164,7 +181,6 @@ void sudoku::on_nuevoJuego_clicked(){
                     numbertext[i][j]->setDisabled(false);
                     numbertext[i][j]->setText("");
                 }
-
                 numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
             }
@@ -184,7 +200,6 @@ void sudoku::on_nuevoJuego_clicked(){
                     numbertext[i][j]->setDisabled(false);
                     numbertext[i][j]->setText("");
                 }
-
                 numbertext[i][j]->setAlignment(Qt::AlignRight);
                 k++;
             }
@@ -195,10 +210,9 @@ void sudoku::on_nuevoJuego_clicked(){
 void sudoku::on_resolverJuego_clicked(){
     int i=0, j=0, k=0;
     QStringList  valores;
-    QString Juvenil = "Juvenil";
-    QString Profesional = "Profesional";
-    if(ui->comboBox->currentText() == Juvenil){
-        k=0;
+
+    k=0;
+    if(ui->comboBox->currentText() == "Juvenil"){
         valores = plantilla1.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -210,8 +224,7 @@ void sudoku::on_resolverJuego_clicked(){
                 k++;
             }
         }
-    }else if(ui->comboBox->currentText() == Profesional){
-        k=0;
+    }else if(ui->comboBox->currentText() == "Profesional"){
         valores = plantilla2.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -224,7 +237,6 @@ void sudoku::on_resolverJuego_clicked(){
             }
         }
     }else if(ui->comboBox->currentText() == "Experto"){
-        k=0;
         valores = plantilla3.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -238,13 +250,38 @@ void sudoku::on_resolverJuego_clicked(){
         }
     }
 }
-
 //CARGAR JUEGO
 void sudoku::on_cargarJuego_clicked(){
+
     CargarSudoku *cargarJuego = new CargarSudoku(this);
+    QStringList  valores;
+
+    QString nomJugador, nivelC, datosSudoku;
+
+    QString mFilemane = "/home/josanvel/Escritorio/guardar.txt";
+    QFile mFile(mFilemane);
+    mFile.open(QIODevice::Text | QIODevice::ReadOnly);
+    if(!mFile.isOpen()){return;}
+    QTextStream txtstr(&mFile);
+    int cont=0;
+
+    while(!txtstr.atEnd()){
+        datosSudoku = txtstr.readLine();
+        mFile.flush();
+        mFile.close();
+
+        valores = datosSudoku.split("/");
+        nomJugador = valores[0];
+        nivelC = valores[1];
+        datosSudoku = valores[2];
+        comboB->addItem(nomJugador);
+        cont++;
+    }
+
+    this->close();
+    cargarJuego->setCombo(comboB, cont);
     cargarJuego->show();
 }
-
 //GUARDAR JUEGO
 void sudoku::on_guardarJuego_clicked(){
 
@@ -254,10 +291,7 @@ void sudoku::on_guardarJuego_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
     }
-
     guardarJuego->setStr(sd, matrizGuardar);
-    //guardarJuego->guardarNivel(ui->comboBox);
     guardarJuego->show();
-
 }
 

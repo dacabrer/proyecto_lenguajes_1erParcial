@@ -1,7 +1,7 @@
 #include "ventanaprincipal.h"
 #include "ui_ventanaprincipal.h"
 #include "sudoku.h"
-#include <QTimer>
+
 
 VentanaPrincipal::VentanaPrincipal(QWidget *parent) :
     QMainWindow(parent),
@@ -12,8 +12,7 @@ VentanaPrincipal::VentanaPrincipal(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(tiempoFuera()));
 }
 
-VentanaPrincipal::~VentanaPrincipal()
-{
+VentanaPrincipal::~VentanaPrincipal(){
     delete ui;
 }
 
@@ -23,8 +22,7 @@ void VentanaPrincipal::changeEvent(QEvent *e){
     case QEvent::LanguageChange:
         ui->retranslateUi(this);
         break;
-    default:
-        break;
+    default:    break;
     }
 }
 
@@ -42,5 +40,4 @@ void VentanaPrincipal::tiempoFuera(){
         sudoku *sudo = new sudoku();
         sudo->show();
     }
-
 }

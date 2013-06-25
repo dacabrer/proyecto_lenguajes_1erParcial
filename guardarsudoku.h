@@ -2,7 +2,6 @@
 #define GUARDARSUDOKU_H
 
 #include <QMainWindow>
-#include <QFileDialog>
 #include <QFile>
 #include <QMessageBox>
 #include <QString>
@@ -18,7 +17,6 @@ class GuardarSudoku : public QMainWindow
 public:
     explicit GuardarSudoku(QWidget *parent = 0);
     ~GuardarSudoku();
-    QString getStr();
     void setStr(QString snivel, QString m[9][9]);
 
 private slots:
