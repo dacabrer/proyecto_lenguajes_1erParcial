@@ -1,5 +1,6 @@
 #include "guardarsudoku.h"
 #include "ui_guardarsudoku.h"
+#include <math.h>
 
 
 GuardarSudoku::GuardarSudoku(QWidget *parent) :
@@ -26,13 +27,30 @@ void GuardarSudoku::setStr(QString snivel, QString m[9][9]){
 void GuardarSudoku::on_bsalirGuardaSudoku_clicked(){
      this->close();
 }
+//ENCRIPTAR LA PARTIDA DE SUDOKU
+void GuardarSudoku::encriptarSudoku(){
+    int i = 0, j = 0, cont = 33, num1 = 0, numT = 0;
+
+    for(i=0; i<9; i++){
+        for(j=0; j<9; j++){
+            num1 = (matriz[i][j].toInt()) * (matriz[i][j].toInt());
+
+            if((matriz[i][j].toInt() % 2) == 0)     numT = (num1 / 2) + cont;
+            else       numT = num1 + cont;
+
+            matriz[i][j].setNum(numT);
+        }
+    }
+}
+
 //Boton guardar del menu guardar sudoku
 void GuardarSudoku::on_bguardarSudoku_clicked(){
+
     QString nomJugador = ui->nombreJugador->displayText();
     QString nivel= ui->nivelS->displayText();
-
     QString info = "";
 
+    encriptarSudoku();
     for(int i=0; i<9; i++){
             for(int j=0; j<9; j++){
                 info = info+matriz[i][j]+",";

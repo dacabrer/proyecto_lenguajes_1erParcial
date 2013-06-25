@@ -18,6 +18,7 @@ public:
     explicit GuardarSudoku(QWidget *parent = 0);
     ~GuardarSudoku();
     void setStr(QString snivel, QString m[9][9]);
+    void encriptarSudoku();
 
 private slots:
     void on_bsalirGuardaSudoku_clicked();
