@@ -50,5 +50,5 @@ private:
 
 };
 
-#endif // SUDOKU_H
+#endif /**SUDOKU_H*/
 

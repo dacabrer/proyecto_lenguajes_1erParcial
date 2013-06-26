@@ -23,11 +23,11 @@ void GuardarSudoku::setStr(QString snivel, QString m[9][9]){
     ui->nivelS->setEnabled(false);
 }
 
-//Boton salir del menu guardar sudoku
+/**Boton salir del menu guardar sudoku*/
 void GuardarSudoku::on_bsalirGuardaSudoku_clicked(){
      this->close();
 }
-//ENCRIPTAR LA PARTIDA DE SUDOKU
+/**ENCRIPTAR LA PARTIDA DE SUDOKU*/
 void GuardarSudoku::encriptarSudoku(){
     int i = 0, j = 0, cont = 33, num1 = 0, numT = 0;
 
@@ -43,7 +43,7 @@ void GuardarSudoku::encriptarSudoku(){
     }
 }
 
-//Boton guardar del menu guardar sudoku
+/**Boton guardar del menu guardar sudoku*/
 void GuardarSudoku::on_bguardarSudoku_clicked(){
 
     QString nomJugador = ui->nombreJugador->displayText();

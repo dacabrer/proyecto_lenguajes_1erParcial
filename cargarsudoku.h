@@ -34,4 +34,4 @@ private:
     QString selecCombo, pantillaCargada;
 };
 
-#endif // CARGARSUDOKU_H
+#endif /**CARGARSUDOKU_H*/

@@ -30,4 +30,4 @@ private:
     QString matriz[9][9];
 };
 
-#endif // GUARDARSUDOKU_H
+#endif /**GUARDARSUDOKU_H*/

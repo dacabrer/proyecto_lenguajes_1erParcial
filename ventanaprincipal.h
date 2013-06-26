@@ -28,4 +28,4 @@ private:
     Ui::VentanaPrincipal *ui;
 };
 
-#endif // VENTANAPRINCIPAL_H
+#endif /**VENTANAPRINCIPAL_H*/

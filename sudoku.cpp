@@ -38,7 +38,7 @@ void sudoku::setCargar(QString datos, QString nivel){
                numbertext[i][j]->setDisabled(false);
                numbertext[i][j]->setText(valores[k]);
            }else{
-               //DESENCRIPTAR PANTILLA DEL SUDOKU
+               /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
                if((valores[k].toInt())%2 == 0){
                    opera = sqrt(valores[k].toDouble()-cont);
                }else{
@@ -56,7 +56,7 @@ void sudoku::setCargar(QString datos, QString nivel){
    this->show();
 }
 
-//COMPRUEBA SI EL JUEGO ES CORRECTO
+/**COMPRUEBA SI EL JUEGO ES CORRECTO*/
 void sudoku::on_comprobar_clicked(){
     long sumatoriah = 0;
     long productoh = 1;
@@ -67,7 +67,7 @@ void sudoku::on_comprobar_clicked(){
     int despx=0,despy=0;
     int banderavalida=1;
 
-    //Validacion numeros del 1 al 9 en las filas
+    /**Validacion numeros del 1 al 9 en las filas*/
     for(int i = 0;i < 9; i++){
         sumatoriah=0;
         productoh=1;
@@ -78,10 +78,11 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriah==45) && (productoh==362880))
             banderavalida=1;
         else
-            banderavalida=0,i=10;//linea que rompe el ciclo en caso de no cumplir condicion
+             /**linea que rompe el ciclo en caso de no cumplir condicion*/
+            banderavalida=0,i=10;
     }
 
-     //Validacion numeros del 1 al 9 en las columnas
+     /**Validacion numeros del 1 al 9 en las columnas*/
     for(int j = 0;j < 9; j++){
         sumatoriav=0;
         productov=1;
@@ -92,7 +93,8 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriav==45) && (productov==362880) )
             banderavalida=1;
         else
-            banderavalida=0,j=10;//linea que rompe el ciclo en caso de no cumplir condicion
+
+            banderavalida=0,j=10;
     }
 
     for(int x = 0;x < 9; x++){
@@ -109,10 +111,11 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriacuad==45) && (productocuad==362880) )
             banderavalida=1;
         else
-            banderavalida=0,x=10;//linea que rompe el ciclo en caso de no cumplir condicion
+             /**linea que rompe el ciclo en caso de no cumplir condicion*/
+            banderavalida=0,x=10;
     }
 
-    //comprobacion de validacion en general
+    /**comprobacion de validacion en general*/
     if (banderavalida==1){
         QMessageBox::information(this, "Respuesta", "La solucion es valida");
     }else{
@@ -128,11 +131,11 @@ long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
 
-//SALIR DESDE EL MENU
+/**SALIR DESDE EL MENU*/
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
-//BORRAR JUEGO
+/**BORRAR JUEGO*/
 void sudoku::on_borrarJuego_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -140,21 +143,22 @@ void sudoku::on_borrarJuego_clicked(){
         }
     }
 }
-//SALIR
+/**SALIR*/
 void sudoku::on_salir_clicked(){
     this->close();
 }
-//JUEGO NUEVO
+/**JUEGO NUEVO*/
 void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
 
-    //Semilla del aleatorio
+    /**Semilla del aleatorio*/
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
 
-    if(ui->comboBox->currentText() == "Juvenil"){//MODO JUVENIL(FACIL)}
+
+    if(ui->comboBox->currentText() == "Juvenil"){
         k=0;
         valores = plantilla1.split(",");
 
@@ -174,7 +178,8 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(ui->comboBox->currentText() == "Profesional"){//MODO PROFESIONAL(MEDIO)
+     /**MODO PROFESIONAL(MEDIO)*/
+    }else if(ui->comboBox->currentText() == "Profesional"){
         k=0;
         valores = plantilla2.split(",");
 
@@ -193,7 +198,8 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(ui->comboBox->currentText() == "Experto"){//MODO EXPERTO(DIFICIL)
+        /**MODO EXPERTO(DIFICIL)*/
+    }else if(ui->comboBox->currentText() == "Experto"){
         k=0;
         valores = plantilla3.split(",");
 
@@ -214,7 +220,7 @@ void sudoku::on_nuevoJuego_clicked(){
         }
     }
 }
-//RESOLVER JUEGO
+/**RESOLVER JUEGO*/
 void sudoku::on_resolverJuego_clicked(){
     int i=0, j=0, k=0;
     QStringList  valores;
@@ -258,7 +264,7 @@ void sudoku::on_resolverJuego_clicked(){
         }
     }
 }
-//CARGAR JUEGO
+/**CARGAR JUEGO*/
 void sudoku::on_cargarJuego_clicked(){
 
     CargarSudoku *cargarJuego = new CargarSudoku(this);
@@ -290,12 +296,12 @@ void sudoku::on_cargarJuego_clicked(){
     cargarJuego->setCombo(comboB, cont);
     cargarJuego->show();
 }
-//GUARDAR JUEGO
+/**GUARDAR JUEGO*/
 void sudoku::on_guardarJuego_clicked(){
 
     GuardarSudoku *guardarJuego = new GuardarSudoku();
     QString sd = ui->comboBox->currentText();
-    //Actualizar la matriz
+    /**Actualizar la matriz*/
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
     }

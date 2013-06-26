@@ -49,7 +49,7 @@ void CargarSudoku::on_bcargarCargarJuego_clicked(){
 
 }
 
-//Salir de menu CARGAR PARTIDA
+/**Salir de menu CARGAR PARTIDA*/
 void CargarSudoku::on_bsalirCargarJuego_clicked(){
     this->close();
 }
