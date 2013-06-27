@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>10</y>
+      <y>0</y>
       <width>431</width>
-      <height>381</height>
+      <height>361</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="numberPad"/>
@@ -57,14 +57,14 @@
       <x>490</x>
       <y>40</y>
       <width>158</width>
-      <height>281</height>
+      <height>321</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="nuevoJuego">
        <property name="text">
-        <string>NUEVO JUEGO</string>
+        <string>INICIAR JUEGO</string>
        </property>
       </widget>
      </item>
@@ -115,9 +115,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>330</y>
-      <width>161</width>
+      <x>30</x>
+      <y>370</y>
+      <width>269</width>
       <height>61</height>
      </rect>
     </property>
@@ -130,14 +130,28 @@
       </widget>
      </item>
      <item>
-      <widget class="QTimeEdit" name="timeEdit"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLCDNumber" name="lcdmin"/>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="lcdseg"/>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="lcdmsg">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>420</x>
       <y>410</y>
       <width>226</width>
       <height>29</height>
@@ -161,11 +175,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="layoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>410</y>
+      <x>420</x>
+      <y>370</y>
       <width>226</width>
       <height>29</height>
      </rect>
@@ -190,10 +204,11 @@
    </widget>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>gridLayoutWidget</zorder>
    <zorder>label_3</zorder>
    <zorder>layoutWidget_2</zorder>
+   <zorder></zorder>
+   <zorder>layoutWidget_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

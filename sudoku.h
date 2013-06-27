@@ -8,6 +8,8 @@
 #include <QTextEdit>
 #include <QMessageBox>
 #include <QComboBox>
+#include <QTime>
+#include <QTimer>
 
 namespace Ui {
 class sudoku;
@@ -16,6 +18,7 @@ class QTextEdit;
 class sudoku : public QMainWindow
 {
     Q_OBJECT
+    class QTimer *timer;
     
 public:
     explicit sudoku(QWidget *parent = 0);
@@ -36,6 +39,7 @@ private slots:
     void on_cargarJuego_clicked();
     void on_salir_clicked();
     void encriptarS();
+    void update();
 
 private:
     void initGui();
@@ -47,7 +51,7 @@ private:
     QString plantilla3 = "1,7,4,6,8,3,2,9,5,9,5,3,4,1,2,8,6,7,2,8,6,7,9,5,3,4,1,8,6,5,2,7,9,1,3,4,4,3,2,8,6,1,7,5,9,7,1,9,5,3,4,6,8,2,3,9,8,1,4,7,5,2,6,5,4,1,3,2,6,9,7,8,6,2,7,9,5,8,4,1,3";
     QString matrizGuardar[9][9];
     //QComboBox *cb;
-    QComboBox *comboB = new QComboBox();
+
     QString datosCargados ="";
     QString nivelSudoku;
     QString nombreJugador;

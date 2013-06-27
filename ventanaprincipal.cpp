@@ -47,7 +47,10 @@ void VentanaPrincipal::tiempoFuera(){
 }
 
 void VentanaPrincipal::on_bEntrar_clicked(){
-    timer->start(30);
+    if(ui->nombreJug->text() == ""){
+        QMessageBox::information(this, "ERROR", "Por favor agregue el\nnombre del JUGADOR","ACEPTAR");
+    }else
+        timer->start(30);
 }
 
 void VentanaPrincipal::on_bPuntajes_clicked()

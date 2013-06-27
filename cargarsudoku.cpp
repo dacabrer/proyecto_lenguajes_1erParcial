@@ -17,7 +17,8 @@ void CargarSudoku::setCombo(QComboBox *comboC, int cont, QString nombreJ, QStrin
     nombreJugador = nombreJ;
     nivelJugador = nivelJ;
     for(int i=0; i < cont; i++){
-       ui->comboBoxCargar->addItem(comboC->itemText(i));
+        if(comboC->itemText(i) != "")
+               ui->comboBoxCargar->addItem(comboC->itemText(i));
     }
 }
 void CargarSudoku::on_bcargarCargarJuego_clicked(){

@@ -11,6 +11,7 @@
 #include <sudoku.h>
 
 
+
 namespace Ui {
 class CargarSudoku;
 }

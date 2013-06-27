@@ -8,11 +8,15 @@ sudoku::sudoku(QWidget *parent) :
 {
     ui->setupUi(this);
     initGui();
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    //timer->start(1000);
 }
 
 sudoku::~sudoku(){
     delete ui;
 }
+
 
 void sudoku::initGui(){
     for(int i = 0;i < 9; i++){
@@ -21,6 +25,25 @@ void sudoku::initGui(){
             ui->numberPad->addWidget(numbertext[i][j], i, j);
         }
     }
+}
+
+/*Actualizar Cronometro*/
+void sudoku::update(){
+      static double miliseg = 0, seg = 0, min = 0;
+      ui->lcdseg->display(seg);
+      ui->lcdmsg->display(miliseg);
+      ui->lcdmin->display(min);
+      //ui->lcdmsg->setc
+      miliseg++;
+      if(seg <  60){
+          if(miliseg >= 100){
+              miliseg = 0;
+              seg++;
+          }
+      }else{
+          seg=0;
+          min++;
+      }
 }
 
 void sudoku::setCargar(QString datos, QString nivel, QString nombre){
@@ -56,7 +79,7 @@ void sudoku::setCargar(QString datos, QString nivel, QString nombre){
    this->show();
 }
 
-//COMPRUEBA SI EL JUEGO ES CORRECTO
+/**COMPRUEBA SI EL JUEGO ES CORRECTO*/
 void sudoku::on_comprobar_clicked(){
     long sumatoriah = 0;
     long productoh = 1;
@@ -128,11 +151,11 @@ long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
 
-//SALIR DESDE EL MENU
+/**SALIR DESDE EL MENU*/
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
-//BORRAR JUEGO
+/**BORRAR JUEGO*/
 void sudoku::on_borrarJuego_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -140,11 +163,11 @@ void sudoku::on_borrarJuego_clicked(){
         }
     }
 }
-//SALIR
+/**SALIR*/
 void sudoku::on_salir_clicked(){
     this->close();
 }
-//JUEGO NUEVO
+/**JUEGO NUEVO*/
 void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
@@ -155,7 +178,8 @@ void sudoku::on_nuevoJuego_clicked(){
     qsrand(seed->msec());
 
     QString niveles = ui->textNivel->text();
-    if(niveles == "Juvenil"){//MODO JUVENIL(FACIL)}
+
+    if(niveles == "Juvenil"){//MODO JUVENIL(FACIL)
         k=0;
         valores = plantilla1.split(",");
 
@@ -214,8 +238,11 @@ void sudoku::on_nuevoJuego_clicked(){
             }
         }
     }
+
+    //Comenzar el cronometro
+    timer->start(10);
 }
-//RESOLVER JUEGO
+/**RESOLVER JUEGO*/
 void sudoku::on_resolverJuego_clicked(){
     int i=0, j=0, k=0;
     QStringList  valores;
@@ -263,6 +290,7 @@ void sudoku::on_resolverJuego_clicked(){
 //CARGAR JUEGO
 void sudoku::on_cargarJuego_clicked(){
 
+    QComboBox *comboB = new QComboBox();
     CargarSudoku *cargarJuego = new CargarSudoku(this);
     QStringList  valores;
 
@@ -284,8 +312,9 @@ void sudoku::on_cargarJuego_clicked(){
         nomJugador = valores[0];
         nivelC = valores[1];
         datosSudoku = valores[2];
-        if(ui->textNivel->text() == nivelC)
+        if(ui->textNivel->text() == nivelC){
             comboB->addItem(nomJugador);
+        }
         cont++;
     }
 
@@ -294,7 +323,6 @@ void sudoku::on_cargarJuego_clicked(){
     cargarJuego->setCombo(comboB, cont,jugador, level);
     cargarJuego->show();
 }
-
 
 /**ENCRIPTAR LA PARTIDA DE SUDOKU*/
 void sudoku::encriptarS(){
@@ -313,8 +341,12 @@ void sudoku::encriptarS(){
 }
 /**GUARDAR JUEGO*/
 void sudoku::on_guardarJuego_clicked(){
+    timer->stop();
     QString nomJugador = ui->textJugador->text();
     QString nivel= ui->textNivel->text();
+    int min = ui->lcdmin->intValue();
+    int seg = ui->lcdmin->intValue();
+    int miliseg = ui->lcdmin->intValue();
     QString info = "";
 
     //Actualizar la matriz
@@ -337,7 +369,7 @@ void sudoku::on_guardarJuego_clicked(){
     mFile.flush();
     mFile.close();
 
-    QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nEl nombre del jugador :"+nomJugador.toUpper(),"ACEPTAR");
+    QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nJUGADOR: "+nomJugador.toUpper(),"ACEPTAR");
     this->close();
 }
 
