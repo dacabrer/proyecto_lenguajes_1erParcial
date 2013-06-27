@@ -12,7 +12,7 @@ GuardarSudoku::GuardarSudoku(QWidget *parent) :
 GuardarSudoku::~GuardarSudoku(){
     delete ui;
 }
-void GuardarSudoku::setStr(QString snivel, QString m[9][9]){
+/*void GuardarSudoku::setStr(QString snivel, QString m[9][9]){
     stringnivel = snivel;
     for(int i=0; i<9; i++){
         for(int j=0; j<9; j++){
@@ -21,14 +21,14 @@ void GuardarSudoku::setStr(QString snivel, QString m[9][9]){
     }
     ui->nivelS->setText(stringnivel);
     ui->nivelS->setEnabled(false);
-}
+}*/
 
 /**Boton salir del menu guardar sudoku*/
-void GuardarSudoku::on_bsalirGuardaSudoku_clicked(){
+/*void GuardarSudoku::on_bsalirGuardaSudoku_clicked(){
      this->close();
-}
+}*
 /**ENCRIPTAR LA PARTIDA DE SUDOKU*/
-void GuardarSudoku::encriptarSudoku(){
+/*void GuardarSudoku::encriptarSudoku(){
     int i = 0, j = 0, cont = 33, num1 = 0, numT = 0;
 
     for(i=0; i<9; i++){
@@ -41,10 +41,10 @@ void GuardarSudoku::encriptarSudoku(){
             matriz[i][j].setNum(numT);
         }
     }
-}
+}*/
 
 /**Boton guardar del menu guardar sudoku*/
-void GuardarSudoku::on_bguardarSudoku_clicked(){
+/*void GuardarSudoku::on_bguardarSudoku_clicked(){
 
     QString nomJugador = ui->nombreJugador->displayText();
     QString nivel= ui->nivelS->displayText();
@@ -56,7 +56,7 @@ void GuardarSudoku::on_bguardarSudoku_clicked(){
                 info = info+matriz[i][j]+",";
             }
     }
-    QString mFilemane = "/home/josanvel/Escritorio/guardar.txt";
+    QString mFilemane = "guardar.txt";
     QFile mFile(mFilemane);
     mFile.open(QIODevice::Text | QIODevice::Append);
     if(!mFile.isOpen()){return;}
@@ -66,5 +66,4 @@ void GuardarSudoku::on_bguardarSudoku_clicked(){
     mFile.close();
 
     QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nEl nombre del jugador :"+nomJugador.toUpper(),"ACEPTAR");
-    this->close();
-}
+}*/

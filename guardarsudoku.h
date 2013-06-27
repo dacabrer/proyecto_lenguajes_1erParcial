@@ -17,12 +17,12 @@ class GuardarSudoku : public QMainWindow
 public:
     explicit GuardarSudoku(QWidget *parent = 0);
     ~GuardarSudoku();
-    void setStr(QString snivel, QString m[9][9]);
-    void encriptarSudoku();
+  //  void setStr(QString snivel, QString m[9][9]);
+    //void encriptarSudoku();
 
 private slots:
-    void on_bsalirGuardaSudoku_clicked();
-    void on_bguardarSudoku_clicked();
+    //void on_bsalirGuardaSudoku_clicked();
+    //void on_bguardarSudoku_clicked();
 
 private:
     Ui::GuardarSudoku *ui;

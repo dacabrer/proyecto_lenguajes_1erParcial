@@ -6,21 +6,58 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>342</height>
+    <width>680</width>
+    <height>500</height>
    </rect>
   </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>48</red>
+        <green>242</green>
+        <blue>119</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>48</red>
+        <green>242</green>
+        <blue>119</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>48</red>
+        <green>242</green>
+        <blue>119</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>VENTANA PRINCIPAL</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>60</y>
+      <y>49</y>
       <width>181</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -39,9 +76,9 @@
    <widget class="QProgressBar" name="barra">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>190</y>
-      <width>421</width>
+      <x>30</x>
+      <y>390</y>
+      <width>621</width>
       <height>23</height>
      </rect>
     </property>
@@ -49,12 +86,12 @@
      <number>0</number>
     </property>
    </widget>
-   <widget class="QPushButton" name="entrar">
+   <widget class="QPushButton" name="bEntrar">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>120</y>
-      <width>191</width>
+      <x>170</x>
+      <y>340</y>
+      <width>341</width>
       <height>31</height>
      </rect>
     </property>
@@ -62,13 +99,88 @@
      <string>E N T R A R </string>
     </property>
    </widget>
+   <widget class="QPushButton" name="bPuntajes">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>270</y>
+      <width>411</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>PUNTAJES</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>120</y>
+      <width>411</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="NombreJ">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>NOMBRE</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nombreJug"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>180</y>
+      <width>411</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="Dificultad">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>DIFICULTAD</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>664</width>
+     <width>680</width>
      <height>25</height>
     </rect>
    </property>

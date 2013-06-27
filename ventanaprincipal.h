@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <sudoku.h>
 
 namespace Ui {
 class VentanaPrincipal;
@@ -21,8 +22,9 @@ protected:
     void changeEvent(QEvent *e);
 
 private slots:
-    void on_entrar_clicked();
     void tiempoFuera();
+    void on_bEntrar_clicked();
+    void on_bPuntajes_clicked();
 
 private:
     Ui::VentanaPrincipal *ui;

@@ -8,6 +8,7 @@
 #include <QString>
 #include <QTextStream>
 #include <QComboBox>
+#include <sudoku.h>
 
 
 namespace Ui {
@@ -21,17 +22,16 @@ class CargarSudoku : public QMainWindow
 public:
     explicit CargarSudoku(QWidget *parent = 0);
     ~CargarSudoku();
-    void setCombo(QComboBox *comboC, int cont);
+    void setCombo(QComboBox *comboC, int cont, QString nombreJ, QString nivelJ);
 private slots:
-    void on_pushButton_2_clicked();
     void on_bcargarCargarJuego_clicked();
-
     void on_bsalirCargarJuego_clicked();
 
 private:
     Ui::CargarSudoku *ui;
     QComboBox *comboCargar;
     QString selecCombo, pantillaCargada;
+    QString nombreJugador, nivelJugador;
 };
 
 #endif /**CARGARSUDOKU_H*/

@@ -6,8 +6,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //a.setStyle("fusion");
-    //VentanaPrincipal w;
-    sudoku w;
+    VentanaPrincipal w;
+    //sudoku w;
     w.show();
     
     return a.exec();

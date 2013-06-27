@@ -7,6 +7,9 @@ sudoku::sudoku(QWidget *parent) :
     ui(new Ui::sudoku)
 {
     ui->setupUi(this);
+    ui->comboBox->addItem("Juvenil");
+    ui->comboBox->addItem("Profesional");
+    ui->comboBox->addItem("Experto");
     initGui();
 }
 
@@ -23,7 +26,7 @@ void sudoku::initGui(){
     }
 }
 
-void sudoku::setCargar(QString datos, QString nivel, QString nombre){
+void sudoku::setCargar(QString datos, QString nivel){
    datosCargados = datos;
    QStringList  valores;
    int i,j,k=0;
@@ -31,11 +34,11 @@ void sudoku::setCargar(QString datos, QString nivel, QString nombre){
    valores = datosCargados.split(",");
    for(i = 0; i < 9; i++){
        for(j = 0; j < 9; j++){
-           if(valores[k].toInt() == 33){
+           if(valores[k] == ""){
                numbertext[i][j]->setDisabled(false);
-               numbertext[i][j]->setText("");
+               numbertext[i][j]->setText(valores[k]);
            }else{
-               //DESENCRIPTAR PANTILLA DEL SUDOKU
+               /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
                if((valores[k].toInt())%2 == 0){
                    opera = sqrt(valores[k].toDouble()-cont);
                }else{
@@ -49,14 +52,11 @@ void sudoku::setCargar(QString datos, QString nivel, QString nombre){
            k++;
        }
    }
-   ui->textJugador->setText(nombre);
-   ui->textJugador->setEnabled(false);
-   ui->textNivel->setText(nivel);
-   ui->textNivel->setEnabled(false);
+   ui->comboBox->setCurrentText(nivel);
    this->show();
 }
 
-//COMPRUEBA SI EL JUEGO ES CORRECTO
+/**COMPRUEBA SI EL JUEGO ES CORRECTO*/
 void sudoku::on_comprobar_clicked(){
     long sumatoriah = 0;
     long productoh = 1;
@@ -67,7 +67,7 @@ void sudoku::on_comprobar_clicked(){
     int despx=0,despy=0;
     int banderavalida=1;
 
-    //Validacion numeros del 1 al 9 en las filas
+    /**Validacion numeros del 1 al 9 en las filas*/
     for(int i = 0;i < 9; i++){
         sumatoriah=0;
         productoh=1;
@@ -78,10 +78,11 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriah==45) && (productoh==362880))
             banderavalida=1;
         else
-            banderavalida=0,i=10;//linea que rompe el ciclo en caso de no cumplir condicion
+             /**linea que rompe el ciclo en caso de no cumplir condicion*/
+            banderavalida=0,i=10;
     }
 
-     //Validacion numeros del 1 al 9 en las columnas
+     /**Validacion numeros del 1 al 9 en las columnas*/
     for(int j = 0;j < 9; j++){
         sumatoriav=0;
         productov=1;
@@ -92,7 +93,8 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriav==45) && (productov==362880) )
             banderavalida=1;
         else
-            banderavalida=0,j=10;//linea que rompe el ciclo en caso de no cumplir condicion
+
+            banderavalida=0,j=10;
     }
 
     for(int x = 0;x < 9; x++){
@@ -109,10 +111,11 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriacuad==45) && (productocuad==362880) )
             banderavalida=1;
         else
-            banderavalida=0,x=10;//linea que rompe el ciclo en caso de no cumplir condicion
+             /**linea que rompe el ciclo en caso de no cumplir condicion*/
+            banderavalida=0,x=10;
     }
 
-    //comprobacion de validacion en general
+    /**comprobacion de validacion en general*/
     if (banderavalida==1){
         QMessageBox::information(this, "Respuesta", "La solucion es valida");
     }else{
@@ -128,11 +131,11 @@ long sudoku::getDisplayValue(int i,int j) {
     return numbertext[i][j]->toPlainText().toLong();
 }
 
-//SALIR DESDE EL MENU
+/**SALIR DESDE EL MENU*/
 void sudoku::on_actionQuit_triggered(){
     qApp->quit();
 }
-//BORRAR JUEGO
+/**BORRAR JUEGO*/
 void sudoku::on_borrarJuego_clicked(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -140,22 +143,22 @@ void sudoku::on_borrarJuego_clicked(){
         }
     }
 }
-//SALIR
+/**SALIR*/
 void sudoku::on_salir_clicked(){
     this->close();
 }
-//JUEGO NUEVO
+/**JUEGO NUEVO*/
 void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
 
-    //Semilla del aleatorio
+    /**Semilla del aleatorio*/
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
 
-    QString niveles = ui->textNivel->text();
-    if(niveles == "Juvenil"){//MODO JUVENIL(FACIL)}
+
+    if(ui->comboBox->currentText() == "Juvenil"){
         k=0;
         valores = plantilla1.split(",");
 
@@ -175,7 +178,8 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Profesional"){//MODO PROFESIONAL(MEDIO)
+     /**MODO PROFESIONAL(MEDIO)*/
+    }else if(ui->comboBox->currentText() == "Profesional"){
         k=0;
         valores = plantilla2.split(",");
 
@@ -194,7 +198,8 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Experto"){//MODO EXPERTO(DIFICIL)
+        /**MODO EXPERTO(DIFICIL)*/
+    }else if(ui->comboBox->currentText() == "Experto"){
         k=0;
         valores = plantilla3.split(",");
 
@@ -215,14 +220,13 @@ void sudoku::on_nuevoJuego_clicked(){
         }
     }
 }
-//RESOLVER JUEGO
+/**RESOLVER JUEGO*/
 void sudoku::on_resolverJuego_clicked(){
     int i=0, j=0, k=0;
     QStringList  valores;
 
-    QString niveles = ui->textNivel->text();
     k=0;
-    if(niveles == "Juvenil"){
+    if(ui->comboBox->currentText() == "Juvenil"){
         valores = plantilla1.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -234,7 +238,7 @@ void sudoku::on_resolverJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Profesional"){
+    }else if(ui->comboBox->currentText() == "Profesional"){
         valores = plantilla2.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -246,7 +250,7 @@ void sudoku::on_resolverJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Experto"){
+    }else if(ui->comboBox->currentText() == "Experto"){
         valores = plantilla3.split(",");
         for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
@@ -260,7 +264,7 @@ void sudoku::on_resolverJuego_clicked(){
         }
     }
 }
-//CARGAR JUEGO
+/**CARGAR JUEGO*/
 void sudoku::on_cargarJuego_clicked(){
 
     CargarSudoku *cargarJuego = new CargarSudoku(this);
@@ -284,72 +288,24 @@ void sudoku::on_cargarJuego_clicked(){
         nomJugador = valores[0];
         nivelC = valores[1];
         datosSudoku = valores[2];
-        if(ui->textNivel->text() == nivelC)
-            comboB->addItem(nomJugador);
+        comboB->addItem(nomJugador);
         cont++;
     }
 
     this->close();
-    QString jugador = ui->textJugador->text(), level = ui->textNivel->text();
-    cargarJuego->setCombo(comboB, cont,jugador, level);
+    cargarJuego->setCombo(comboB, cont);
     cargarJuego->show();
-}
-
-
-/**ENCRIPTAR LA PARTIDA DE SUDOKU*/
-void sudoku::encriptarS(){
-    int i = 0, j = 0, cont = 33, num1 = 0, numT = 0;
-
-    for(i=0; i<9; i++){
-        for(j=0; j<9; j++){
-            num1 = (matrizGuardar[i][j].toInt()) * (matrizGuardar[i][j].toInt());
-
-            if((matrizGuardar[i][j].toInt() % 2) == 0)     numT = (num1 / 2) + cont;
-            else       numT = num1 + cont;
-
-            matrizGuardar[i][j].setNum(numT);
-        }
-    }
 }
 /**GUARDAR JUEGO*/
 void sudoku::on_guardarJuego_clicked(){
-    QString nomJugador = ui->textJugador->text();
-    QString nivel= ui->textNivel->text();
-    QString info = "";
 
-    //Actualizar la matriz
+    GuardarSudoku *guardarJuego = new GuardarSudoku();
+    QString sd = ui->comboBox->currentText();
+    /**Actualizar la matriz*/
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
     }
-
-    encriptarS();
-    for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                info = info+matrizGuardar[i][j]+",";
-            }
-    }
-    QString mFilemane = "guardar.txt";
-    QFile mFile(mFilemane);
-    mFile.open(QIODevice::Text | QIODevice::Append);
-    if(!mFile.isOpen()){return;}
-    QTextStream txtstr(&mFile);
-    txtstr << nomJugador+"/"+nivel+"/"+info+"\n";
-    mFile.flush();
-    mFile.close();
-
-    QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nEl nombre del jugador :"+nomJugador.toUpper(),"ACEPTAR");
-    this->close();
+    guardarJuego->setStr(sd, matrizGuardar);
+    guardarJuego->show();
 }
-
-/**Funcion de enviar nombre y nivel*/
-void sudoku::obtenerNombreNivel(QString nivel, QString nombre){
-    nivelSudoku = nivel;
-    nombreJugador = nombre;
-    
-    ui->textJugador->setText(nombre);
-    ui->textJugador->setEnabled(false);
-    ui->textNivel->setText(nivel);
-    ui->textNivel->setEnabled(false);
-}
-
 

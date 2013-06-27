@@ -20,8 +20,7 @@ class sudoku : public QMainWindow
 public:
     explicit sudoku(QWidget *parent = 0);
     ~sudoku();
-    void setCargar(QString datos, QString nivel,QString nombre);
-    void obtenerNombreNivel(QString nivel, QString nombre);
+    void setCargar(QString datos, QString nivel);
 
 
 private slots:
@@ -35,7 +34,6 @@ private slots:
     void on_guardarJuego_clicked();
     void on_cargarJuego_clicked();
     void on_salir_clicked();
-    void encriptarS();
 
 private:
     void initGui();
@@ -49,10 +47,8 @@ private:
     //QComboBox *cb;
     QComboBox *comboB = new QComboBox();
     QString datosCargados ="";
-    QString nivelSudoku;
-    QString nombreJugador;
 
 };
 
-#endif // SUDOKU_H
+#endif /**SUDOKU_H*/
 
