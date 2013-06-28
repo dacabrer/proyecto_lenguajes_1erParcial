@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>iconos/Fondo1.png</file>
+        <file>iconos/Fondo2.png</file>
+        <file>iconos/Fondo3.png</file>
+        <file>iconos/play.png</file>
+        <file>iconos/sudoku.gif</file>
+        <file>iconos/Cargar.png</file>
+        <file>iconos/Comprobar.png</file>
+        <file>iconos/Comprobar1.png</file>
+        <file>iconos/Guardar.png</file>
+        <file>iconos/Solucion.png</file>
+        <file>iconos/user.png</file>
+        <file>iconos/user2.png</file>
+        <file>iconos/borrar.png</file>
+        <file>iconos/salir.png</file>
+        <file>iconos/giu.gif</file>
+        <file>iconos/volver.png</file>
+        <file>iconos/SUDOKU1.gif</file>
+        <file>iconos/sudoku2.gif</file>
+        <file>iconos/nvwGnE1372409590.gif</file>
+        <file>iconos/Fondo4.png</file>
+    </qresource>
+</RCC>

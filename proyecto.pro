@@ -24,3 +24,6 @@ HEADERS  += sudoku.h \
 FORMS    += sudoku.ui \
     ventanaprincipal.ui \
     cargarsudoku.ui
+
+RESOURCES += \
+    Image.qrc
