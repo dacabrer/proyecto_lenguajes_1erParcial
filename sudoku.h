@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QTime>
 #include <QTimer>
+#include <QWidget>
 
 namespace Ui {
 class sudoku;
@@ -19,7 +20,7 @@ class sudoku : public QMainWindow
 {
     Q_OBJECT
     class QTimer *timer;
-    
+
 public:
     explicit sudoku(QWidget *parent = 0);
     ~sudoku();
@@ -40,7 +41,7 @@ private slots:
     void on_salir_clicked();
     void encriptarS();
     void update();
-
+    void correccionInGame();
 private:
     void initGui();
     Ui::sudoku *ui;
