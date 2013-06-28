@@ -8,7 +8,7 @@
 #include <QString>
 #include <QTextStream>
 #include <QComboBox>
-#include <sudoku.h>
+#include "sudoku.h"
 
 
 

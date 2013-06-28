@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include <sudoku.h>
+#include "sudoku.h"
 #include <QMessageBox>
 
 namespace Ui {

@@ -1,6 +1,6 @@
 #include "cargarsudoku.h"
 #include "ui_cargarsudoku.h"
-#include <sudoku.h>
+#include "sudoku.h"
 
 CargarSudoku::CargarSudoku(QWidget *parent) :
     QMainWindow(parent),
