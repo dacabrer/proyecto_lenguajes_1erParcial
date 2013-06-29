@@ -23,7 +23,7 @@ void CargarSudoku::setCombo(QComboBox *comboC, int cont, QString nombreJ, QStrin
 }
 void CargarSudoku::on_bcargarCargarJuego_clicked(){
     QStringList  valores;
-    QString nomJugador, nivelC, datosSudoku, datos;
+    QString nomJugador, nivelC, cronometro, datosSudoku, datos;
 
     QString mFilemane = "guardar.txt";
     QFile mFile(mFilemane);
@@ -39,13 +39,14 @@ void CargarSudoku::on_bcargarCargarJuego_clicked(){
         valores = datosSudoku.split("/");
         nomJugador = valores[0];
         nivelC = valores[1];
-        datosSudoku = valores[2];
+        cronometro = valores[2];
+        datosSudoku = valores[3];
 
         if(nomJugador == ui->comboBoxCargar->currentText())
          {   datos = datosSudoku; }
     }this->close();
     sudoku *sdk = new sudoku();
-    sdk->setCargar(datos,nivelC,nombreJugador);
+    sdk->setCargar(datos,nivelC,cronometro, nombreJugador);
 
 }
 

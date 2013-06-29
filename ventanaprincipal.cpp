@@ -47,8 +47,40 @@ void VentanaPrincipal::tiempoFuera(){
 }
 
 void VentanaPrincipal::on_bEntrar_clicked(){
+    QStringList  valores;
+
+    QString nomJugador, nivelC, crono, datosSudoku;
+    QString mFilemane = "guardar.txt";
+    QFile mFile(mFilemane);
+    mFile.open(QIODevice::Text | QIODevice::ReadOnly);
+    if(!mFile.isOpen()){return;}
+    QTextStream txtstr(&mFile);
+    int cont=0;
+    int bandera=0;
+
+    while(!txtstr.atEnd()){
+        datosSudoku = txtstr.readLine();
+        mFile.flush();
+        mFile.close();
+
+        valores = datosSudoku.split("/");
+        nomJugador = valores[0];
+        nivelC = valores[1];
+        crono = valores[2];
+        datosSudoku = valores[3];
+        if(ui->nombreJug->displayText() == nomJugador){
+            bandera =1;
+            break;
+        }
+        cont++;
+    }
+
+
     if(ui->nombreJug->text() == ""){
         QMessageBox::information(this, "ERROR", "Por favor agregue el\nnombre del JUGADOR","ACEPTAR");
+    }else if (bandera == 1){
+        QMessageBox::information(this, "ERROR", "Por favor ingrese otro \nnombre de JUGADOR","ACEPTAR");
+        ui->nombreJug->setText("");
     }else
         timer->start(30);
 }

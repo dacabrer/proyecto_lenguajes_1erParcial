@@ -72,7 +72,8 @@ void sudoku::update(){
       }
 }
 
-void sudoku::setCargar(QString datos, QString nivel, QString nombre){
+void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString nombre){
+   QStringList  valor;
    datosCargados = datos;
    QStringList  valores;
    int i,j,k=0;
@@ -102,6 +103,26 @@ void sudoku::setCargar(QString datos, QString nivel, QString nombre){
    ui->textJugador->setEnabled(false);
    ui->textNivel->setText(nivel);
    ui->textNivel->setEnabled(false);
+
+
+   valor = cronometro.split(":");
+   int min=valor[0].toInt(), segundos = valor[1].toInt(), milisegundos = valor[2].toInt();
+
+
+   ui->lcdmin->display(valor[0]);
+   ui->lcdseg->display(valor[1]);
+   ui->lcdmsg->display(valor[2]);
+
+   milisegundos++;
+   if(segundos <  60){
+       if(milisegundos >= 100){
+           milisegundos = 0;
+           segundos++;
+       }
+   }else{
+       segundos=0;
+       min++;
+   }
    this->show();
 }
 
@@ -320,7 +341,8 @@ void sudoku::on_cargarJuego_clicked(){
     CargarSudoku *cargarJuego = new CargarSudoku(this);
     QStringList  valores;
 
-    QString nomJugador, nivelC, datosSudoku;
+    //QString nomJugador, nivelC, datosSudoku;
+    QString nomJugador, nivelC, crono, datosSudoku;
 
     QString mFilemane = "guardar.txt";
     QFile mFile(mFilemane);
@@ -337,7 +359,8 @@ void sudoku::on_cargarJuego_clicked(){
         valores = datosSudoku.split("/");
         nomJugador = valores[0];
         nivelC = valores[1];
-        datosSudoku = valores[2];
+        crono = valores[2];
+        datosSudoku = valores[3];
         if(ui->textNivel->text() == nivelC){
             comboB->addItem(nomJugador);
         }
@@ -370,9 +393,10 @@ void sudoku::on_guardarJuego_clicked(){
     timer->stop();
     QString nomJugador = ui->textJugador->text();
     QString nivel= ui->textNivel->text();
-    int min = ui->lcdmin->intValue();
-    int seg = ui->lcdmin->intValue();
-    int miliseg = ui->lcdmin->intValue();
+    QString sMin = QString::number(ui->lcdmin->intValue());
+    QString sSeg = QString::number(ui->lcdseg->intValue());
+    QString sMiliseg = QString::number(ui->lcdmsg->intValue());
+
     QString info = "";
 
     //Actualizar la matriz
@@ -391,7 +415,8 @@ void sudoku::on_guardarJuego_clicked(){
     mFile.open(QIODevice::Text | QIODevice::Append);
     if(!mFile.isOpen()){return;}
     QTextStream txtstr(&mFile);
-    txtstr << nomJugador+"/"+nivel+"/"+info+"\n";
+   // txtstr << nomJugador+"/"+nivel+"/"+info+"\n";
+   txtstr << nomJugador+"/"+nivel+"/"+sMin+":"+sSeg+":"+sMiliseg+"/"+info+"\n";
     mFile.flush();
     mFile.close();
 

@@ -24,7 +24,7 @@ class sudoku : public QMainWindow
 public:
     explicit sudoku(QWidget *parent = 0);
     ~sudoku();
-    void setCargar(QString datos, QString nivel,QString nombre);
+    void setCargar(QString datos, QString nivel,QString cronometro, QString nombre);
     void obtenerNombreNivel(QString nivel, QString nombre);
 
 
