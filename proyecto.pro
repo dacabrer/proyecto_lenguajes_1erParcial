@@ -15,15 +15,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         sudoku.cpp \
     ventanaprincipal.cpp \
-    cargarsudoku.cpp
+    cargarsudoku.cpp \
+    puntajes.cpp
 
 HEADERS  += sudoku.h \
     ventanaprincipal.h \
-    cargarsudoku.h
+    cargarsudoku.h \
+    puntajes.h
 
 FORMS    += sudoku.ui \
     ventanaprincipal.ui \
-    cargarsudoku.ui
+    cargarsudoku.ui \
+    puntajes.ui
 
 RESOURCES += \
     Image.qrc

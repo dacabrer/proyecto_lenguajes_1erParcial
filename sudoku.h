@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 #include "cargarsudoku.h"
-#include "guardarsudoku.h"
-#include "cargarsudoku.h"
 #include <QTextEdit>
 #include <QMessageBox>
 #include <QComboBox>
@@ -51,12 +49,12 @@ private:
     static const QString plantilla2;
     static const QString plantilla3;
     QString matrizGuardar[9][9];
-    //QComboBox *cb;
 
     QString datosCargados;
     QString nivelSudoku;
     QString nombreJugador;
 
+    double miliseg = 0, seg = 0, min = 0;
 };
 
 #endif // SUDOKU_H

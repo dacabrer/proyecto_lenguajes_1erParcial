@@ -59,7 +59,6 @@ void VentanaPrincipal::on_bEntrar_clicked(){
         mFile.open(QIODevice::Text | QIODevice::ReadOnly);
         if(!mFile.isOpen()){return;}
         QTextStream txtstr(&mFile);
-        int cont=0;
 
         while(!txtstr.atEnd()){
             datosSudoku = txtstr.readLine();
@@ -75,21 +74,25 @@ void VentanaPrincipal::on_bEntrar_clicked(){
                 bandera =1;
                 break;
             }
-            cont++;
         }
     }
 
 
     if(ui->nombreJug->text() == ""){
-        QMessageBox::information(this, "ERROR", "Por favor agregue el\nnombre del JUGADOR","ACEPTAR");
+        QMessageBox::information(this, "MENSAJE", "Por favor agregue el\nnombre del JUGADOR","ACEPTAR");
     }else if (bandera == 1){
-        QMessageBox::information(this, "ERROR", "Por favor ingrese otro \nnombre de JUGADOR","ACEPTAR");
+        QMessageBox::information(this, "MENSAJE", "Por favor ingrese otro \nnombre de JUGADOR","ACEPTAR");
         ui->nombreJug->setText("");
     }else
         timer->start(30);
 }
 
-void VentanaPrincipal::on_bPuntajes_clicked()
-{
+void VentanaPrincipal::on_bPuntajes_clicked(){
+   //Cierro la Ventana Principal
+    this->close();
 
+    //Llamo a la Ventana de PUNTAJES
+    Puntajes *puntajes = new Puntajes();
+    puntajes->show();
+    puntajes->setPuntajes();
 }

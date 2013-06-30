@@ -35,17 +35,12 @@ void sudoku::initGui(){
     }
 }
 //funcion que valida numeros ingresados
-void sudoku::correccionInGame()
-{
+void sudoku::correccionInGame(){
  QTextEdit *numberTextTemp = ( QTextEdit *) sender();
 
  long inputNumber = numberTextTemp->toPlainText().toLong();
-
-
-
-
  if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
-   QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
+     QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
      numberTextTemp->setText("");
   }
 
@@ -55,11 +50,10 @@ void sudoku::correccionInGame()
 
 /*Actualizar Cronometro*/
 void sudoku::update(){
-      static double miliseg = 0, seg = 0, min = 0;
+
       ui->lcdseg->display(seg);
       ui->lcdmsg->display(miliseg);
       ui->lcdmin->display(min);
-      //ui->lcdmsg->setc
       miliseg++;
       if(seg <  60){
           if(miliseg >= 100){
@@ -91,7 +85,7 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
                }else{
                    opera = sqrt(2*(valores[k].toDouble()-cont));
                }
-               numbertext[i][j]->setTextColor(Qt::red);
+               numbertext[i][j]->setTextColor(Qt::blue);
                numbertext[i][j]->setText(QString::number(opera));
                numbertext[i][j]->setDisabled(true);
            }
@@ -106,23 +100,12 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
 
 
    valor = cronometro.split(":");
-   int min=valor[0].toInt(), segundos = valor[1].toInt(), milisegundos = valor[2].toInt();
+   int minutos=valor[0].toDouble(), segundos = valor[1].toDouble(), milisegundos = valor[2].toDouble();
+   min = minutos;
+   seg = segundos;
+   miliseg = milisegundos;
 
-
-   ui->lcdmin->display(valor[0]);
-   ui->lcdseg->display(valor[1]);
-   ui->lcdmsg->display(valor[2]);
-
-   milisegundos++;
-   if(segundos <  60){
-       if(milisegundos >= 100){
-           milisegundos = 0;
-           segundos++;
-       }
-   }else{
-       segundos=0;
-       min++;
-   }
+   timer->start(10);
    this->show();
 }
 
@@ -234,7 +217,7 @@ void sudoku::on_nuevoJuego_clicked(){
             for(j = 0; j < 9; j++){
                 aleatorio = rand() % 10;
                 if (aleatorio <= 6){
-                    numbertext[i][j]->setTextColor(Qt::red);
+                    numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setDisabled(true);
                 }else{
@@ -273,7 +256,7 @@ void sudoku::on_nuevoJuego_clicked(){
             for(j = 0; j < 9; j++){
                 aleatorio = rand() % 10;
                 if (aleatorio <= 2){
-                    numbertext[i][j]->setTextColor(Qt::red);
+                    numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setDisabled(true);
                 }else{
@@ -285,7 +268,6 @@ void sudoku::on_nuevoJuego_clicked(){
             }
         }
     }
-
     //Comenzar el cronometro
     timer->start(10);
 }
@@ -334,7 +316,7 @@ void sudoku::on_resolverJuego_clicked(){
         }
     }
 }
-//CARGAR JUEGO
+/**CARGAR JUEGO*/
 void sudoku::on_cargarJuego_clicked(){
 
     QComboBox *comboB = new QComboBox();
