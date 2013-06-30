@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.20)  22 JUN 2013 05:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.29)  30 JUN 2013 05:31
 entering extended mode
 **Manual.tex
-(C:\Users\diegoc\Documents\Manual\Manual.tex
+("C:\Users\diegoc\Documents\Manual de Usuario\Manual.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -463,20 +463,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
-(C:\Users\diegoc\Documents\Manual\Manual.aux
-(C:\Users\diegoc\Documents\Manual\SudokuApp/Inicio.aux
-
-LaTeX Warning: Label `Inicio' multiply defined.
-
-) (C:\Users\diegoc\Documents\Manual\SudokuApp/Controles.aux)
-(C:\Users\diegoc\Documents\Manual\SudokuApp/JugandoSudoku.aux
-
-LaTeX Warning: Label `ImagenPendiente' multiply defined.
-
-
-LaTeX Warning: Label `ImagenPendiente' multiply defined.
-
-))
+("C:\Users\diegoc\Documents\Manual de Usuario\Manual.aux"
+("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Reglas.aux")
+("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Simulador.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
@@ -540,8 +529,8 @@ LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
 
-(C:\Users\diegoc\Documents\Manual\Manual.out)
-(C:\Users\diegoc\Documents\Manual\Manual.out)
+("C:\Users\diegoc\Documents\Manual de Usuario\Manual.out")
+("C:\Users\diegoc\Documents\Manual de Usuario\Manual.out")
 \@outlinefile=\write3
 LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 
@@ -556,13 +545,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\diegoc\Documents\Manual\Manual.toc)
+("C:\Users\diegoc\Documents\Manual de Usuario\Manual.toc")
 \tf@toc=\write4
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 \chapter
+l.25 \chapter
              {Derechos del Autor} [1
 
 ]
@@ -572,12 +561,12 @@ Cap\'{\i }tulo 1.
 ]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+Underfull \hbox (badness 10000) in paragraph at lines 31--34
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+Underfull \hbox (badness 10000) in paragraph at lines 31--34
 
  []
 
@@ -589,191 +578,339 @@ Cap\'{\i }tulo 3.
 
 ]
 Cap\'{\i }tulo 4.
+[5
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+] ("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Reglas.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-<./imagenes/Reglas.png, id=79, 388.45125pt x 356.33125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+<./imagenes/Reglas.png, id=73, 388.45125pt x 356.33125pt>
 File: ./imagenes/Reglas.png Graphic file (type png)
 
 <use ./imagenes/Reglas.png>
-Package pdftex.def Info: ./imagenes/Reglas.png used on input line 42.
+Package pdftex.def Info: ./imagenes/Reglas.png used on input line 27.
 (pdftex.def)             Requested size: 209.12683pt x 191.83966pt.
- [5
+) [6
 
- <C:/Users/diegoc/Documents/Manual/imagenes/Reglas.png>]
-Cap\'{\i }tulo 5.
-[6
+ <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Reglas.png>]
+("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Simulador.tex"
+<./imagenes/Inicio1.png, id=83, 523.9575pt x 405.01312pt>
+File: ./imagenes/Inicio1.png Graphic file (type png)
 
-] (C:\Users\diegoc\Documents\Manual\SudokuApp/Inicio.tex
-<./imagenes/Inicio.png, id=91, 511.9125pt x 286.06876pt>
-File: ./imagenes/Inicio.png Graphic file (type png)
+<use ./imagenes/Inicio1.png>
+Package pdftex.def Info: ./imagenes/Inicio1.png used on input line 6.
+(pdftex.def)             Requested size: 292.77629pt x 226.31757pt.
 
-<use ./imagenes/Inicio.png>
-Package pdftex.def Info: ./imagenes/Inicio.png used on input line 7.
-(pdftex.def)             Requested size: 250.95476pt x 140.24039pt.
+<./imagenes/Inicio4.png, id=85, 506.6428pt x 198.7425pt>
+File: ./imagenes/Inicio4.png Graphic file (type png)
 
-<./imagenes/Menu.png, id=92, 521.69907pt x 405.76593pt>
-File: ./imagenes/Menu.png Graphic file (type png)
+<use ./imagenes/Inicio4.png>
+Package pdftex.def Info: ./imagenes/Inicio4.png used on input line 16.
+(pdftex.def)             Requested size: 250.95476pt x 98.44302pt.
 
-<use ./imagenes/Menu.png>
-Package pdftex.def Info: ./imagenes/Menu.png used on input line 17.
-(pdftex.def)             Requested size: 250.95476pt x 195.18645pt.
-) [7
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
- <C:/Users/diegoc/Documents/Manual/imagenes/Inicio.png (PNG copy)> <C:/Users/di
-egoc/Documents/Manual/imagenes/Menu.png (PNG copy)>] (C:\Users\diegoc\Documents
-\Manual\SudokuApp/Controles.tex
-<./imagenes/Controles.png, id=101, 128.73094pt x 171.64125pt>
+ []
+
+[7
+
+
+ <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Inicio1.png> <C:/Users/d
+iegoc/Documents/Manual de Usuario/imagenes/Inicio4.png>]
+<./imagenes/Controles.png, id=94, 450.18187pt x 223.58531pt>
 File: ./imagenes/Controles.png Graphic file (type png)
 
 <use ./imagenes/Controles.png>
-Package pdftex.def Info: ./imagenes/Controles.png used on input line 5.
-(pdftex.def)             Requested size: 167.2989pt x 223.0838pt.
- [8
+Package pdftex.def Info: ./imagenes/Controles.png used on input line 27.
+(pdftex.def)             Requested size: 250.95476pt x 124.63716pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+
+ []
+
+<./imagenes/ErrorNoJugador.png, id=95, 449.42906pt x 249.18094pt>
+File: ./imagenes/ErrorNoJugador.png Graphic file (type png)
+
+<use ./imagenes/ErrorNoJugador.png>
+Package pdftex.def Info: ./imagenes/ErrorNoJugador.png used on input line 38.
+(pdftex.def)             Requested size: 250.95476pt x 139.13733pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
+
+ []
 
 
- <C:/Users/diegoc/Documents/Manual/imagenes/Controles.png>] <./imagenes/Nivel.p
-ng, id=109, 39.7485pt x 18.7902pt>
-File: ./imagenes/Nivel.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
-<use ./imagenes/Nivel.png>
-Package pdftex.def Info: ./imagenes/Nivel.png used on input line 58.
-(pdftex.def)             Requested size: 83.64944pt x 39.54944pt.
-
-<./imagenes/SeleccionMenu.png, id=110, 32.0397pt x 11.3223pt>
-File: ./imagenes/SeleccionMenu.png Graphic file (type png)
-
-<use ./imagenes/SeleccionMenu.png>
-Package pdftex.def Info: ./imagenes/SeleccionMenu.png used on input line 70.
-(pdftex.def)             Requested size: 62.73549pt x 22.16994pt.
-
-<./imagenes/SeleccionAcerca.png, id=111, 28.6671pt x 10.1178pt>
-File: ./imagenes/SeleccionAcerca.png Graphic file (type png)
-
-<use ./imagenes/SeleccionAcerca.png>
-Package pdftex.def Info: ./imagenes/SeleccionAcerca.png used on input line 78.
-(pdftex.def)             Requested size: 62.73549pt x 22.14418pt.
-) [9 <C:/Users/diegoc/Documents/Manual/imagenes/Nivel.png (PNG copy)> <C:/Users
-/diegoc/Documents/Manual/imagenes/SeleccionMenu.png> <C:/Users/diegoc/Documents
-/Manual/imagenes/SeleccionAcerca.png>]
-(C:\Users\diegoc\Documents\Manual\SudokuApp/JugandoSudoku.tex
-<./imagenes/Tabla.png, id=121, 335.75438pt x 312.41719pt>
-File: ./imagenes/Tabla.png Graphic file (type png)
-
-<use ./imagenes/Tabla.png>
-Package pdftex.def Info: ./imagenes/Tabla.png used on input line 7.
-(pdftex.def)             Requested size: 175.66577pt x 163.45418pt.
-
-<./imagenes/Tabla1.png, id=122, 338.76563pt x 315.42844pt>
-File: ./imagenes/Tabla1.png Graphic file (type png)
-
-<use ./imagenes/Tabla1.png>
-Package pdftex.def Info: ./imagenes/Tabla1.png used on input line 19.
-(pdftex.def)             Requested size: 175.66577pt x 163.57129pt.
- [10
+ []
 
 
- <C:/Users/diegoc/Documents/Manual/imagenes/Tabla.png> <C:/Users/diegoc/Documen
-ts/Manual/imagenes/Tabla1.png>]
-<./imagenes/NoDisponible.png, id=129, 259.97125pt x 194.7275pt>
-File: ./imagenes/NoDisponible.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
-<use ./imagenes/NoDisponible.png>
-Package pdftex.def Info: ./imagenes/NoDisponible.png used on input line 40.
-(pdftex.def)             Requested size: 250.95476pt x 187.97324pt.
+ []
 
-<./imagenes/JuegoResuelto.png, id=130, 336.50719pt x 319.1925pt>
+[8 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Controles.png> <C:/Use
+rs/diegoc/Documents/Manual de Usuario/imagenes/ErrorNoJugador.png>]
+<./imagenes/Puntajes3.png, id=104, 523.9575pt x 405.01312pt>
+File: ./imagenes/Puntajes3.png Graphic file (type png)
+
+<use ./imagenes/Puntajes3.png>
+Package pdftex.def Info: ./imagenes/Puntajes3.png used on input line 49.
+(pdftex.def)             Requested size: 167.2989pt x 129.31638pt.
+
+<./imagenes/Regresar.png, id=105, 276.28218pt x 61.73062pt>
+File: ./imagenes/Regresar.png Graphic file (type png)
+
+<use ./imagenes/Regresar.png>
+Package pdftex.def Info: ./imagenes/Regresar.png used on input line 59.
+(pdftex.def)             Requested size: 167.2989pt x 37.37962pt.
+
+<./imagenes/Puntajes2.png, id=106, 130.23656pt x 93.34875pt>
+File: ./imagenes/Puntajes2.png Graphic file (type png)
+
+<use ./imagenes/Puntajes2.png>
+Package pdftex.def Info: ./imagenes/Puntajes2.png used on input line 69.
+(pdftex.def)             Requested size: 83.64944pt x 59.95663pt.
+
+<./imagenes/Sudoku.png, id=107, 523.9575pt x 405.01312pt>
+File: ./imagenes/Sudoku.png Graphic file (type png)
+
+<use ./imagenes/Sudoku.png>
+Package pdftex.def Info: ./imagenes/Sudoku.png used on input line 82.
+(pdftex.def)             Requested size: 146.39133pt x 113.15569pt.
+ [9 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Puntajes3.png> <C:/Us
+ers/diegoc/Documents/Manual de Usuario/imagenes/Regresar.png> <C:/Users/diegoc/
+Documents/Manual de Usuario/imagenes/Puntajes2.png>] <./imagenes/Panel.png, id=
+115, 484.81125pt x 158.09062pt>
+File: ./imagenes/Panel.png Graphic file (type png)
+
+<use ./imagenes/Panel.png>
+Package pdftex.def Info: ./imagenes/Panel.png used on input line 92.
+(pdftex.def)             Requested size: 146.39133pt x 47.73631pt.
+
+<./imagenes/Controles1.png, id=116, 402.00188pt x 185.94469pt>
+File: ./imagenes/Controles1.png Graphic file (type png)
+
+<use ./imagenes/Controles1.png>
+Package pdftex.def Info: ./imagenes/Controles1.png used on input line 102.
+(pdftex.def)             Requested size: 167.2989pt x 77.38123pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+[10 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Sudoku.png> <C:/Users
+/diegoc/Documents/Manual de Usuario/imagenes/Panel.png> <C:/Users/diegoc/Docume
+nts/Manual de Usuario/imagenes/Controles1.png>]
+<./imagenes/Tablero.png, id=127, 523.9575pt x 405.01312pt>
+File: ./imagenes/Tablero.png Graphic file (type png)
+
+<use ./imagenes/Tablero.png>
+Package pdftex.def Info: ./imagenes/Tablero.png used on input line 112.
+(pdftex.def)             Requested size: 209.12683pt x 161.6501pt.
+
+<./imagenes/Tablero1.png, id=128, 523.9575pt x 405.01312pt>
+File: ./imagenes/Tablero1.png Graphic file (type png)
+
+<use ./imagenes/Tablero1.png>
+Package pdftex.def Info: ./imagenes/Tablero1.png used on input line 122.
+(pdftex.def)             Requested size: 209.12683pt x 161.6501pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
+
+ []
+
+[11 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Tablero.png> <C:/User
+s/diegoc/Documents/Manual de Usuario/imagenes/Tablero1.png>]
+<./imagenes/SudokuNo.png, id=137, 523.9575pt x 405.01312pt>
+File: ./imagenes/SudokuNo.png Graphic file (type png)
+
+<use ./imagenes/SudokuNo.png>
+Package pdftex.def Info: ./imagenes/SudokuNo.png used on input line 133.
+(pdftex.def)             Requested size: 209.12683pt x 161.6501pt.
+
+<./imagenes/SudokuSi.png, id=138, 523.9575pt x 405.01312pt>
+File: ./imagenes/SudokuSi.png Graphic file (type png)
+
+<use ./imagenes/SudokuSi.png>
+Package pdftex.def Info: ./imagenes/SudokuSi.png used on input line 141.
+(pdftex.def)             Requested size: 209.12683pt x 161.6501pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+[12 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/SudokuNo.png> <C:/Use
+rs/diegoc/Documents/Manual de Usuario/imagenes/SudokuSi.png>]
+<./imagenes/Controles2.png, id=148, 387.69844pt x 239.39438pt>
+File: ./imagenes/Controles2.png Graphic file (type png)
+
+<use ./imagenes/Controles2.png>
+Package pdftex.def Info: ./imagenes/Controles2.png used on input line 152.
+(pdftex.def)             Requested size: 250.95476pt x 154.9616pt.
+
+<./imagenes/Guardar.png, id=149, 175.40532pt x 100.87688pt>
+File: ./imagenes/Guardar.png Graphic file (type png)
+
+<use ./imagenes/Guardar.png>
+Package pdftex.def Info: ./imagenes/Guardar.png used on input line 163.
+(pdftex.def)             Requested size: 167.2989pt x 96.22191pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
+
+ []
+
+[13 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/Controles2.png> <C:/U
+sers/diegoc/Documents/Manual de Usuario/imagenes/Guardar.png>]
+<./imagenes/MenuCargar.png, id=158, 516.42938pt x 383.18156pt>
+File: ./imagenes/MenuCargar.png Graphic file (type png)
+
+<use ./imagenes/MenuCargar.png>
+Package pdftex.def Info: ./imagenes/MenuCargar.png used on input line 175.
+(pdftex.def)             Requested size: 209.12683pt x 155.17014pt.
+
+<./imagenes/Controles3.png, id=159, 377.15906pt x 252.945pt>
+File: ./imagenes/Controles3.png Graphic file (type png)
+
+<use ./imagenes/Controles3.png>
+Package pdftex.def Info: ./imagenes/Controles3.png used on input line 185.
+(pdftex.def)             Requested size: 209.12683pt x 140.25104pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+[14 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/MenuCargar.png> <C:/U
+sers/diegoc/Documents/Manual de Usuario/imagenes/Controles3.png>]
+<./imagenes/JuegoResuelto.png, id=168, 523.9575pt x 405.01312pt>
 File: ./imagenes/JuegoResuelto.png Graphic file (type png)
 
 <use ./imagenes/JuegoResuelto.png>
-Package pdftex.def Info: ./imagenes/JuegoResuelto.png used on input line 55.
-(pdftex.def)             Requested size: 209.12683pt x 198.36974pt.
-File: ./imagenes/NoDisponible.png Graphic file (type png)
- <use ./imagenes/NoDisponible.png>
-Package pdftex.def Info: ./imagenes/NoDisponible.png used on input line 65.
-(pdftex.def)             Requested size: 209.12683pt x 156.64386pt.
- [11 <C:/Users/diegoc/Documents/Manual/imagenes/NoDisponible.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Package pdftex.def Info: ./imagenes/JuegoResuelto.png used on input line 195.
+(pdftex.def)             Requested size: 209.12683pt x 161.6501pt.
 
- []
+<./imagenes/SeleccionMenu.png, id=169, 386.94562pt x 92.59593pt>
+File: ./imagenes/SeleccionMenu.png Graphic file (type png)
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
+<use ./imagenes/SeleccionMenu.png>
+Package pdftex.def Info: ./imagenes/SeleccionMenu.png used on input line 205.
+(pdftex.def)             Requested size: 209.12683pt x 50.04485pt.
+) [15 <C:/Users/diegoc/Documents/Manual de Usuario/imagenes/JuegoResuelto.png> 
+<C:/Users/diegoc/Documents/Manual de Usuario/imagenes/SeleccionMenu.png>]
+Cap\'{\i }tulo 5.
+[16
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-[12 <C:/Users/diegoc/Documents/Manual/imagenes/JuegoResuelto.png>]
-File: ./imagenes/NoDisponible.png Graphic file (type png)
-
-<use ./imagenes/NoDisponible.png>
-Package pdftex.def Info: ./imagenes/NoDisponible.png used on input line 77.
-(pdftex.def)             Requested size: 209.12683pt x 156.64386pt.
-) [13]
+]
 Cap\'{\i }tulo 6.
-[14
 
+Underfull \hbox (badness 10000) in paragraph at lines 71--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--81
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 83.
+[17
 
 ]
-Cap\'{\i }tulo 7.
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--83
-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
-[15
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
- (C:\Users\diegoc\Documents\Manual\Manual.aux
-(C:\Users\diegoc\Documents\Manual\SudokuApp/Inicio.aux)
-(C:\Users\diegoc\Documents\Manual\SudokuApp/Controles.aux)
-(C:\Users\diegoc\Documents\Manual\SudokuApp/JugandoSudoku.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 83.
+ ("C:\Users\diegoc\Documents\Manual de Usuario\Manual.aux"
+("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Reglas.aux")
+("C:\Users\diegoc\Documents\Manual de Usuario\SudokuApp/Simulador.aux"))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
 Package rerunfilecheck Info: File `Manual.out' has not changed.
-(rerunfilecheck)             Checksum: C68863B8353F9E190FE99DF2545A4087;524.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
+(rerunfilecheck)             Checksum: 7668559CF9E3478DFCACFAD3F0B2A60C;411.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 83.
  ) 
 Here is how much of TeX's memory you used:
- 6580 strings out of 493921
- 93711 string characters out of 3147279
- 178729 words of memory out of 3000000
- 9728 multiletter control sequences out of 15000+200000
+ 6645 strings out of 493921
+ 95211 string characters out of 3147279
+ 177866 words of memory out of 3000000
+ 9781 multiletter control sequences out of 15000+200000
  17876 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,6n,30p,594b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,6n,30p,411b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\diegoc\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecbx1728.pk> <C:\Users\diegoc\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
 n\ec\dpi600\ecsl1200.pk> <C:\Users\diegoc\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
@@ -783,9 +920,9 @@ iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\diegoc\AppD
 ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\
 diegoc\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk>
 
-Output written on Manual.pdf (16 pages, 251332 bytes).
+Output written on Manual.pdf (18 pages, 1314770 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 456 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

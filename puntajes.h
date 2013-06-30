@@ -18,11 +18,12 @@ public:
     void setPuntajes();
     
 private slots:
-    void on_pushButton_clicked();
-
+    void on_pVolver_clicked();
 
 private:
     Ui::Puntajes *ui;
 };
 
 #endif // PUNTAJES_H
+
+
