@@ -1,0 +1,33 @@
+\section{Referencia del Archivo main.\-cpp}
+\label{main_8cpp}\index{main.\-cpp@{main.\-cpp}}
+{\ttfamily \#include \char`\"{}sudoku.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ventanaprincipal.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Q\-Application$>$}\\*
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$argv[$\,$])
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv[$\,$]}
+\end{DoxyParamCaption}
+)}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+\begin{DoxyCode}
+6 \{
+7     QApplication a(argc, argv);
+8     \textcolor{comment}{//a.setStyle("fusion");}
+9     VentanaPrincipal w;
+10     \textcolor{comment}{//sudoku w;}
+11     w.show();
+12     
+13     \textcolor{keywordflow}{return} a.exec();
+14 \}
+\end{DoxyCode}

@@ -1,0 +1,120 @@
+\section{Referencia de la Clase Puntajes}
+\label{class_puntajes}\index{Puntajes@{Puntajes}}
+
+
+{\ttfamily \#include $<$puntajes.\-h$>$}
+
+Diagrama de herencias de Puntajes\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_puntajes}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Puntajes} (Q\-Widget $\ast$parent=0)
+\item 
+{\bf $\sim$\-Puntajes} ()
+\item 
+void {\bf set\-Puntajes} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Puntajes@{Puntajes}!Puntajes@{Puntajes}}
+\index{Puntajes@{Puntajes}!Puntajes@{Puntajes}}
+\subsubsection[{Puntajes}]{\setlength{\rightskip}{0pt plus 5cm}Puntajes\-::\-Puntajes (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_puntajes_af2f3d4183d995328106f6ee05c05a184}
+
+\begin{DoxyCode}
+5                                   :
+6     QWidget(parent),
+7     ui(\textcolor{keyword}{new} Ui::Puntajes)
+8 \{
+9     ui->setupUi(\textcolor{keyword}{this});
+10 \}
+\end{DoxyCode}
+\index{Puntajes@{Puntajes}!$\sim$\-Puntajes@{$\sim$\-Puntajes}}
+\index{$\sim$\-Puntajes@{$\sim$\-Puntajes}!Puntajes@{Puntajes}}
+\subsubsection[{$\sim$\-Puntajes}]{\setlength{\rightskip}{0pt plus 5cm}Puntajes\-::$\sim$\-Puntajes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_puntajes_a960a1c2f5cd6398440e045326d64f385}
+
+\begin{DoxyCode}
+13 \{
+14     \textcolor{keyword}{delete} ui;
+15 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Puntajes@{Puntajes}!set\-Puntajes@{set\-Puntajes}}
+\index{set\-Puntajes@{set\-Puntajes}!Puntajes@{Puntajes}}
+\subsubsection[{set\-Puntajes}]{\setlength{\rightskip}{0pt plus 5cm}void Puntajes\-::set\-Puntajes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_puntajes_a8e0af6587afe02db1d191ca58a41b501}
+
+\begin{DoxyCode}
+17                           \{
+18     \textcolor{keywordtype}{int} bandera=0;
+19     QStringList  valores;
+20 
+21     QString nomJugador, nivelC, crono, datosSudoku;
+22     QString mFilemane = \textcolor{stringliteral}{"guardar.txt"};
+23     QFile mFile(mFilemane);
+24 
+25     \textcolor{keywordflow}{if}(mFile.exists())\{
+26 
+27         mFile.open(QIODevice::Text | QIODevice::ReadOnly);
+28         \textcolor{keywordflow}{if}(!mFile.isOpen())\{\textcolor{keywordflow}{return};\}
+29         QTextStream txtstr(&mFile);
+30 
+31         \textcolor{keywordflow}{while}(!txtstr.atEnd())\{
+32             datosSudoku = txtstr.readLine();
+33             mFile.flush();
+34             mFile.close();
+35 
+36             valores = datosSudoku.split(\textcolor{stringliteral}{"/"});
+37             nomJugador = valores[0];
+38             nivelC = valores[1];
+39             crono = valores[2];
+40             datosSudoku = valores[3];
+41 
+42             QStringList valor;
+43             valor = crono.split(\textcolor{stringliteral}{":"});
+44             \textcolor{keywordtype}{int} min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();
+45             \textcolor{keywordtype}{int} puntaje = 0;
+46             \textcolor{keywordflow}{if} (nivelC == \textcolor{stringliteral}{"Juvenil"})\{
+47                 puntaje = 90*(min+seg+mseg)/3;
+48             \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Profesional"})\{
+49                 puntaje = 90*(min+seg+mseg)/2;
+50             \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Experto"})\{
+51                 puntaje = 90*(min+seg+mseg);
+52             \}
+53             QString str = QString::number(puntaje);
+54             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+\textcolor{stringliteral}{"\(\backslash\)t"}+nivelC+\textcolor{stringliteral}{"\(\backslash\)t"}+str+\textcolor{stringliteral}{"\(\backslash\)n"});
+55             bandera = 1;
+56 
+57         \}
+58     \}
+59     \textcolor{keywordflow}{if}(bandera == 0)\{
+60         ui->textPuntajes->setDisabled(\textcolor{keyword}{true});
+61         QMessageBox::information(\textcolor{keyword}{this}, \textcolor{stringliteral}{"MENSAJE"}, \textcolor{stringliteral}{"No existe Puntajes\(\backslash\)nGuardados"},\textcolor{stringliteral}{"ACEPTAR"});
+62 
+63     \}
+64 \}
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+{\bf puntajes.\-h}\item 
+{\bf puntajes.\-cpp}\end{DoxyCompactItemize}

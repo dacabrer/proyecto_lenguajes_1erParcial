@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <ventanaprincipal.h>
 
+/**PUNTAJES_H*/
+
 namespace Ui {
 class Puntajes;
 }
@@ -24,6 +26,7 @@ private:
     Ui::Puntajes *ui;
 };
 
-#endif // PUNTAJES_H
+#endif
+
 
 

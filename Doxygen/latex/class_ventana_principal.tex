@@ -1,0 +1,90 @@
+\section{Referencia de la Clase Ventana\-Principal}
+\label{class_ventana_principal}\index{Ventana\-Principal@{Ventana\-Principal}}
+
+
+{\ttfamily \#include $<$ventanaprincipal.\-h$>$}
+
+Diagrama de herencias de Ventana\-Principal\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ventana_principal}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Ventana\-Principal} (Q\-Widget $\ast$parent=0)
+\item 
+{\bf $\sim$\-Ventana\-Principal} ()
+\end{DoxyCompactItemize}
+\subsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf change\-Event} (Q\-Event $\ast$e)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Ventana\-Principal@{Ventana\-Principal}!Ventana\-Principal@{Ventana\-Principal}}
+\index{Ventana\-Principal@{Ventana\-Principal}!VentanaPrincipal@{Ventana\-Principal}}
+\subsubsection[{Ventana\-Principal}]{\setlength{\rightskip}{0pt plus 5cm}Ventana\-Principal\-::\-Ventana\-Principal (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_ventana_principal_afc1895e635aa9cae6c2890882727f12b}
+
+\begin{DoxyCode}
+6                                                   :
+7     QMainWindow(parent),
+8     ui(\textcolor{keyword}{new} Ui::VentanaPrincipal)
+9 \{
+10     ui->setupUi(\textcolor{keyword}{this});
+11     ui->comboBox->addItem(\textcolor{stringliteral}{"Juvenil"});
+12     ui->comboBox->addItem(\textcolor{stringliteral}{"Profesional"});
+13     ui->comboBox->addItem(\textcolor{stringliteral}{"Experto"});
+14     timer = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+15 
+16     connect(timer, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(tiempoFuera()));
+17 \}
+\end{DoxyCode}
+\index{Ventana\-Principal@{Ventana\-Principal}!$\sim$\-Ventana\-Principal@{$\sim$\-Ventana\-Principal}}
+\index{$\sim$\-Ventana\-Principal@{$\sim$\-Ventana\-Principal}!VentanaPrincipal@{Ventana\-Principal}}
+\subsubsection[{$\sim$\-Ventana\-Principal}]{\setlength{\rightskip}{0pt plus 5cm}Ventana\-Principal\-::$\sim$\-Ventana\-Principal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_ventana_principal_aeeba538e11b05363e00e224649df9a0a}
+
+\begin{DoxyCode}
+19                                    \{
+20     \textcolor{keyword}{delete} ui;
+21 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Ventana\-Principal@{Ventana\-Principal}!change\-Event@{change\-Event}}
+\index{change\-Event@{change\-Event}!VentanaPrincipal@{Ventana\-Principal}}
+\subsubsection[{change\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Ventana\-Principal\-::change\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Event $\ast$}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_ventana_principal_a02cdcd90f9bfddb12cd517517f3a81c2}
+
+\begin{DoxyCode}
+23                                            \{
+24     QMainWindow::changeEvent(e);
+25     \textcolor{keywordflow}{switch} (e->type()) \{
+26     \textcolor{keywordflow}{case} QEvent::LanguageChange:
+27         ui->retranslateUi(\textcolor{keyword}{this});
+28         \textcolor{keywordflow}{break};
+29     \textcolor{keywordflow}{default}:    \textcolor{keywordflow}{break};
+30     \}
+31 \}
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+{\bf ventanaprincipal.\-h}\item 
+{\bf ventanaprincipal.\-cpp}\end{DoxyCompactItemize}

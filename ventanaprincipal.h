@@ -7,6 +7,8 @@
 #include <QMessageBox>
 #include <puntajes.h>
 
+ /**VENTANAPRINCIPAL_H*/
+
 namespace Ui {
 class VentanaPrincipal;
 }
@@ -32,4 +34,4 @@ private:
     Ui::VentanaPrincipal *ui;
 };
 
-#endif /**VENTANAPRINCIPAL_H*/
+#endif

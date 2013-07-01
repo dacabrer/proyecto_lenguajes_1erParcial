@@ -1,0 +1,57 @@
+\section{Referencia de la Clase Guardar\-Sudoku}
+\label{class_guardar_sudoku}\index{Guardar\-Sudoku@{Guardar\-Sudoku}}
+
+
+{\ttfamily \#include $<$guardarsudoku.\-h$>$}
+
+Diagrama de herencias de Guardar\-Sudoku\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_guardar_sudoku}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Guardar\-Sudoku} (Q\-Widget $\ast$parent=0)
+\item 
+{\bf $\sim$\-Guardar\-Sudoku} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Guardar\-Sudoku@{Guardar\-Sudoku}!Guardar\-Sudoku@{Guardar\-Sudoku}}
+\index{Guardar\-Sudoku@{Guardar\-Sudoku}!GuardarSudoku@{Guardar\-Sudoku}}
+\subsubsection[{Guardar\-Sudoku}]{\setlength{\rightskip}{0pt plus 5cm}Guardar\-Sudoku\-::\-Guardar\-Sudoku (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_guardar_sudoku_adbb329392a24c801db21ee589ff0b103}
+
+\begin{DoxyCode}
+6                                             :
+7     QMainWindow(parent),
+8     ui(\textcolor{keyword}{new} Ui::GuardarSudoku)
+9 \{
+10     ui->setupUi(\textcolor{keyword}{this});
+11 \}
+\end{DoxyCode}
+\index{Guardar\-Sudoku@{Guardar\-Sudoku}!$\sim$\-Guardar\-Sudoku@{$\sim$\-Guardar\-Sudoku}}
+\index{$\sim$\-Guardar\-Sudoku@{$\sim$\-Guardar\-Sudoku}!GuardarSudoku@{Guardar\-Sudoku}}
+\subsubsection[{$\sim$\-Guardar\-Sudoku}]{\setlength{\rightskip}{0pt plus 5cm}Guardar\-Sudoku\-::$\sim$\-Guardar\-Sudoku (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_guardar_sudoku_a7f107d3112be0524695b13c7ae0e8355}
+
+\begin{DoxyCode}
+12                              \{
+13     \textcolor{keyword}{delete} ui;
+14 \}
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+{\bf guardarsudoku.\-h}\item 
+{\bf guardarsudoku.\-cpp}\end{DoxyCompactItemize}

@@ -66,9 +66,9 @@ void Puntajes::setPuntajes(){
 void Puntajes::on_pVolver_clicked()
 {
 
-   //Cierro la Ventana Puntajes
+   /**Cierro la Ventana Puntajes*/
     this->close();
-    //Llamo a la Ventana de Principal
+    /**Llamo a la Ventana de Principal*/
     VentanaPrincipal *vp = new VentanaPrincipal();
     vp->show();
 }

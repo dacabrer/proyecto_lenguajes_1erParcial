@@ -1,0 +1,83 @@
+\section{Referencia de la Clase Cargar\-Sudoku}
+\label{class_cargar_sudoku}\index{Cargar\-Sudoku@{Cargar\-Sudoku}}
+
+
+{\ttfamily \#include $<$cargarsudoku.\-h$>$}
+
+Diagrama de herencias de Cargar\-Sudoku\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cargar_sudoku}
+\end{center}
+\end{figure}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Cargar\-Sudoku} (Q\-Widget $\ast$parent=0)
+\item 
+{\bf $\sim$\-Cargar\-Sudoku} ()
+\item 
+void {\bf set\-Combo} (Q\-Combo\-Box $\ast$combo\-C, int cont, Q\-String nombre\-J, Q\-String nivel\-J)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación del constructor y destructor}
+\index{Cargar\-Sudoku@{Cargar\-Sudoku}!Cargar\-Sudoku@{Cargar\-Sudoku}}
+\index{Cargar\-Sudoku@{Cargar\-Sudoku}!CargarSudoku@{Cargar\-Sudoku}}
+\subsubsection[{Cargar\-Sudoku}]{\setlength{\rightskip}{0pt plus 5cm}Cargar\-Sudoku\-::\-Cargar\-Sudoku (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_cargar_sudoku_afbcf43db004504842bcb18747abaa525}
+
+\begin{DoxyCode}
+5                                           :
+6     QMainWindow(parent),
+7     ui(\textcolor{keyword}{new} Ui::CargarSudoku)
+8 \{
+9     ui->setupUi(\textcolor{keyword}{this});
+10 \}
+\end{DoxyCode}
+\index{Cargar\-Sudoku@{Cargar\-Sudoku}!$\sim$\-Cargar\-Sudoku@{$\sim$\-Cargar\-Sudoku}}
+\index{$\sim$\-Cargar\-Sudoku@{$\sim$\-Cargar\-Sudoku}!CargarSudoku@{Cargar\-Sudoku}}
+\subsubsection[{$\sim$\-Cargar\-Sudoku}]{\setlength{\rightskip}{0pt plus 5cm}Cargar\-Sudoku\-::$\sim$\-Cargar\-Sudoku (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_cargar_sudoku_a4df0369fd0ccc87d3cb3a8420623e320}
+
+\begin{DoxyCode}
+12                            \{
+13     \textcolor{keyword}{delete} ui;
+14 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\index{Cargar\-Sudoku@{Cargar\-Sudoku}!set\-Combo@{set\-Combo}}
+\index{set\-Combo@{set\-Combo}!CargarSudoku@{Cargar\-Sudoku}}
+\subsubsection[{set\-Combo}]{\setlength{\rightskip}{0pt plus 5cm}void Cargar\-Sudoku\-::set\-Combo (
+\begin{DoxyParamCaption}
+\item[{Q\-Combo\-Box $\ast$}]{combo\-C, }
+\item[{int}]{cont, }
+\item[{Q\-String}]{nombre\-J, }
+\item[{Q\-String}]{nivel\-J}
+\end{DoxyParamCaption}
+)}\label{class_cargar_sudoku_a1a6f8b6dff18333c1f03c2c46fb38d86}
+
+\begin{DoxyCode}
+16                                                                                        \{
+17     nombreJugador = nombreJ;
+18     nivelJugador = nivelJ;
+19     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i < cont; i++)\{
+20         \textcolor{keywordflow}{if}(comboC->itemText(i) != \textcolor{stringliteral}{""})
+21                ui->comboBoxCargar->addItem(comboC->itemText(i));
+22     \}
+23 \}
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+{\bf cargarsudoku.\-h}\item 
+{\bf cargarsudoku.\-cpp}\end{DoxyCompactItemize}

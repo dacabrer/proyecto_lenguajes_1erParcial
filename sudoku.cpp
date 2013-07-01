@@ -34,7 +34,7 @@ void sudoku::initGui(){
         }
     }
 }
-//funcion que valida numeros ingresados
+/**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
  QTextEdit *numberTextTemp = ( QTextEdit *) sender();
 
@@ -48,7 +48,7 @@ void sudoku::correccionInGame(){
 
 
 
-/*Actualizar Cronometro*/
+/**Actualizar Cronometro*/
 void sudoku::update(){
 
       ui->lcdseg->display(seg);
@@ -79,7 +79,7 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
                numbertext[i][j]->setDisabled(false);
                numbertext[i][j]->setText("");
            }else{
-               //DESENCRIPTAR PANTILLA DEL SUDOKU
+               /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
                if((valores[k].toInt())%2 == 0){
                    opera = sqrt(valores[k].toDouble()-cont);
                }else{
@@ -120,7 +120,7 @@ void sudoku::on_comprobar_clicked(){
     int despx=0,despy=0;
     int banderavalida=1;
 
-    //Validacion numeros del 1 al 9 en las filas
+    /**Validacion numeros del 1 al 9 en las filas*/
     for(int i = 0;i < 9; i++){
         sumatoriah=0;
         productoh=1;
@@ -131,10 +131,10 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriah==45) && (productoh==362880))
             banderavalida=1;
         else
-            banderavalida=0,i=10;//linea que rompe el ciclo en caso de no cumplir condicion
+            banderavalida=0,i=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
-     //Validacion numeros del 1 al 9 en las columnas
+     /**Validacion numeros del 1 al 9 en las columnas*/
     for(int j = 0;j < 9; j++){
         sumatoriav=0;
         productov=1;
@@ -145,7 +145,7 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriav==45) && (productov==362880) )
             banderavalida=1;
         else
-            banderavalida=0,j=10;//linea que rompe el ciclo en caso de no cumplir condicion
+            banderavalida=0,j=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
     for(int x = 0;x < 9; x++){
@@ -162,10 +162,10 @@ void sudoku::on_comprobar_clicked(){
         if ((sumatoriacuad==45) && (productocuad==362880) )
             banderavalida=1;
         else
-            banderavalida=0,x=10;//linea que rompe el ciclo en caso de no cumplir condicion
+            banderavalida=0,x=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
-    //comprobacion de validacion en general
+    /**comprobacion de validacion en general*/
     if (banderavalida==1){
         QMessageBox::information(this, "Respuesta", "La solucion es valida");
     }else{
@@ -202,14 +202,15 @@ void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
     QStringList  valores;
 
-    //Semilla del aleatorio
+    /**Semilla del aleatorio*/
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
 
     QString niveles = ui->textNivel->text();
 
-    if(niveles == "Juvenil"){//MODO JUVENIL(FACIL)
+    /**MODO JUVENIL(FACIL)*/
+    if(niveles == "Juvenil"){
         k=0;
         valores = plantilla1.split(",");
 
@@ -229,7 +230,9 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Profesional"){//MODO PROFESIONAL(MEDIO)
+
+        /**MODO PROFESIONAL(MEDIO)*/
+    }else if(niveles == "Profesional"){
         k=0;
         valores = plantilla2.split(",");
 
@@ -248,7 +251,9 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
-    }else if(niveles == "Experto"){//MODO EXPERTO(DIFICIL)
+
+        /**MODO EXPERTO(DIFICIL)*/
+    }else if(niveles == "Experto"){
         k=0;
         valores = plantilla3.split(",");
 
@@ -268,7 +273,7 @@ void sudoku::on_nuevoJuego_clicked(){
             }
         }
     }
-    //Comenzar el cronometro
+    /**Comenzar el cronometro*/
     timer->start(10);
 }
 /**RESOLVER JUEGO*/
@@ -381,7 +386,7 @@ void sudoku::on_guardarJuego_clicked(){
 
     QString info = "";
 
-    //Actualizar la matriz
+    /**Actualizar la matriz*/
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
     }

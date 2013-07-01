@@ -21,12 +21,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="sudoku.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Sudoku
-   &#160;<span id="projectnumber">1</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Juego</div>
+   <div id="projectbrief">Juego de Rompecabezas</div>
   </td>
  </tr>
  </tbody>
@@ -110,8 +109,8 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:afbcf43db004504842bcb18747abaa525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df0369fd0ccc87d3cb3a8420623e320"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cargar_sudoku.html#a4df0369fd0ccc87d3cb3a8420623e320">~CargarSudoku</a> ()</td></tr>
 <tr class="separator:a4df0369fd0ccc87d3cb3a8420623e320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe967d5181767ed441b3b6882d6d8f26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cargar_sudoku.html#afe967d5181767ed441b3b6882d6d8f26">setCombo</a> (QComboBox *comboC, int cont)</td></tr>
-<tr class="separator:afe967d5181767ed441b3b6882d6d8f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6f8b6dff18333c1f03c2c46fb38d86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cargar_sudoku.html#a1a6f8b6dff18333c1f03c2c46fb38d86">setCombo</a> (QComboBox *comboC, int cont, QString nombreJ, QString nivelJ)</td></tr>
+<tr class="separator:a1a6f8b6dff18333c1f03c2c46fb38d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación del constructor y destructor</h2>
 <a class="anchor" id="afbcf43db004504842bcb18747abaa525"></a>
@@ -163,7 +162,7 @@ Métodos públicos</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a class="anchor" id="afe967d5181767ed441b3b6882d6d8f26"></a>
+<a class="anchor" id="a1a6f8b6dff18333c1f03c2c46fb38d86"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -177,7 +176,19 @@ Métodos públicos</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>cont</em>&#160;</td>
+          <td class="paramname"><em>cont</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nombreJ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nivelJ</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -186,9 +197,12 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                      {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; cont; i++){</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;       ui-&gt;comboBoxCargar-&gt;addItem(comboC-&gt;itemText(i));</div>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                                                       {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    nombreJugador = nombreJ;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    nivelJugador = nivelJ;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; cont; i++){</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span>(comboC-&gt;itemText(i) != <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;               ui-&gt;comboBoxCargar-&gt;addItem(comboC-&gt;itemText(i));</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 </div><!-- fragment -->
@@ -201,7 +215,7 @@ Métodos públicos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Miércoles, 26 de Junio de 2013 01:00:30 para Sudoku por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Domingo, 30 de Junio de 2013 23:22:26 para Sudoku por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

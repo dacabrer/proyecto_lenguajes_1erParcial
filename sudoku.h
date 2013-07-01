@@ -10,6 +10,8 @@
 #include <QTimer>
 #include <QWidget>
 
+/**SUDOKU_H*/
+
 namespace Ui {
 class sudoku;
 }
@@ -57,5 +59,5 @@ private:
     double miliseg = 0, seg = 0, min = 0;
 };
 
-#endif // SUDOKU_H
+#endif
 

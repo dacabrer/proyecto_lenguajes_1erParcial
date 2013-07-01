@@ -10,7 +10,7 @@
 #include <QComboBox>
 #include "sudoku.h"
 
-
+/**CARGARSUDOKU_H*/
 
 namespace Ui {
 class CargarSudoku;
@@ -35,4 +35,4 @@ private:
     QString nombreJugador, nivelJugador;
 };
 
-#endif /**CARGARSUDOKU_H*/
+#endif

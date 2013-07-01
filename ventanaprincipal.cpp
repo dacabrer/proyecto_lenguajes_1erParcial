@@ -88,10 +88,10 @@ void VentanaPrincipal::on_bEntrar_clicked(){
 }
 
 void VentanaPrincipal::on_bPuntajes_clicked(){
-   //Cierro la Ventana Principal
+   /**Cierro la Ventana Principal*/
     this->close();
 
-    //Llamo a la Ventana de PUNTAJES
+    /**Llamo a la Ventana de PUNTAJES*/
     Puntajes *puntajes = new Puntajes();
     puntajes->show();
     puntajes->setPuntajes();
