@@ -19,5 +19,7 @@
         <file>iconos/Fondo4.png</file>
         <file>iconos/score.png</file>
         <file>iconos/puntajes.gif</file>
+        <file>iconos/verificar.png</file>
+        <file>iconos/search.png</file>
     </qresource>
 </RCC>

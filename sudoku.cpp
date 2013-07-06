@@ -33,7 +33,30 @@ void sudoku::initGui(){
             connect(numbertext[i][j],SIGNAL(textChanged()),this,SLOT(correccionInGame()));
         }
     }
+    pintarTablero();
 }
+
+void sudoku::pintarTablero(){
+    int indi,indj=0;
+    for(int i = 0; i < 9; i++){
+        for(int j = 0; j < 9; j++){
+            //si coincide la respuesta se pintara azul sino coincide se pintara de rojo el cuadro
+            indi=i/3;
+            indj=j/3;
+
+            if((indi==indj) || (indi+indj==2)){
+                QPalette p = numbertext[i][j]->palette();
+                p.setColor(QPalette::Base, QColor(170, 170, 255));
+                numbertext[i][j]->setPalette(p);
+            }else{
+                QPalette p = numbertext[i][j]->palette();
+                p.setColor(QPalette::Base, QColor(255, 255, 255));
+                numbertext[i][j]->setPalette(p);
+            }
+         }
+    }
+}
+
 /**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
 QTextEdit *numberTextTemp = ( QTextEdit *) sender();
@@ -74,10 +97,7 @@ void sudoku::CorreccionFila(int i,int j){
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la fila");
               return;
           }else{
-              QPalette p = numbertext[i][j]->palette();
-              p.setColor(QPalette::Base, QColor(255, 255,255));
-              numbertext[i][j]->setPalette(p);
-              numbertext[i][k]->setPalette(p);
+               pintarTablero();
           }
         }
     }
@@ -103,10 +123,7 @@ void sudoku::CorreccionColumna(int i,int j){
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la columna");
               return;
           }else{
-              QPalette p = numbertext[i][j]->palette();
-              p.setColor(QPalette::Base, QColor(255, 255,255));
-              numbertext[i][j]->setPalette(p);
-              numbertext[k][j]->setPalette(p);
+               pintarTablero();
           }
         }
 
@@ -135,10 +152,7 @@ void sudoku::CorreccionCuadrante(int i,int j){
                   QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en el cuadrante");
                   return;
               }else{
-                  QPalette p = numbertext[i][j]->palette();
-                  p.setColor(QPalette::Base, QColor(255, 255,255));
-                  numbertext[i][j]->setPalette(p);
-                  numbertext[y][x]->setPalette(p);
+                    pintarTablero();
               }
             }
         }
@@ -369,9 +383,11 @@ void sudoku::on_nuevoJuego_clicked(){
                 k++;
             }
         }
+
     }
     /**Comenzar el cronometro*/
     timer->start(10);
+    pintarTablero();
 }
 /**RESOLVER JUEGO*/
 void sudoku::on_resolverJuego_clicked(){
@@ -522,42 +538,41 @@ void sudoku::obtenerNombreNivel(QString nivel, QString nombre){
 
 //funcion para hacer trampa comparar valores con la solucion y marcar los que no coincidan
 
+
 void sudoku::on_verificar_clicked()
 {
     int k=0;
-    QStringList  valores;
+       QStringList  valores;
 
-    QString niveles = ui->textNivel->text();
-    k=0;
+       QString niveles = ui->textNivel->text();
+       k=0;
 
-    if(niveles == "Juvenil")
-        valores = plantilla1.split(",");
+       if(niveles == "Juvenil")
+           valores = plantilla1.split(",");
 
-    if(niveles == "Profesional")
-        valores = plantilla2.split(",");
+       if(niveles == "Profesional")
+           valores = plantilla2.split(",");
 
-    if(niveles == "Experto")
-         valores = plantilla3.split(",");
+       if(niveles == "Experto")
+            valores = plantilla3.split(",");
 
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                //si coincide la respuesta se pintara azul sino coincide se pintara de rojo el cuadro
-                if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)!=valores[k].toLong())){
-                    QPalette p = numbertext[i][j]->palette();
-                    p.setColor(QPalette::Base, QColor(255, 0, 0));
-                    numbertext[i][j]->setPalette(p);
-                }
-                if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)==valores[k].toLong())){
+           for(int i = 0; i < 9; i++){
+               for(int j = 0; j < 9; j++){
+                   //si coincide la respuesta se pintara verde sino coincide se pintara de rojo el cuadro
+                   if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)!=valores[k].toLong())){
+                       QPalette p = numbertext[i][j]->palette();
+                       p.setColor(QPalette::Base, QColor(255, 0, 0));
+                       numbertext[i][j]->setPalette(p);
+                   }
+                   if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)==valores[k].toLong())){
 
-                    QPalette p = numbertext[i][j]->palette();
-                    p.setColor(QPalette::Base, QColor(120, 120, 255));
-                    numbertext[i][j]->setPalette(p);
-                }
-                k++;
-            }
-        }
-
-
+                       QPalette p = numbertext[i][j]->palette();
+                       p.setColor(QPalette::Base, QColor(120, 255, 120));
+                       numbertext[i][j]->setPalette(p);
+                   }
+                   k++;
+               }
+           }
 
 
 }

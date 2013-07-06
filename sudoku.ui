@@ -1426,15 +1426,12 @@
       <height>61</height>
      </rect>
     </property>
-    <property name="accessibleDescription">
-     <string extracomment="Hacer Trampa"/>
-    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset resource="Image.qrc">
-      <normaloff>:/iconos/Comprobar.png</normaloff>:/iconos/Comprobar.png</iconset>
+      <normaloff>:/iconos/verificar.png</normaloff>:/iconos/verificar.png</iconset>
     </property>
     <property name="iconSize">
      <size>
