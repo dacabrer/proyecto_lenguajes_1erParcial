@@ -37,18 +37,20 @@ void sudoku::initGui(){
 /**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
 QTextEdit *numberTextTemp = ( QTextEdit *) sender();
- int i,j=0;
+
  long inputNumber = numberTextTemp->toPlainText().toLong();
  if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
      QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
      numberTextTemp->setText("");
   }
 
- for(i = 0; i < 9; i++){
-     for(j = 0; j < 9; j++){
+ for(int i = 0; i < 9; i++){
+     for(int j = 0; j < 9; j++){
+         if(((getDisplayValue(i,j)!=0) && numbertext[i][j]->isEnabled())){
          CorreccionFila(i,j);
          CorreccionColumna(i,j);
          CorreccionCuadrante(i,j);
+         }
      }
  }
 
@@ -63,7 +65,7 @@ void sudoku::CorreccionFila(int i,int j){
 
     //validacion in game para filas
     for(int k = 0; k < 9; k++){
-        if((getDisplayValue(i,j)!=0) && (k!=j)){
+        if(k!=j){
           if(getDisplayValue(i,j)==getDisplayValue(i,k)){
               QPalette p = numbertext[i][j]->palette();
               p.setColor(QPalette::Base, QColor(255, 0, 0));
@@ -92,7 +94,7 @@ void sudoku::CorreccionColumna(int i,int j){
 
     //validacion in game para columnas
     for(int k = 0; k < 9; k++){
-        if((getDisplayValue(i,j)!=0) && (k!=i)){
+        if(k!=i){
           if(getDisplayValue(i,j)==getDisplayValue(k,j)){
               QPalette p = numbertext[i][j]->palette();
               p.setColor(QPalette::Base, QColor(255, 0, 0));
@@ -124,7 +126,7 @@ void sudoku::CorreccionCuadrante(int i,int j){
         for(int x =despx ; x < despx+3; x++){
 
 
-            if((getDisplayValue(i,j)!=0)&& ((y!=i) && (x!=j)) ){
+            if(((y!=i) && (x!=j))){
               if(getDisplayValue(i,j)==getDisplayValue(y,x)){
                   QPalette p = numbertext[i][j]->palette();
                   p.setColor(QPalette::Base, QColor(255, 0, 0));
