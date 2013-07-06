@@ -2,7 +2,7 @@
 #define PUNTAJES_H
 
 #include <QWidget>
-#include <ventanaprincipal.h>
+#include "ventanaprincipal.h"
 
 /**PUNTAJES_H*/
 

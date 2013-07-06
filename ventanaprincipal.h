@@ -5,7 +5,7 @@
 #include <QTimer>
 #include "sudoku.h"
 #include <QMessageBox>
-#include <puntajes.h>
+#include "puntajes.h"
 
  /**VENTANAPRINCIPAL_H*/
 

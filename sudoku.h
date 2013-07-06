@@ -42,6 +42,9 @@ private slots:
     void encriptarS();
     void update();
     void correccionInGame();
+    void CorreccionFila(int i,int j);
+    void CorreccionColumna(int i,int j);
+    void CorreccionCuadrante(int i,int j);
 private:
     void initGui();
     Ui::sudoku *ui;
@@ -56,7 +59,7 @@ private:
     QString nivelSudoku;
     QString nombreJugador;
 
-    double miliseg = 0, seg = 0, min = 0;
+    double miliseg, seg, min;
 };
 
 #endif

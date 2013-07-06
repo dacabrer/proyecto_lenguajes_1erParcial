@@ -36,18 +36,113 @@ void sudoku::initGui(){
 }
 /**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
- QTextEdit *numberTextTemp = ( QTextEdit *) sender();
-
+QTextEdit *numberTextTemp = ( QTextEdit *) sender();
+ int i,j=0;
  long inputNumber = numberTextTemp->toPlainText().toLong();
  if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
      QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
      numberTextTemp->setText("");
   }
 
+ for(i = 0; i < 9; i++){
+     for(j = 0; j < 9; j++){
+         CorreccionFila(i,j);
+         CorreccionColumna(i,j);
+         CorreccionCuadrante(i,j);
+     }
+ }
+
+
 }
 
 
 
+void sudoku::CorreccionFila(int i,int j){
+ int k=0;
+
+
+    //validacion in game para filas
+    for(int k = 0; k < 9; k++){
+        if((getDisplayValue(i,j)!=0) && (k!=j)){
+          if(getDisplayValue(i,j)==getDisplayValue(i,k)){
+              QPalette p = numbertext[i][j]->palette();
+              p.setColor(QPalette::Base, QColor(255, 0, 0));
+              numbertext[i][j]->setPalette(p);
+              numbertext[i][k]->setPalette(p);
+              QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la fila");
+              return;
+          }else{
+              QPalette p = numbertext[i][j]->palette();
+              p.setColor(QPalette::Base, QColor(255, 255,255));
+              numbertext[i][j]->setPalette(p);
+              numbertext[i][k]->setPalette(p);
+          }
+        }
+    }
+
+
+
+}
+
+
+void sudoku::CorreccionColumna(int i,int j){
+ int k=0;
+
+
+
+    //validacion in game para columnas
+    for(int k = 0; k < 9; k++){
+        if((getDisplayValue(i,j)!=0) && (k!=i)){
+          if(getDisplayValue(i,j)==getDisplayValue(k,j)){
+              QPalette p = numbertext[i][j]->palette();
+              p.setColor(QPalette::Base, QColor(255, 0, 0));
+              numbertext[i][j]->setPalette(p);
+              numbertext[k][j]->setPalette(p);
+              QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la columna");
+              return;
+          }else{
+              QPalette p = numbertext[i][j]->palette();
+              p.setColor(QPalette::Base, QColor(255, 255,255));
+              numbertext[i][j]->setPalette(p);
+              numbertext[k][j]->setPalette(p);
+          }
+        }
+
+    }
+
+
+}
+
+void sudoku::CorreccionCuadrante(int i,int j){
+
+
+   int despy=(i/3) *3;
+   int despx=(j/3) *3;
+
+    //validacion in game para cuadrantes
+    for(int y = despy; y < despy+3; y++){
+        for(int x =despx ; x < despx+3; x++){
+
+
+            if((getDisplayValue(i,j)!=0)&& ((y!=i) && (x!=j)) ){
+              if(getDisplayValue(i,j)==getDisplayValue(y,x)){
+                  QPalette p = numbertext[i][j]->palette();
+                  p.setColor(QPalette::Base, QColor(255, 0, 0));
+                  numbertext[i][j]->setPalette(p);
+                  numbertext[y][x]->setPalette(p);
+                  QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en el cuadrante");
+                  return;
+              }else{
+                  QPalette p = numbertext[i][j]->palette();
+                  p.setColor(QPalette::Base, QColor(255, 255,255));
+                  numbertext[i][j]->setPalette(p);
+                  numbertext[y][x]->setPalette(p);
+              }
+            }
+        }
+    }
+
+}
 /**Actualizar Cronometro*/
 void sudoku::update(){
 
