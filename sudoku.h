@@ -45,6 +45,8 @@ private slots:
     void CorreccionFila(int i,int j);
     void CorreccionColumna(int i,int j);
     void CorreccionCuadrante(int i,int j);
+    void on_verificar_clicked();
+
 private:
     void initGui();
     Ui::sudoku *ui;
