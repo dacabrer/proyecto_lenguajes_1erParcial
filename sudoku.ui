@@ -75,6 +75,9 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Salir</string>
+    </property>
     <property name="icon">
      <iconset resource="Image.qrc">
       <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
@@ -94,6 +97,9 @@
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Cargar Partida</string>
     </property>
     <property name="icon">
      <iconset resource="Image.qrc">
@@ -115,6 +121,9 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Guardar Partida</string>
+    </property>
     <property name="icon">
      <iconset resource="Image.qrc">
       <normaloff>:/iconos/Guardar.png</normaloff>:/iconos/Guardar.png</iconset>
@@ -134,6 +143,9 @@
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Limpiar Tablero</string>
     </property>
     <property name="text">
      <string/>
@@ -158,6 +170,9 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Verificar Sudoku</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -181,6 +196,9 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Resolver Juego</string>
+    </property>
     <property name="icon">
      <iconset resource="Image.qrc">
       <normaloff>:/iconos/Solucion.png</normaloff>:/iconos/Solucion.png</iconset>
@@ -200,6 +218,9 @@
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Iniciar Sudoku</string>
     </property>
     <property name="text">
      <string/>
@@ -1425,6 +1446,9 @@
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Hacer Trampa</string>
     </property>
     <property name="text">
      <string/>

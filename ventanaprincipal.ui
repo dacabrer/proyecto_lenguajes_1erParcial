@@ -155,6 +155,9 @@
       <height>111</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Empezar</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -183,6 +186,9 @@
       <family>Segoe UI</family>
       <pointsize>16</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Puntajes</string>
     </property>
     <property name="icon">
      <iconset resource="Image.qrc">

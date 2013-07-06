@@ -63,7 +63,7 @@ private:
     QString nivelSudoku;
     QString nombreJugador;
 
-    double miliseg, seg, min;
+    static double miliseg, seg, min;
 };
 
 #endif

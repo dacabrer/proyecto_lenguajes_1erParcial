@@ -5,8 +5,9 @@
 const QString sudoku::plantilla1("7,8,4,9,5,2,3,1,6,9,2,6,1,4,3,8,5,7,3,5,1,8,6,7,9,4,2,4,7,8,5,2,1,6,9,3,1,6,5,3,7,9,2,8,4,2,9,3,6,8,4,1,7,5,6,4,9,2,1,5,7,3,8,5,1,2,7,3,8,4,6,9,8,3,7,4,9,6,5,2,1");
 const QString sudoku::plantilla2("5,9,7,4,3,2,6,1,8,2,8,4,1,6,7,3,9,5,6,3,1,8,9,5,2,4,7,4,5,3,6,7,1,9,8,2,8,7,9,2,5,3,4,6,1,1,6,2,9,4,8,5,7,3,9,2,5,7,1,6,8,3,4,7,4,8,3,2,9,1,5,6,3,1,6,5,8,4,7,2,9");
 const QString sudoku::plantilla3("1,7,4,6,8,3,2,9,5,9,5,3,4,1,2,8,6,7,2,8,6,7,9,5,3,4,1,8,6,5,2,7,9,1,3,4,4,3,2,8,6,1,7,5,9,7,1,9,5,3,4,6,8,2,3,9,8,1,4,7,5,2,6,5,4,1,3,2,6,9,7,8,6,2,7,9,5,8,4,1,3");
-
-
+double sudoku::miliseg=0;
+double sudoku::seg=0;
+double sudoku::min=0;
 sudoku::sudoku(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sudoku)
@@ -83,7 +84,6 @@ QTextEdit *numberTextTemp = ( QTextEdit *) sender();
 
 
 void sudoku::CorreccionFila(int i,int j){
- int k=0;
 
 
     //validacion in game para filas
@@ -91,7 +91,7 @@ void sudoku::CorreccionFila(int i,int j){
         if(k!=j){
           if(getDisplayValue(i,j)==getDisplayValue(i,k)){
               QPalette p = numbertext[i][j]->palette();
-              p.setColor(QPalette::Base, QColor(255, 0, 0));
+              p.setColor(QPalette::Base, QColor(255, 150, 150));
               numbertext[i][j]->setPalette(p);
               numbertext[i][k]->setPalette(p);
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la fila");
@@ -108,7 +108,7 @@ void sudoku::CorreccionFila(int i,int j){
 
 
 void sudoku::CorreccionColumna(int i,int j){
- int k=0;
+
 
 
 
@@ -117,7 +117,7 @@ void sudoku::CorreccionColumna(int i,int j){
         if(k!=i){
           if(getDisplayValue(i,j)==getDisplayValue(k,j)){
               QPalette p = numbertext[i][j]->palette();
-              p.setColor(QPalette::Base, QColor(255, 0, 0));
+              p.setColor(QPalette::Base, QColor(255, 150, 150));
               numbertext[i][j]->setPalette(p);
               numbertext[k][j]->setPalette(p);
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la columna");
@@ -146,7 +146,7 @@ void sudoku::CorreccionCuadrante(int i,int j){
             if(((y!=i) && (x!=j))){
               if(getDisplayValue(i,j)==getDisplayValue(y,x)){
                   QPalette p = numbertext[i][j]->palette();
-                  p.setColor(QPalette::Base, QColor(255, 0, 0));
+                  p.setColor(QPalette::Base, QColor(255, 150, 150));
                   numbertext[i][j]->setPalette(p);
                   numbertext[y][x]->setPalette(p);
                   QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en el cuadrante");
@@ -561,7 +561,7 @@ void sudoku::on_verificar_clicked()
                    //si coincide la respuesta se pintara verde sino coincide se pintara de rojo el cuadro
                    if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)!=valores[k].toLong())){
                        QPalette p = numbertext[i][j]->palette();
-                       p.setColor(QPalette::Base, QColor(255, 0, 0));
+                       p.setColor(QPalette::Base, QColor(255, 150, 150));
                        numbertext[i][j]->setPalette(p);
                    }
                    if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)==valores[k].toLong())){
