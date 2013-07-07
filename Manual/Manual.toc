@@ -5,5 +5,5 @@
 \contentsline {chapter}{\numberline {4}Gu\IeC {\'\i }a del Juego}{5}{chapter.4}
 \contentsline {section}{\numberline {4.1}Reglas}{6}{section.4.1}
 \contentsline {section}{\numberline {4.2}Simulador}{7}{section.4.2}
-\contentsline {chapter}{\numberline {5}Preguntas Frecuentes}{16}{chapter.5}
-\contentsline {chapter}{\numberline {6}Glosario}{17}{chapter.6}
+\contentsline {chapter}{\numberline {5}Preguntas Frecuentes}{17}{chapter.5}
+\contentsline {chapter}{\numberline {6}Glosario}{18}{chapter.6}
