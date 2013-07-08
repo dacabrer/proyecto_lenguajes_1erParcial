@@ -77,7 +77,6 @@ void VentanaPrincipal::on_bEntrar_clicked(){
         }
     }
 
-
     if(ui->nombreJug->text() == ""){
         QMessageBox::information(this, "MENSAJE", "Por favor agregue el\nnombre del JUGADOR","ACEPTAR");
     }else if (bandera == 1){
@@ -89,10 +88,15 @@ void VentanaPrincipal::on_bEntrar_clicked(){
 
 void VentanaPrincipal::on_bPuntajes_clicked(){
    /**Cierro la Ventana Principal*/
-    this->close();
+    QString mFilemane = "guardar.txt";
+    QFile mFile(mFilemane);
 
-    /**Llamo a la Ventana de PUNTAJES*/
-    Puntajes *puntajes = new Puntajes();
-    puntajes->show();
-    puntajes->setPuntajes();
+    if(mFile.exists()){
+        /**Llamo a la Ventana de PUNTAJES*/
+        this->close();
+        Puntajes *puntajes = new Puntajes();
+        puntajes->show();
+        puntajes->setPuntajes();
+    }else
+        QMessageBox::information(this, "MENSAJE", "No existen Puntajes Guardados","ACEPTAR");
 }

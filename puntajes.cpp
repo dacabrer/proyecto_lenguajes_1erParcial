@@ -15,15 +15,12 @@ Puntajes::~Puntajes()
 }
 
 void Puntajes::setPuntajes(){
-    int bandera=0;
     QStringList  valores;
-
     QString nomJugador, nivelC, crono, datosSudoku;
     QString mFilemane = "guardar.txt";
     QFile mFile(mFilemane);
 
     if(mFile.exists()){
-
         mFile.open(QIODevice::Text | QIODevice::ReadOnly);
         if(!mFile.isOpen()){return;}
         QTextStream txtstr(&mFile);
@@ -43,29 +40,19 @@ void Puntajes::setPuntajes(){
             valor = crono.split(":");
             int min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();
             int puntaje = 0;
-            if (nivelC == "Juvenil"){
-                puntaje = 90*(min+seg+mseg)/3;
-            }else if(nivelC == "Profesional"){
-                puntaje = 90*(min+seg+mseg)/2;
-            }else if(nivelC == "Experto"){
-                puntaje = 90*(min+seg+mseg);
-            }
+
+            if (nivelC == "Juvenil")                puntaje = 90*(min+seg+mseg)/3;
+            else if(nivelC == "Profesional")        puntaje = 90*(min+seg+mseg)/2;
+            else if(nivelC == "Experto")            puntaje = 90*(min+seg+mseg);
+
             QString str = QString::number(puntaje);
             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+"\t"+nivelC+"\t"+str+"\n");
-            bandera = 1;
-
+            ui->textPuntajes->setDisabled(true);
         }
-    }
-    if(bandera == 0){
-        ui->textPuntajes->setDisabled(true);
-        QMessageBox::information(this, "MENSAJE", "No existe Puntajes\nGuardados","ACEPTAR");
-
     }
 }
 
-void Puntajes::on_pVolver_clicked()
-{
-
+void Puntajes::on_pVolver_clicked(){
    /**Cierro la Ventana Puntajes*/
     this->close();
     /**Llamo a la Ventana de Principal*/

@@ -17,7 +17,6 @@ sudoku::sudoku(QWidget *parent) :
     timer = new QTimer(this);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    //timer->start(1000);
 }
 
 sudoku::~sudoku(){
@@ -60,32 +59,25 @@ void sudoku::pintarTablero(){
 
 /**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
-QTextEdit *numberTextTemp = ( QTextEdit *) sender();
+     QTextEdit *numberTextTemp = ( QTextEdit *) sender();
+     long inputNumber = numberTextTemp->toPlainText().toLong();
+     if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
+         QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
+         numberTextTemp->setText("");
+      }
 
- long inputNumber = numberTextTemp->toPlainText().toLong();
- if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
-     QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
-     numberTextTemp->setText("");
-  }
-
- for(int i = 0; i < 9; i++){
-     for(int j = 0; j < 9; j++){
-         if(((getDisplayValue(i,j)!=0) && numbertext[i][j]->isEnabled())){
-         CorreccionFila(i,j);
-         CorreccionColumna(i,j);
-         CorreccionCuadrante(i,j);
+     for(int i = 0; i < 9; i++){
+         for(int j = 0; j < 9; j++){
+             if(((getDisplayValue(i,j)!=0) && numbertext[i][j]->isEnabled())){
+                 CorreccionFila(i,j);
+                 CorreccionColumna(i,j);
+                 CorreccionCuadrante(i,j);
+             }
          }
      }
- }
-
-
 }
 
-
-
 void sudoku::CorreccionFila(int i,int j){
-
-
     //validacion in game para filas
     for(int k = 0; k < 9; k++){
         if(k!=j){
@@ -96,22 +88,12 @@ void sudoku::CorreccionFila(int i,int j){
               numbertext[i][k]->setPalette(p);
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la fila");
               return;
-          }else{
-               pintarTablero();
-          }
+          }else               pintarTablero();
         }
     }
-
-
-
 }
 
-
 void sudoku::CorreccionColumna(int i,int j){
-
-
-
-
     //validacion in game para columnas
     for(int k = 0; k < 9; k++){
         if(k!=i){
@@ -122,18 +104,12 @@ void sudoku::CorreccionColumna(int i,int j){
               numbertext[k][j]->setPalette(p);
               QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en la columna");
               return;
-          }else{
-               pintarTablero();
-          }
+          }else               pintarTablero();
         }
-
     }
-
-
 }
 
 void sudoku::CorreccionCuadrante(int i,int j){
-
 
    int despy=(i/3) *3;
    int despx=(j/3) *3;
@@ -141,8 +117,6 @@ void sudoku::CorreccionCuadrante(int i,int j){
     //validacion in game para cuadrantes
     for(int y = despy; y < despy+3; y++){
         for(int x =despx ; x < despx+3; x++){
-
-
             if(((y!=i) && (x!=j))){
               if(getDisplayValue(i,j)==getDisplayValue(y,x)){
                   QPalette p = numbertext[i][j]->palette();
@@ -151,17 +125,14 @@ void sudoku::CorreccionCuadrante(int i,int j){
                   numbertext[y][x]->setPalette(p);
                   QMessageBox::information(this, "Advertencia", "Este numero ya fue ingresado en el cuadrante");
                   return;
-              }else{
-                    pintarTablero();
-              }
+              }else                    pintarTablero();
             }
         }
     }
-
 }
+
 /**Actualizar Cronometro*/
 void sudoku::update(){
-
       ui->lcdseg->display(seg);
       ui->lcdmsg->display(miliseg);
       ui->lcdmin->display(min);
@@ -191,11 +162,9 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
                numbertext[i][j]->setText("");
            }else{
                /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
-               if((valores[k].toInt())%2 == 0){
-                   opera = sqrt(valores[k].toDouble()-cont);
-               }else{
-                   opera = sqrt(2*(valores[k].toDouble()-cont));
-               }
+               if((valores[k].toInt())%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);
+               else                                 opera = sqrt(2*(valores[k].toDouble()-cont));
+
                numbertext[i][j]->setTextColor(Qt::blue);
                numbertext[i][j]->setText(QString::number(opera));
                numbertext[i][j]->setDisabled(true);
@@ -208,7 +177,6 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
    ui->textJugador->setEnabled(false);
    ui->textNivel->setText(nivel);
    ui->textNivel->setEnabled(false);
-
 
    valor = cronometro.split(":");
    int minutos=valor[0].toDouble(), segundos = valor[1].toDouble(), milisegundos = valor[2].toDouble();
@@ -239,10 +207,8 @@ void sudoku::on_comprobar_clicked(){
             sumatoriah+=getDisplayValue(i,j);
             productoh*=getDisplayValue(i,j);
         }
-        if ((sumatoriah==45) && (productoh==362880))
-            banderavalida=1;
-        else
-            banderavalida=0,i=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
+        if ((sumatoriah==45) && (productoh==362880))    banderavalida=1;
+         else                                           banderavalida=0,i=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
      /**Validacion numeros del 1 al 9 en las columnas*/
@@ -253,10 +219,8 @@ void sudoku::on_comprobar_clicked(){
             sumatoriav+=getDisplayValue(i,j);
             productov*=getDisplayValue(i,j);
         }
-        if ((sumatoriav==45) && (productov==362880) )
-            banderavalida=1;
-        else
-            banderavalida=0,j=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
+        if ((sumatoriav==45) && (productov==362880) )   banderavalida=1;
+        else                                            banderavalida=0,j=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
     for(int x = 0;x < 9; x++){
@@ -270,19 +234,13 @@ void sudoku::on_comprobar_clicked(){
                 productocuad*=getDisplayValue(i+despy,j+despx);
             }
         }
-        if ((sumatoriacuad==45) && (productocuad==362880) )
-            banderavalida=1;
-        else
-            banderavalida=0,x=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
+        if ((sumatoriacuad==45) && (productocuad==362880) )         banderavalida=1;
+        else                                                        banderavalida=0,x=10;/**linea que rompe el ciclo en caso de no cumplir condicion*/
     }
 
     /**comprobacion de validacion en general*/
-    if (banderavalida==1){
-        QMessageBox::information(this, "Respuesta", "La solucion es valida");
-    }else{
-        QMessageBox::information(this, "Respuesta", "La solucion no es valida");
-    }
-
+    if (banderavalida==1)                               QMessageBox::information(this, "Respuesta", "La solucion es valida");
+    else                                                QMessageBox::information(this, "Respuesta", "La solucion no es valida");
 }
 void sudoku::setDisplayValue(int i,int j,long v){
     numbertext[i][j]->setText( QString("%1").arg(v) );
@@ -317,17 +275,17 @@ void sudoku::on_nuevoJuego_clicked(){
     QTime *seed = new QTime;
     seed->start();
     qsrand(seed->msec());
-
     QString niveles = ui->textNivel->text();
 
-    /**MODO JUVENIL(FACIL)*/
-    if(niveles == "Juvenil"){
-        k=0;
-        valores = plantilla1.split(",");
+    if(niveles == "Juvenil")                valores = plantilla1.split(",");
+    else if(niveles == "Profesional")       valores = plantilla2.split(",");
+    else if(niveles == "Experto")           valores = plantilla3.split(",");
 
-        for(i = 0;i < 9; i++){
-            for(j = 0; j < 9; j++){
-                aleatorio = rand() % 10;
+    for(i = 0;i < 9; i++){
+        for(j = 0; j < 9; j++){
+            aleatorio = rand() % 10;
+
+            if(niveles == "Juvenil")
                 if (aleatorio <= 6){
                     numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
@@ -337,19 +295,7 @@ void sudoku::on_nuevoJuego_clicked(){
                     numbertext[i][j]->setText("");
                 }
 
-                numbertext[i][j]->setAlignment(Qt::AlignRight);
-                k++;
-            }
-        }
-
-        /**MODO PROFESIONAL(MEDIO)*/
-    }else if(niveles == "Profesional"){
-        k=0;
-        valores = plantilla2.split(",");
-
-        for(i = 0;i < 9; i++){
-            for(j = 0; j < 9; j++){
-                aleatorio = rand() % 10;
+            else if(niveles == "Profesional")
                 if (aleatorio <= 4){
                     numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
@@ -358,19 +304,8 @@ void sudoku::on_nuevoJuego_clicked(){
                     numbertext[i][j]->setDisabled(false);
                     numbertext[i][j]->setText("");
                 }
-                numbertext[i][j]->setAlignment(Qt::AlignRight);
-                k++;
-            }
-        }
 
-        /**MODO EXPERTO(DIFICIL)*/
-    }else if(niveles == "Experto"){
-        k=0;
-        valores = plantilla3.split(",");
-
-        for(i = 0;i < 9; i++){
-            for(j = 0; j < 9; j++){
-                aleatorio = rand() % 10;
+            else if(niveles == "Experto")
                 if (aleatorio <= 2){
                     numbertext[i][j]->setTextColor(Qt::blue);
                     numbertext[i][j]->setText(valores[k]);
@@ -379,11 +314,10 @@ void sudoku::on_nuevoJuego_clicked(){
                     numbertext[i][j]->setDisabled(false);
                     numbertext[i][j]->setText("");
                 }
-                numbertext[i][j]->setAlignment(Qt::AlignRight);
-                k++;
-            }
-        }
 
+            numbertext[i][j]->setAlignment(Qt::AlignRight);
+            k++;
+        }
     }
     /**Comenzar el cronometro*/
     timer->start(10);
@@ -396,42 +330,19 @@ void sudoku::on_resolverJuego_clicked(){
 
     QString niveles = ui->textNivel->text();
     k=0;
-    if(niveles == "Juvenil"){
-        valores = plantilla1.split(",");
-        for(i = 0; i < 9; i++){
+
+    if(niveles == "Juvenil")                valores = plantilla1.split(",");
+    else if(niveles == "Profesional")       valores = plantilla2.split(",");
+    else if(niveles == "Experto")           valores = plantilla3.split(",");
+
+    for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
                 if(numbertext[i][j]->isEnabled()){
-                    numbertext[i][j]->setTextColor(Qt::black);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
                 }
                 k++;
             }
-        }
-    }else if(niveles == "Profesional"){
-        valores = plantilla2.split(",");
-        for(i = 0; i < 9; i++){
-            for(j = 0; j < 9; j++){
-                if(numbertext[i][j]->isEnabled()){
-                    numbertext[i][j]->setTextColor(Qt::black);
-                    numbertext[i][j]->setText(valores[k]);
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
-                }
-                k++;
-            }
-        }
-    }else if(niveles == "Experto"){
-        valores = plantilla3.split(",");
-        for(i = 0; i < 9; i++){
-            for(j = 0; j < 9; j++){
-                if(numbertext[i][j]->isEnabled()){
-                    numbertext[i][j]->setTextColor(Qt::black);
-                    numbertext[i][j]->setText(valores[k]);
-                    numbertext[i][j]->setAlignment(Qt::AlignRight);
-                }
-                k++;
-            }
-        }
     }
 }
 /**CARGAR JUEGO*/
@@ -440,37 +351,38 @@ void sudoku::on_cargarJuego_clicked(){
     QComboBox *comboB = new QComboBox();
     CargarSudoku *cargarJuego = new CargarSudoku(this);
     QStringList  valores;
-
-    //QString nomJugador, nivelC, datosSudoku;
     QString nomJugador, nivelC, crono, datosSudoku;
-
     QString mFilemane = "guardar.txt";
     QFile mFile(mFilemane);
-    mFile.open(QIODevice::Text | QIODevice::ReadOnly);
-    if(!mFile.isOpen()){return;}
-    QTextStream txtstr(&mFile);
-    int cont=0;
+    if(mFile.exists()){
+        mFile.open(QIODevice::Text | QIODevice::ReadOnly);
+        if(!mFile.isOpen()){return;}
+        QTextStream txtstr(&mFile);
+        int cont=0;
 
-    while(!txtstr.atEnd()){
-        datosSudoku = txtstr.readLine();
-        mFile.flush();
-        mFile.close();
+        while(!txtstr.atEnd()){
+            datosSudoku = txtstr.readLine();
+            mFile.flush();
+            mFile.close();
 
-        valores = datosSudoku.split("/");
-        nomJugador = valores[0];
-        nivelC = valores[1];
-        crono = valores[2];
-        datosSudoku = valores[3];
-        if(ui->textNivel->text() == nivelC){
-            comboB->addItem(nomJugador);
+            valores = datosSudoku.split("/");
+            nomJugador = valores[0];
+            nivelC = valores[1];
+            crono = valores[2];
+            datosSudoku = valores[3];
+            if(ui->textNivel->text() == nivelC){
+                comboB->addItem(nomJugador);
+            }
+            cont++;
         }
-        cont++;
-    }
 
-    this->close();
-    QString jugador = ui->textJugador->text(), level = ui->textNivel->text();
-    cargarJuego->setCombo(comboB, cont,jugador, level);
-    cargarJuego->show();
+        this->close();
+        QString jugador = ui->textJugador->text(), level = ui->textNivel->text();
+        cargarJuego->setCombo(comboB, cont,jugador, level);
+        cargarJuego->show();
+    }else{
+        QMessageBox::information(this, "MENSAJE", "No existen Partidas Guardados","ACEPTAR");
+    }
 }
 
 /**ENCRIPTAR LA PARTIDA DE SUDOKU*/
@@ -496,32 +408,37 @@ void sudoku::on_guardarJuego_clicked(){
     QString sMin = QString::number(ui->lcdmin->intValue());
     QString sSeg = QString::number(ui->lcdseg->intValue());
     QString sMiliseg = QString::number(ui->lcdmsg->intValue());
-
     QString info = "";
+    int banderaGuardar=0;
 
     /**Actualizar la matriz*/
     for(int i = 0;i < 9; i++){
-        for(int j = 0; j < 9; j++){ matrizGuardar[i][j] = numbertext[i][j]->toPlainText(); }
+        for(int j = 0; j < 9; j++){
+            matrizGuardar[i][j] = numbertext[i][j]->toPlainText();
+            if(matrizGuardar[i][j] != ""){   banderaGuardar = 1;}
+        }
     }
+    if(banderaGuardar == 0){
+        QMessageBox::information(this, "Guardar-Sudoku", "No existen datos a GUARDAR ","ACEPTAR");
+    }else{
+        encriptarS();
+        for(int i=0; i<9; i++){
+                for(int j=0; j<9; j++){
+                    info = info+matrizGuardar[i][j]+",";
+                }
+        }
+        QString mFilemane = "guardar.txt";
+        QFile mFile(mFilemane);
+        mFile.open(QIODevice::Text | QIODevice::Append);
+        if(!mFile.isOpen()){return;}
+        QTextStream txtstr(&mFile);
+        txtstr << nomJugador+"/"+nivel+"/"+sMin+":"+sSeg+":"+sMiliseg+"/"+info+"\n";
+        mFile.flush();
+        mFile.close();
 
-    encriptarS();
-    for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                info = info+matrizGuardar[i][j]+",";
-            }
+        QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nJUGADOR: "+nomJugador.toUpper(),"ACEPTAR");
+        this->close();
     }
-    QString mFilemane = "guardar.txt";
-    QFile mFile(mFilemane);
-    mFile.open(QIODevice::Text | QIODevice::Append);
-    if(!mFile.isOpen()){return;}
-    QTextStream txtstr(&mFile);
-   // txtstr << nomJugador+"/"+nivel+"/"+info+"\n";
-   txtstr << nomJugador+"/"+nivel+"/"+sMin+":"+sSeg+":"+sMiliseg+"/"+info+"\n";
-    mFile.flush();
-    mFile.close();
-
-    QMessageBox::information(this, "Guardar-Sudoku", "La partida ha sido guardada \nJUGADOR: "+nomJugador.toUpper(),"ACEPTAR");
-    this->close();
 }
 
 /**Funcion de enviar nombre y nivel*/
@@ -573,6 +490,4 @@ void sudoku::on_verificar_clicked()
                    k++;
                }
            }
-
-
 }
