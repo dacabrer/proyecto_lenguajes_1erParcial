@@ -46,7 +46,7 @@ void Puntajes::setPuntajes(){
             else if(nivelC == "Experto")            puntaje = 90*(min+seg+mseg);
 
             QString str = QString::number(puntaje);
-            ui->textPuntajes->insertPlainText(nomJugador.toUpper()+"\t"+nivelC+"\t"+str+"\n");
+            ui->textPuntajes->insertPlainText(nomJugador.toUpper()+"\t"+nivelC+"\t\t"+str+"\n");
             ui->textPuntajes->setDisabled(true);
         }
     }

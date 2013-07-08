@@ -1,6 +1,7 @@
 #include "ventanaprincipal.h"
 #include "ui_ventanaprincipal.h"
 #include "sudoku.h"
+#include <QChar>
 
 
 VentanaPrincipal::VentanaPrincipal(QWidget *parent) :

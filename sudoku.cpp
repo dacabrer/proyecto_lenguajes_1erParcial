@@ -23,7 +23,6 @@ sudoku::~sudoku(){
     delete ui;
 }
 
-
 void sudoku::initGui(){
     for(int i = 0;i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -155,14 +154,20 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
    int i,j,k=0;
    double cont =33, opera;
    valores = datosCargados.split(",");
+
+   int iTime;
+   QString newline;
+   bool ok;
+   iTime = newline.toInt(&ok, 10);
+
    for(i = 0; i < 9; i++){
        for(j = 0; j < 9; j++){
-           if(valores[k].toInt() == 33){
+           if(valores[k].toInt(&ok, 10) == 33){
                numbertext[i][j]->setDisabled(false);
                numbertext[i][j]->setText("");
            }else{
                /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
-               if((valores[k].toInt())%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);
+               if((valores[k].toInt(&ok, 10))%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);
                else                                 opera = sqrt(2*(valores[k].toDouble()-cont));
 
                numbertext[i][j]->setTextColor(Qt::blue);
@@ -396,7 +401,7 @@ void sudoku::encriptarS(){
             if((matrizGuardar[i][j].toInt() % 2) == 0)     numT = (num1 / 2) + cont;
             else       numT = num1 + cont;
 
-            matrizGuardar[i][j].setNum(numT);
+            matrizGuardar[i][j] = QChar(numT);
         }
     }
 }
@@ -452,10 +457,7 @@ void sudoku::obtenerNombreNivel(QString nivel, QString nombre){
     ui->textNivel->setEnabled(false);
 }
 
-
 //funcion para hacer trampa comparar valores con la solucion y marcar los que no coincidan
-
-
 void sudoku::on_verificar_clicked()
 {
     int k=0;
