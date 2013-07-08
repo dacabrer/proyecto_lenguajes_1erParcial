@@ -2,6 +2,7 @@
 #include "ui_sudoku.h"
 #include <math.h>
 #include <iostream>
+#include <QChar>
 const QString sudoku::plantilla1("7,8,4,9,5,2,3,1,6,9,2,6,1,4,3,8,5,7,3,5,1,8,6,7,9,4,2,4,7,8,5,2,1,6,9,3,1,6,5,3,7,9,2,8,4,2,9,3,6,8,4,1,7,5,6,4,9,2,1,5,7,3,8,5,1,2,7,3,8,4,6,9,8,3,7,4,9,6,5,2,1");
 const QString sudoku::plantilla2("5,9,7,4,3,2,6,1,8,2,8,4,1,6,7,3,9,5,6,3,1,8,9,5,2,4,7,4,5,3,6,7,1,9,8,2,8,7,9,2,5,3,4,6,1,1,6,2,9,4,8,5,7,3,9,2,5,7,1,6,8,3,4,7,4,8,3,2,9,1,5,6,3,1,6,5,8,4,7,2,9");
 const QString sudoku::plantilla3("1,7,4,6,8,3,2,9,5,9,5,3,4,1,2,8,6,7,2,8,6,7,9,5,3,4,1,8,6,5,2,7,9,1,3,4,4,3,2,8,6,1,7,5,9,7,1,9,5,3,4,6,8,2,3,9,8,1,4,7,5,2,6,5,4,1,3,2,6,9,7,8,6,2,7,9,5,8,4,1,3");
@@ -162,12 +163,13 @@ void sudoku::setCargar(QString datos, QString nivel, QString cronometro, QString
 
    for(i = 0; i < 9; i++){
        for(j = 0; j < 9; j++){
-           if(valores[k].toInt(&ok, 10) == 33){
+           //QChar nume = valores[k];
+           if((valores[k].toInt()) == 33){
                numbertext[i][j]->setDisabled(false);
                numbertext[i][j]->setText("");
            }else{
                /**DESENCRIPTAR PANTILLA DEL SUDOKU*/
-               if((valores[k].toInt(&ok, 10))%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);
+               if((valores[k].toInt())%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);
                else                                 opera = sqrt(2*(valores[k].toDouble()-cont));
 
                numbertext[i][j]->setTextColor(Qt::blue);
@@ -401,7 +403,9 @@ void sudoku::encriptarS(){
             if((matrizGuardar[i][j].toInt() % 2) == 0)     numT = (num1 / 2) + cont;
             else       numT = num1 + cont;
 
-            matrizGuardar[i][j] = QChar(numT);
+            //matrizGuardar[i][j] = QChar(numT);
+            matrizGuardar[i][j].setNum(numT);
+
         }
     }
 }
