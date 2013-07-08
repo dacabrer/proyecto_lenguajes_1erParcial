@@ -276,8 +276,13 @@ void sudoku::on_salir_clicked(){
 /**JUEGO NUEVO*/
 void sudoku::on_nuevoJuego_clicked(){
     int i=0, j=0, k=0, aleatorio;
-    QStringList  valores;
 
+    QStringList  valores;
+    miliseg=0;
+    seg=0;
+    min=0;
+    timer->start(10);
+     update();
     /**Semilla del aleatorio*/
     QTime *seed = new QTime;
     seed->start();
@@ -337,14 +342,16 @@ void sudoku::on_resolverJuego_clicked(){
 
     QString niveles = ui->textNivel->text();
     k=0;
-
+    timer->stop();
     if(niveles == "Juvenil")                valores = plantilla1.split(",");
     else if(niveles == "Profesional")       valores = plantilla2.split(",");
     else if(niveles == "Experto")           valores = plantilla3.split(",");
 
     for(i = 0; i < 9; i++){
             for(j = 0; j < 9; j++){
+
                 if(numbertext[i][j]->isEnabled()){
+                    numbertext[i][j]->setDisabled(true);
                     numbertext[i][j]->setText(valores[k]);
                     numbertext[i][j]->setAlignment(Qt::AlignRight);
                 }
