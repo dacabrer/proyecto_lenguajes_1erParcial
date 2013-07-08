@@ -86,7 +86,7 @@
 1.0 \par
 }}Sudoku}
 {\comment Generado porDoxgyen. }
-{\creatim \yr2013\mo6\dy30\hr23\min22\sec28}
+{\creatim \yr2013\mo7\dy8\hr7\min16\sec32}
 }\pard\plain 
 \sectd\pgnlcrm
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
@@ -113,8 +113,8 @@ Version 1.0\par{\field\fldedit {\*\fldinst CREATEDATE \\*MERGEFORMAT}{\fldrslt C
 \pard\plain \sect\sbkpage
 \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
 proyecto_lenguajes_1erParcial{\tc \v proyecto_lenguajes_1erParcial}\par \pard\plain 
-{\bkmkstart AAAAAAAABI}
-{\bkmkend AAAAAAAABI}
+{\bkmkstart AAAAAAAABL}
+{\bkmkend AAAAAAAABL}
 \par \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -502,53 +502,42 @@ void Puntajes::setPuntajes ()}}
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 17                           \{\par
-18     int bandera=0;\par
-19     QStringList  valores;\par
-20 \par
-21     QString nomJugador, nivelC, crono, datosSudoku;\par
-22     QString mFilemane = "guardar.txt";\par
-23     QFile mFile(mFilemane);\par
-24 \par
-25     if(mFile.exists())\{\par
-26 \par
-27         mFile.open(QIODevice::Text | QIODevice::ReadOnly);\par
-28         if(!mFile.isOpen())\{return;\}\par
-29         QTextStream txtstr(&mFile);\par
-30 \par
-31         while(!txtstr.atEnd())\{\par
-32             datosSudoku = txtstr.readLine();\par
-33             mFile.flush();\par
-34             mFile.close();\par
-35 \par
-36             valores = datosSudoku.split("/");\par
-37             nomJugador = valores[0];\par
-38             nivelC = valores[1];\par
-39             crono = valores[2];\par
-40             datosSudoku = valores[3];\par
-41 \par
-42             QStringList valor;\par
-43             valor = crono.split(":");\par
-44             int min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();\par
-45             int puntaje = 0;\par
-46             if (nivelC == "Juvenil")\{\par
-47                 puntaje = 90*(min+seg+mseg)/3;\par
-48             \}else if(nivelC == "Profesional")\{\par
-49                 puntaje = 90*(min+seg+mseg)/2;\par
-50             \}else if(nivelC == "Experto")\{\par
-51                 puntaje = 90*(min+seg+mseg);\par
-52             \}\par
-53             QString str = QString::number(puntaje);\par
-54             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+"\\t"+nivelC+"\\t"+str+"\\n");\par
-55             bandera = 1;\par
-56 \par
-57         \}\par
-58     \}\par
-59     if(bandera == 0)\{\par
-60         ui->textPuntajes->setDisabled(true);\par
-61         QMessageBox::information(this, "MENSAJE", "No existe Puntajes\\nGuardados","ACEPTAR");\par
-62 \par
-63     \}\par
-64 \}\par
+18     QStringList  valores;\par
+19     QString nomJugador, nivelC, crono, datosSudoku;\par
+20     QString mFilemane = "guardar.txt";\par
+21     QFile mFile(mFilemane);\par
+22 \par
+23     if(mFile.exists())\{\par
+24         mFile.open(QIODevice::Text | QIODevice::ReadOnly);\par
+25         if(!mFile.isOpen())\{return;\}\par
+26         QTextStream txtstr(&mFile);\par
+27 \par
+28         while(!txtstr.atEnd())\{\par
+29             datosSudoku = txtstr.readLine();\par
+30             mFile.flush();\par
+31             mFile.close();\par
+32 \par
+33             valores = datosSudoku.split("/");\par
+34             nomJugador = valores[0];\par
+35             nivelC = valores[1];\par
+36             crono = valores[2];\par
+37             datosSudoku = valores[3];\par
+38 \par
+39             QStringList valor;\par
+40             valor = crono.split(":");\par
+41             int min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();\par
+42             int puntaje = 0;\par
+43 \par
+44             if (nivelC == "Juvenil")                puntaje = 90*(min+seg+mseg)/3;\par
+45             else if(nivelC == "Profesional")        puntaje = 90*(min+seg+mseg)/2;\par
+46             else if(nivelC == "Experto")            puntaje = 90*(min+seg+mseg);\par
+47 \par
+48             QString str = QString::number(puntaje);\par
+49             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+"\\t"+nivelC+"\\t\\t"+str+"\\n");\par
+50             ui->textPuntajes->setDisabled(true);\par
+51         \}\par
+52     \}\par
+53 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -603,17 +592,16 @@ sudoku::sudoku (QWidget * {\i parent} = {\f2 0}){\f2 [explicit]}}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 10                               :\par
-11     QMainWindow(parent),\par
-12     ui(new Ui::sudoku)\par
-13 \{\par
-14     ui->setupUi(this);\par
-15     initGui();\par
-16     timer = new QTimer(this);\par
-17 \par
-18     connect(timer, SIGNAL(timeout()), this, SLOT(update()));\par
-19     //timer->start(1000);\par
-20 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 12                               :\par
+13     QMainWindow(parent),\par
+14     ui(new Ui::sudoku)\par
+15 \{\par
+16     ui->setupUi(this);\par
+17     initGui();\par
+18     timer = new QTimer(this);\par
+19 \par
+20     connect(timer, SIGNAL(timeout()), this, SLOT(update()));\par
+21 \}\par
 }
 }
 {\xe \v ~sudoku\:sudoku}
@@ -627,9 +615,9 @@ sudoku::~sudoku ()}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 22                \{\par
-23     delete ui;\par
-24 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 23                \{\par
+24     delete ui;\par
+25 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -649,15 +637,15 @@ void sudoku::obtenerNombreNivel (QString {\i nivel}, QString {\i nombre})}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Funcion de enviar nombre y nivel \par
 }{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 415                                                             \{\par
-416     nivelSudoku = nivel;\par
-417     nombreJugador = nombre;\par
-418     \par
-419     ui->textJugador->setText(nombre);\par
-420     ui->textJugador->setEnabled(false);\par
-421     ui->textNivel->setText(nivel);\par
-422     ui->textNivel->setEnabled(false);\par
-423 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 454                                                             \{\par
+455     nivelSudoku = nivel;\par
+456     nombreJugador = nombre;\par
+457     \par
+458     ui->textJugador->setText(nombre);\par
+459     ui->textJugador->setEnabled(false);\par
+460     ui->textNivel->setText(nivel);\par
+461     ui->textNivel->setEnabled(false);\par
+462 \}\par
 }
 }
 {\xe \v setCargar\:sudoku}
@@ -675,47 +663,51 @@ void sudoku::setCargar (QString {\i datos}, QString {\i nivel}, QString {\i cron
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 DESENCRIPTAR PANTILLA DEL SUDOKU \par
 }{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 69                                                                                       \{\par
-70    QStringList  valor;\par
-71    datosCargados = datos;\par
-72    QStringList  valores;\par
-73    int i,j,k=0;\par
-74    double cont =33, opera;\par
-75    valores = datosCargados.split(",");\par
-76    for(i = 0; i < 9; i++)\{\par
-77        for(j = 0; j < 9; j++)\{\par
-78            if(valores[k].toInt() == 33)\{\par
-79                numbertext[i][j]->setDisabled(false);\par
-80                numbertext[i][j]->setText("");\par
-81            \}else\{\par
-83                if((valores[k].toInt())%2 == 0)\{\par
-84                    opera = sqrt(valores[k].toDouble()-cont);\par
-85                \}else\{\par
-86                    opera = sqrt(2*(valores[k].toDouble()-cont));\par
-87                \}\par
-88                numbertext[i][j]->setTextColor(Qt::blue);\par
-89                numbertext[i][j]->setText(QString::number(opera));\par
-90                numbertext[i][j]->setDisabled(true);\par
-91            \}\par
-92            numbertext[i][j]->setAlignment(Qt::AlignRight);\par
-93            k++;\par
-94        \}\par
-95    \}\par
-96    ui->textJugador->setText(nombre);\par
-97    ui->textJugador->setEnabled(false);\par
-98    ui->textNivel->setText(nivel);\par
-99    ui->textNivel->setEnabled(false);\par
-100 \par
-101 \par
-102    valor = cronometro.split(":");\par
-103    int minutos=valor[0].toDouble(), segundos = valor[1].toDouble(), milisegundos = valor[2].toDouble();\par
-104    min = minutos;\par
-105    seg = segundos;\par
-106    miliseg = milisegundos;\par
-107 \par
-108    timer->start(10);\par
-109    this->show();\par
-110 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 151                                                                                       \{\par
+152    QStringList  valor;\par
+153    datosCargados = datos;\par
+154    QStringList  valores;\par
+155    int i,j,k=0;\par
+156    double cont =33, opera;\par
+157    valores = datosCargados.split(",");\par
+158 \par
+159    int iTime;\par
+160    QString newline;\par
+161    bool ok;\par
+162    iTime = newline.toInt(&ok, 10);\par
+163 \par
+164    for(i = 0; i < 9; i++)\{\par
+165        for(j = 0; j < 9; j++)\{\par
+166            //QChar nume = valores[k];\par
+167            if((valores[k].toInt()) == 33)\{\par
+168                numbertext[i][j]->setDisabled(false);\par
+169                numbertext[i][j]->setText("");\par
+170            \}else\{\par
+172                if((valores[k].toInt())%2 == 0)      opera = sqrt(valores[k].toDouble()-cont);\par
+173                else                                 opera = sqrt(2*(valores[k].toDouble()-cont));\par
+174 \par
+175                numbertext[i][j]->setTextColor(Qt::blue);\par
+176                numbertext[i][j]->setText(QString::number(opera));\par
+177                numbertext[i][j]->setDisabled(true);\par
+178            \}\par
+179            numbertext[i][j]->setAlignment(Qt::AlignRight);\par
+180            k++;\par
+181        \}\par
+182    \}\par
+183    ui->textJugador->setText(nombre);\par
+184    ui->textJugador->setEnabled(false);\par
+185    ui->textNivel->setText(nivel);\par
+186    ui->textNivel->setEnabled(false);\par
+187 \par
+188    valor = cronometro.split(":");\par
+189    int minutos=valor[0].toDouble(), segundos = valor[1].toDouble(), milisegundos = valor[2].toDouble();\par
+190    min = minutos;\par
+191    seg = segundos;\par
+192    miliseg = milisegundos;\par
+193 \par
+194    timer->start(10);\par
+195    this->show();\par
+196 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -774,18 +766,18 @@ VentanaPrincipal::VentanaPrincipal (QWidget * {\i parent} = {\f2 0})}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 6                                                   :\par
-7     QMainWindow(parent),\par
-8     ui(new Ui::VentanaPrincipal)\par
-9 \{\par
-10     ui->setupUi(this);\par
-11     ui->comboBox->addItem("Juvenil");\par
-12     ui->comboBox->addItem("Profesional");\par
-13     ui->comboBox->addItem("Experto");\par
-14     timer = new QTimer(this);\par
-15 \par
-16     connect(timer, SIGNAL(timeout()), this, SLOT(tiempoFuera()));\par
-17 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 7                                                   :\par
+8     QMainWindow(parent),\par
+9     ui(new Ui::VentanaPrincipal)\par
+10 \{\par
+11     ui->setupUi(this);\par
+12     ui->comboBox->addItem("Juvenil");\par
+13     ui->comboBox->addItem("Profesional");\par
+14     ui->comboBox->addItem("Experto");\par
+15     timer = new QTimer(this);\par
+16 \par
+17     connect(timer, SIGNAL(timeout()), this, SLOT(tiempoFuera()));\par
+18 \}\par
 }
 }
 {\xe \v ~VentanaPrincipal\:VentanaPrincipal}
@@ -799,9 +791,9 @@ VentanaPrincipal::~VentanaPrincipal ()}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 19                                    \{\par
-20     delete ui;\par
-21 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 20                                    \{\par
+21     delete ui;\par
+22 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -819,15 +811,15 @@ void VentanaPrincipal::changeEvent (QEvent * {\i e}){\f2 [protected]}}}
 {
 \pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 23                                            \{\par
-24     QMainWindow::changeEvent(e);\par
-25     switch (e->type()) \{\par
-26     case QEvent::LanguageChange:\par
-27         ui->retranslateUi(this);\par
-28         break;\par
-29     default:    break;\par
-30     \}\par
-31 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 24                                            \{\par
+25     QMainWindow::changeEvent(e);\par
+26     switch (e->type()) \{\par
+27     case QEvent::LanguageChange:\par
+28         ui->retranslateUi(this);\par
+29         break;\par
+30     default:    break;\par
+31     \}\par
+32 \}\par
 }
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
@@ -993,11 +985,10 @@ int main (int {\i argc}, char * {\i argv}[])}}
 7     QApplication a(argc, argv);\par
 8     //a.setStyle("fusion");\par
 9     VentanaPrincipal w;\par
-10     //sudoku w;\par
-11     w.show();\par
-12     \par
-13     return a.exec();\par
-14 \}\par
+10     w.show();\par
+11     \par
+12     return a.exec();\par
+13 \}\par
 }
 }
 \par \pard\plain 
@@ -1027,7 +1018,7 @@ Referencia del Archivo puntajes.h\par \pard\plain
 {\bkmkend AAAAAAAAAH}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <QWidget>}\par
-{\f2 #include <ventanaprincipal.h>}\par
+{\f2 #include "ventanaprincipal.h"}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Clases\par
@@ -1078,6 +1069,7 @@ Referencia del Archivo sudoku.cpp\par \pard\plain
 {\f2 #include "ui_sudoku.h"}\par
 {\f2 #include <math.h>}\par
 {\f2 #include <iostream>}\par
+{\f2 #include <QChar>}\par
 }
 \par \pard\plain 
 
@@ -1137,6 +1129,7 @@ Referencia del Archivo ventanaprincipal.cpp\par \pard\plain
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "ventanaprincipal.h"}\par
 {\f2 #include "ui_ventanaprincipal.h"}\par
 {\f2 #include "sudoku.h"}\par
+{\f2 #include <QChar>}\par
 }
 \par \pard\plain 
 
@@ -1153,7 +1146,7 @@ Referencia del Archivo ventanaprincipal.h\par \pard\plain
 {\f2 #include <QTimer>}\par
 {\f2 #include "sudoku.h"}\par
 {\f2 #include <QMessageBox>}\par
-{\f2 #include <puntajes.h>}\par
+{\f2 #include "puntajes.h"}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Clases\par

@@ -34,18 +34,18 @@ void {\bf change\-Event} (Q\-Event $\ast$e)
 )}\label{class_ventana_principal_afc1895e635aa9cae6c2890882727f12b}
 
 \begin{DoxyCode}
-6                                                   :
-7     QMainWindow(parent),
-8     ui(\textcolor{keyword}{new} Ui::VentanaPrincipal)
-9 \{
-10     ui->setupUi(\textcolor{keyword}{this});
-11     ui->comboBox->addItem(\textcolor{stringliteral}{"Juvenil"});
-12     ui->comboBox->addItem(\textcolor{stringliteral}{"Profesional"});
-13     ui->comboBox->addItem(\textcolor{stringliteral}{"Experto"});
-14     timer = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
-15 
-16     connect(timer, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(tiempoFuera()));
-17 \}
+7                                                   :
+8     QMainWindow(parent),
+9     ui(\textcolor{keyword}{new} Ui::VentanaPrincipal)
+10 \{
+11     ui->setupUi(\textcolor{keyword}{this});
+12     ui->comboBox->addItem(\textcolor{stringliteral}{"Juvenil"});
+13     ui->comboBox->addItem(\textcolor{stringliteral}{"Profesional"});
+14     ui->comboBox->addItem(\textcolor{stringliteral}{"Experto"});
+15     timer = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+16 
+17     connect(timer, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(tiempoFuera()));
+18 \}
 \end{DoxyCode}
 \index{Ventana\-Principal@{Ventana\-Principal}!$\sim$\-Ventana\-Principal@{$\sim$\-Ventana\-Principal}}
 \index{$\sim$\-Ventana\-Principal@{$\sim$\-Ventana\-Principal}!VentanaPrincipal@{Ventana\-Principal}}
@@ -56,9 +56,9 @@ void {\bf change\-Event} (Q\-Event $\ast$e)
 )}\label{class_ventana_principal_aeeba538e11b05363e00e224649df9a0a}
 
 \begin{DoxyCode}
-19                                    \{
-20     \textcolor{keyword}{delete} ui;
-21 \}
+20                                    \{
+21     \textcolor{keyword}{delete} ui;
+22 \}
 \end{DoxyCode}
 
 
@@ -72,15 +72,15 @@ void {\bf change\-Event} (Q\-Event $\ast$e)
 )\hspace{0.3cm}{\ttfamily [protected]}}\label{class_ventana_principal_a02cdcd90f9bfddb12cd517517f3a81c2}
 
 \begin{DoxyCode}
-23                                            \{
-24     QMainWindow::changeEvent(e);
-25     \textcolor{keywordflow}{switch} (e->type()) \{
-26     \textcolor{keywordflow}{case} QEvent::LanguageChange:
-27         ui->retranslateUi(\textcolor{keyword}{this});
-28         \textcolor{keywordflow}{break};
-29     \textcolor{keywordflow}{default}:    \textcolor{keywordflow}{break};
-30     \}
-31 \}
+24                                            \{
+25     QMainWindow::changeEvent(e);
+26     \textcolor{keywordflow}{switch} (e->type()) \{
+27     \textcolor{keywordflow}{case} QEvent::LanguageChange:
+28         ui->retranslateUi(\textcolor{keyword}{this});
+29         \textcolor{keywordflow}{break};
+30     \textcolor{keywordflow}{default}:    \textcolor{keywordflow}{break};
+31     \}
+32 \}
 \end{DoxyCode}
 
 

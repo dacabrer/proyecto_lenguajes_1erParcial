@@ -64,53 +64,42 @@ void {\bf set\-Puntajes} ()
 
 \begin{DoxyCode}
 17                           \{
-18     \textcolor{keywordtype}{int} bandera=0;
-19     QStringList  valores;
-20 
-21     QString nomJugador, nivelC, crono, datosSudoku;
-22     QString mFilemane = \textcolor{stringliteral}{"guardar.txt"};
-23     QFile mFile(mFilemane);
-24 
-25     \textcolor{keywordflow}{if}(mFile.exists())\{
-26 
-27         mFile.open(QIODevice::Text | QIODevice::ReadOnly);
-28         \textcolor{keywordflow}{if}(!mFile.isOpen())\{\textcolor{keywordflow}{return};\}
-29         QTextStream txtstr(&mFile);
-30 
-31         \textcolor{keywordflow}{while}(!txtstr.atEnd())\{
-32             datosSudoku = txtstr.readLine();
-33             mFile.flush();
-34             mFile.close();
-35 
-36             valores = datosSudoku.split(\textcolor{stringliteral}{"/"});
-37             nomJugador = valores[0];
-38             nivelC = valores[1];
-39             crono = valores[2];
-40             datosSudoku = valores[3];
-41 
-42             QStringList valor;
-43             valor = crono.split(\textcolor{stringliteral}{":"});
-44             \textcolor{keywordtype}{int} min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();
-45             \textcolor{keywordtype}{int} puntaje = 0;
-46             \textcolor{keywordflow}{if} (nivelC == \textcolor{stringliteral}{"Juvenil"})\{
-47                 puntaje = 90*(min+seg+mseg)/3;
-48             \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Profesional"})\{
-49                 puntaje = 90*(min+seg+mseg)/2;
-50             \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Experto"})\{
-51                 puntaje = 90*(min+seg+mseg);
-52             \}
-53             QString str = QString::number(puntaje);
-54             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+\textcolor{stringliteral}{"\(\backslash\)t"}+nivelC+\textcolor{stringliteral}{"\(\backslash\)t"}+str+\textcolor{stringliteral}{"\(\backslash\)n"});
-55             bandera = 1;
-56 
-57         \}
-58     \}
-59     \textcolor{keywordflow}{if}(bandera == 0)\{
-60         ui->textPuntajes->setDisabled(\textcolor{keyword}{true});
-61         QMessageBox::information(\textcolor{keyword}{this}, \textcolor{stringliteral}{"MENSAJE"}, \textcolor{stringliteral}{"No existe Puntajes\(\backslash\)nGuardados"},\textcolor{stringliteral}{"ACEPTAR"});
-62 
-63     \}
-64 \}
+18     QStringList  valores;
+19     QString nomJugador, nivelC, crono, datosSudoku;
+20     QString mFilemane = \textcolor{stringliteral}{"guardar.txt"};
+21     QFile mFile(mFilemane);
+22 
+23     \textcolor{keywordflow}{if}(mFile.exists())\{
+24         mFile.open(QIODevice::Text | QIODevice::ReadOnly);
+25         \textcolor{keywordflow}{if}(!mFile.isOpen())\{\textcolor{keywordflow}{return};\}
+26         QTextStream txtstr(&mFile);
+27 
+28         \textcolor{keywordflow}{while}(!txtstr.atEnd())\{
+29             datosSudoku = txtstr.readLine();
+30             mFile.flush();
+31             mFile.close();
+32 
+33             valores = datosSudoku.split(\textcolor{stringliteral}{"/"});
+34             nomJugador = valores[0];
+35             nivelC = valores[1];
+36             crono = valores[2];
+37             datosSudoku = valores[3];
+38 
+39             QStringList valor;
+40             valor = crono.split(\textcolor{stringliteral}{":"});
+41             \textcolor{keywordtype}{int} min = valor[0].toDouble(), seg = valor[1].toDouble(), mseg = valor[2].toDouble();
+42             \textcolor{keywordtype}{int} puntaje = 0;
+43 
+44             \textcolor{keywordflow}{if} (nivelC == \textcolor{stringliteral}{"Juvenil"})                puntaje = 90*(min+seg+mseg)/3;
+45             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Profesional"})        puntaje = 90*(min+seg+mseg)/2;
+46             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(nivelC == \textcolor{stringliteral}{"Experto"})            puntaje = 90*(min+seg+mseg);
+47 
+48             QString str = QString::number(puntaje);
+49             ui->textPuntajes->insertPlainText(nomJugador.toUpper()+\textcolor{stringliteral}{"\(\backslash\)t"}+nivelC+\textcolor{stringliteral}{"\(\backslash\)t\(\backslash\)t"}+str+\textcolor{stringliteral}{"\(\backslash\)n"});
+50             ui->textPuntajes->setDisabled(\textcolor{keyword}{true});
+51         \}
+52     \}
+53 \}
 \end{DoxyCode}
 
 

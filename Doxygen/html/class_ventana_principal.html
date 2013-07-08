@@ -130,18 +130,18 @@ Métodos protegidos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                                                  :</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    QMainWindow(parent),</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    ui(<span class="keyword">new</span> Ui::VentanaPrincipal)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Juvenil&quot;</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Profesional&quot;</span>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Experto&quot;</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    timer = <span class="keyword">new</span> QTimer(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    connect(timer, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(tiempoFuera()));</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                                                  :</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    QMainWindow(parent),</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    ui(<span class="keyword">new</span> Ui::VentanaPrincipal)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ui-&gt;setupUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Juvenil&quot;</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Profesional&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ui-&gt;comboBox-&gt;addItem(<span class="stringliteral">&quot;Experto&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    timer = <span class="keyword">new</span> QTimer(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    connect(timer, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(tiempoFuera()));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -157,9 +157,9 @@ Métodos protegidos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                   {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">delete</span> ui;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                   {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">delete</span> ui;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,15 +185,15 @@ Métodos protegidos</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                           {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QMainWindow::changeEvent(e);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">switch</span> (e-&gt;type()) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">case</span> QEvent::LanguageChange:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        ui-&gt;retranslateUi(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">default</span>:    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                           {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QMainWindow::changeEvent(e);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">switch</span> (e-&gt;type()) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">case</span> QEvent::LanguageChange:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        ui-&gt;retranslateUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">default</span>:    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,7 +204,7 @@ Métodos protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 30 de Junio de 2013 23:22:28 para Sudoku por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Lunes, 8 de Julio de 2013 07:16:32 para Sudoku por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

@@ -40,7 +40,7 @@ void sudoku::pintarTablero(){
     int indi,indj=0;
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
-            //si coincide la respuesta se pintara azul sino coincide se pintara de rojo el cuadro
+            /**si coincide la respuesta se pintara azul sino coincide se pintara de rojo el cuadro*/
             indi=i/3;
             indj=j/3;
 
@@ -78,7 +78,7 @@ void sudoku::correccionInGame(){
 }
 
 void sudoku::CorreccionFila(int i,int j){
-    //validacion in game para filas
+    /**validacion in game para filas*/
     for(int k = 0; k < 9; k++){
         if(k!=j){
           if(getDisplayValue(i,j)==getDisplayValue(i,k)){
@@ -94,7 +94,7 @@ void sudoku::CorreccionFila(int i,int j){
 }
 
 void sudoku::CorreccionColumna(int i,int j){
-    //validacion in game para columnas
+    /**validacion in game para columnas*/
     for(int k = 0; k < 9; k++){
         if(k!=i){
           if(getDisplayValue(i,j)==getDisplayValue(k,j)){
@@ -114,7 +114,7 @@ void sudoku::CorreccionCuadrante(int i,int j){
    int despy=(i/3) *3;
    int despx=(j/3) *3;
 
-    //validacion in game para cuadrantes
+    /**validacion in game para cuadrantes*/
     for(int y = despy; y < despy+3; y++){
         for(int x =despx ; x < despx+3; x++){
             if(((y!=i) && (x!=j))){
@@ -461,7 +461,7 @@ void sudoku::obtenerNombreNivel(QString nivel, QString nombre){
     ui->textNivel->setEnabled(false);
 }
 
-//funcion para hacer trampa comparar valores con la solucion y marcar los que no coincidan
+/**funcion para hacer trampa comparar valores con la solucion y marcar los que no coincidan*/
 void sudoku::on_verificar_clicked()
 {
     int k=0;
@@ -481,7 +481,7 @@ void sudoku::on_verificar_clicked()
 
            for(int i = 0; i < 9; i++){
                for(int j = 0; j < 9; j++){
-                   //si coincide la respuesta se pintara verde sino coincide se pintara de rojo el cuadro
+                   /**si coincide la respuesta se pintara verde sino coincide se pintara de rojo el cuadro*/
                    if((numbertext[i][j]->isEnabled()) && (getDisplayValue(i,j)!=0) && (getDisplayValue(i,j)!=valores[k].toLong())){
                        QPalette p = numbertext[i][j]->palette();
                        p.setColor(QPalette::Base, QColor(255, 150, 150));
