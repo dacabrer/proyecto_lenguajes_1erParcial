@@ -1,5 +1,5 @@
 \section{Simulador}
-\ \\ Al inciar la aplicacion se mostrará la siguiente pantalla:
+\ \\ Al iniciar la aplicacion se mostrará la siguiente pantalla:
 
 \begin{figure}[htbp]
 \begin{center}
@@ -9,7 +9,9 @@
 \end{center}
 \end{figure}
 
-\ \\ En donde deberá digitar el nombre de usuario con el que desee registrar su partida, y escoger uno de los 3 niveles de dificultad. \\ <Nota: Si no se escoge ningún nivel, por defecto se registrará el nivel Juvenil.>
+\ \\ En donde deberá digitar el nombre de usuario con el que desee registrar su partida, y escoger uno de los 3 niveles de dificultad.
+Los niveles de dificultad se definen por el n\'umero de espacios a llenar por el usuario, a mayor dificultad, mas casillas debe llenar.
+ \\ <Nota: Si no se escoge ningún nivel, por defecto se registrará el nivel Juvenil.>
 
 \begin{figure}[htbp]
 \begin{center}
@@ -31,7 +33,7 @@ Luego tenemos dos opciones: \\ 1. Presionar en \textbf{SCORE} para visualizar el
 \end{figure} 
 
 \ \\ \ \\
-\textbf{Nota:} Para poder ver los \textbf{SCORE} no es necesario escribir un nombre de usuario, mientras que para poder \textbf{JUGAR} si es obligatorio escribir un nombre de usuario que además sea valido, caso contrario le apareceran los siguientes mensajes de error:
+\textbf{Nota:} Para poder ver los \textbf{SCORE} no es necesario escribir un nombre de usuario, mientras que para poder \textbf{JUGAR} si es obligatorio escribir un nombre de usuario que además sea v\'alido, caso contrario le apareceran los siguientes mensajes de error:
 
 \begin{figure}[htbp]
 \begin{center}
@@ -105,7 +107,7 @@ Si estamos en la pantalla inicial (Figura 4.2), y si presionamos en \textbf{SCOR
 \end{center}
 \end{figure} 
 
-\ \\ \ \\ \textbf{Iniciar la Partida:} Generá aleatoriamente el tablero del Sudoku con números ya dispuestos en algunas casillas y las demás casillas vacias, las cuales deben ser resueltas por el usuario \\ <Nota: Al inciar la partida, el CRONOMETRO empieza a contar.>  
+\ \\ \ \\ \textbf{Iniciar la Partida:} Generá aleatoriamente el tablero del Sudoku con números ya dispuestos en algunas casillas a partir de una plantilla ya existente y las demás casillas vacias, las cuales deben ser resueltas por el usuario \\ <Nota: Al iniciar la partida, el CRONOMETRO empieza a correr.>  
 
 \begin{figure}[htbp]
 \begin{center}
@@ -177,7 +179,7 @@ Entre los demás controles del juego tenemos 4 opciones:
 \end{center}
 \end{figure} 
 
-\ \\ \textbf{1. Guardar Juego:} Guarda la partida del Sudoku, con todos los casilleros que se tienen resuelto hasta ese momento y el tiempo transcurrido. Al presionar esta opción, aparecerá el siguiente mensaje, donde se confirma que el juego se guardo correctamente. \\
+\ \\ \textbf{1. Guardar Juego:} Guarda la partida del Sudoku, con todos los casilleros que se tienen resuelto hasta ese momento y el tiempo transcurrido, debidamente encriptado por operaciones aritm\'eticas y de desplazamiento del c\'odigo ascii del valor en un archivo de texto. Al presionar esta opción, aparecerá el siguiente mensaje, donde se confirma que el juego se guardo correctamente. \\
 <Nota: La partida se guardará con el nombe de usuario registrado al incio del juego.>
   
 \begin{figure}[htbp]

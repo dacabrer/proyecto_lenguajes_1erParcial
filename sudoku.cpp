@@ -60,6 +60,7 @@ void sudoku::pintarTablero(){
 /**funcion que valida numeros ingresados*/
 void sudoku::correccionInGame(){
      QTextEdit *numberTextTemp = ( QTextEdit *) sender();
+     int contador=0;
      long inputNumber = numberTextTemp->toPlainText().toLong();
      if ((inputNumber>9 || inputNumber<1)&& inputNumber!=NULL){
          QMessageBox::information(this, "Advertencia", "El numero ingresado no es valido esta fuera del rango");
@@ -68,6 +69,13 @@ void sudoku::correccionInGame(){
 
      for(int i = 0; i < 9; i++){
          for(int j = 0; j < 9; j++){
+             if(getDisplayValue(i,j)!=0){
+                 contador++;
+             }
+             if(contador==81){
+                 on_comprobar_clicked();
+             }
+
              if(((getDisplayValue(i,j)!=0) && numbertext[i][j]->isEnabled())){
                  CorreccionFila(i,j);
                  CorreccionColumna(i,j);
