@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.14)  15 SEP 2013 18:36
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.14)  15 SEP 2013 21:41
 entering extended mode
 **C:/Users/Ramirez/Documents/GitHub/proyecto_lenguajes_1erParcial/Manual/Manual
 .tex
@@ -971,17 +971,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
 Package rerunfilecheck Info: File `Manual.out' has not changed.
 (rerunfilecheck)             Checksum: 7668559CF9E3478DFCACFAD3F0B2A60C;411.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 83.
  ) 
 Here is how much of TeX's memory you used:
- 6846 strings out of 494045
- 97278 string characters out of 3152813
- 181477 words of memory out of 3000000
- 9976 multiletter control sequences out of 15000+200000
+ 6844 strings out of 494045
+ 97236 string characters out of 3152813
+ 181500 words of memory out of 3000000
+ 9974 multiletter control sequences out of 15000+200000
  17876 words of font info for 52 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  29i,6n,30p,527b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -994,7 +990,7 @@ cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\Ramire
 z\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\
 Users\Ramirez\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2
 074.pk>
-Output written on Manual.pdf (19 pages, 1520800 bytes).
+Output written on Manual.pdf (19 pages, 1520888 bytes).
 PDF statistics:
  468 PDF objects out of 1000 (max. 8388607)
  51 named destinations out of 1000 (max. 500000)
